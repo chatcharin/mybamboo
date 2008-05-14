@@ -1,0 +1,13 @@
+ADCA      $00       ;Direct
+ADCA      $1234     ;Extended
+ADCA      0,x       ;Index X
+test: aba                 ;Inherent
+ADCA      $00       ;Direct
+ADCA      $1234     ;Extended
+ADCA      0,x       ;Index X
+bcs      test
+bcs      testx
+ADCA      $00       ;Direct
+ADCA      $1234     ;Extended
+ADCA      0,x       ;Index X
+testx:  aba

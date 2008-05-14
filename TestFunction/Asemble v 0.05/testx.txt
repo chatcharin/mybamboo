@@ -1,0 +1,8 @@
+org $0100
+xx db #9
+start:
+staa xx
+stab xx
+aba
+cmpa $9
+beq start 
