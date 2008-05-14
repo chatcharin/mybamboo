@@ -68,14 +68,14 @@ buffer contoreladdress(int value) {
     return buf;
 }
 
-buffer contoaddress(int value,int Mode) {
+buffer contoaddress(int value,int mode) {
     buffer buf;
-    if(Mode == 6)
+    if(mode == 6)
     sprintf(buf.buff, "-%04X", value);
     else sprintf(buf.buff, "%04X", value);
     return buf;
 }
-int insertoSymbolTable(char indexsymbol,char name[],char address[],int PC,int objindex,int type){
+int insertoSymbolTable(int indexsymbol,char name[],char address[],int PC,int objindex,int type){
         strcpy(symbol[indexsymbol].name, name);
         symbol[indexsymbol].pc = PC;
         strcpy(symbol[indexsymbol].address,address);
@@ -137,35 +137,47 @@ struct PCTYPE{
     unsigned int PC;
     int type;
 };
-PCTYPE findaddressSymbol(char name){
+PCTYPE findaddressSymbol(char name[]){
     int i = 0;
     PCTYPE pctypes;
     while (1) {
-        if (strcmp(line, symbol[i].name) == 0) {
+        if (strcmp(name, symbol[i].name) == 0) {
             pctypes.PC = symbol[i].pc;
             pctypes.type = symbol[i].type;
             return pctypes;
         }else if (i >= 25) {
-            insertoSymbolTable(indexsymbol,name," ",PC,objexindex,0); // Unknow Symbol
+            insertoSymbolTable(indexSymbol,name," ",PC,objindex,0); // Unknow Symbol
             pctypes.PC =0;
             return pctypes;
         }
         i++;
     }
 }
-OPERAND searchSymbol(char namesymbol[]){
-    PCTYPE pctypes;
+OPERAND direct(int pcsymbol){
     OPERAND operands;
-    strcpy(operands.operand1,"  ");
+    char tmp[5];
+    strcpy(tmp,contoaddress(pcsymbol,0).buff);
+    operands.operand1[0] = tmp[2];
+    operands.operand1[1] = tmp[3];
     strcpy(operands.operand2,"  ");
-    pctypes = findaddressSymbol(namesymbol);
-    if(pctypes.PC == 0)
-        return operands;
-    else{
-        return managmentSymbolAddress(AnalySymbol(pctypes.type,pctypes.PC),pctypes.PC);
-    }
+    return operands; 
 }
-
+OPERAND extend(int pcsymbol){
+    OPERAND operands;
+    char tmp[5];
+    strcpy(tmp,contoaddress(pcsymbol,0).buff);
+    operands.operand1[0] = tmp[0];
+    operands.operand1[1] = tmp[1];
+    operands.operand2[0] = tmp[2];
+    operands.operand2[1] = tmp[3];
+    return operands;
+}   
+OPERAND relative(int pcsymbol){
+    OPERAND operands;
+    strcpy(operands.operand1,contoreladdress(255 - (PC - pcsymbol)-1).buff);
+    strcpy(operands.operand2,"  ");
+    return operands;
+}
 // Analy symbol
 // input PC ,PC ,symboltype symbol,indexSymbol 
 // return mode
@@ -179,12 +191,12 @@ int AnalySymbol(int type,int pcsymbol){
        else return 1;           //    symbol in   255  address dir mode
     else if(type == 2)
        if((PC - pcsymbol) > 127)//    label  relative over 127 address ext mode
-           return 2
+           return 2;
        else  return 3;          //    label  relative in   127 address dir mode
     return 0;
 }
 // address managment for symbol
-// input mode 
+// input mode
 OPERAND managmentSymbolAddress(int mode,int pcsymbol){
     switch(mode){
         case 0:return direct(pcsymbol);
@@ -193,30 +205,17 @@ OPERAND managmentSymbolAddress(int mode,int pcsymbol){
         case 3:return relative(pcsymbol);
     }
 }
-OPERAND direct(int pcsymbol){
+OPERAND searchSymbol(char namesymbol[]){
+    PCTYPE pctypes;
     OPERAND operands;
-    char tmp[5];
-    strcpy(tmp,contoaddress(pcsymbol).buff);
-    operands.operand1[0] = tmp[2];
-    operands.operand1[1] = tmp[3];
+    strcpy(operands.operand1,"  ");
     strcpy(operands.operand2,"  ");
-    return operands; 
-}
-OPERAND extend(int pcsymbol){
-    OPERAND operands;
-    char tmp[5];
-    strcpy(tmp,contoaddress(pcsymbol).buff);
-    operands.operand1[0] = tmp[0];
-    operands.operand1[1] = tmp[1];
-    operands.operand2[0] = tmp[2];
-    operands.operand2[1] = tmp[3];
-    return operands;
-}   
-OPERAND relative(int pcsymbol){
-    OPERAND operands;
-    strcpy(operands.operand1,contoreladdress(255 - (PC - pcsymbol)-1));
-    strcpy(operands.operand2,"  ");
-    return operands;
+    pctypes = findaddressSymbol(namesymbol);
+    if(pctypes.PC == 0)
+        return operands;
+    else{
+        return managmentSymbolAddress(AnalySymbol(pctypes.type,pctypes.PC),pctypes.PC);
+    }
 }
 int status;
 int findSymbolAddr(char line[]) {
@@ -234,7 +233,7 @@ int findSymbolAddr(char line[]) {
     }
 }// Symbol Managment
 
-int updateSymbolAddr(char symbi[]) {
+int updateSymbolAddr(char symbi[],int mode) {
     int i = 0;
     OPERAND operands;
     while (1) {
@@ -243,7 +242,8 @@ int updateSymbolAddr(char symbi[]) {
             pcsymbol = PC - pcsymbol;
             symbol[i].pc = PC; 
             symbol[i].type = 2;
-            operands = managmentSymbolAddress(AnalySymbol(2,pcsymbol));  
+            symbol[i].type = mode;
+            operands = managmentSymbolAddress(AnalySymbol(2,pcsymbol),pcsymbol);  
             strcpy(obj[symbol[i].objindex].operand,operands.operand1);
             strcpy(obj[symbol[i].objindex].operand2,operands.operand2);
             return 1;
@@ -268,37 +268,21 @@ int relative(int symbolpc,HEX line) {
     }
     return rel;
 }
-
-int findSymbolValue(char *symb) {
-    int i = 0;
-    while (1) {
-        if (strcmp(symb, symbol[i].name) == 0) {
-            return symbol[i].value;
-        }else if (i >= 19) {
-            return 0; // Error none symbol
-        }
-        i++;
-    }
-}
-
 int updateSymbol(char symbols[],int va) {
-    int sta = updateSymbolAddr(symbols,va);
-    printf("Update :%s  %d \n", symbols ,va);
-    if (sta == 0)
-    { strcpy(symbol[indexSymbol].name, symbols);
-    printf("PC :%d \n", PC);
+    if (updateSymbolAddr(symbols,va)==0){
+    strcpy(symbol[indexSymbol].name, symbols);
     symbol[indexSymbol].pc = PC;
     symbol[indexSymbol].value = va;
-    printf("Symbol :%s status %d",symbol[indexSymbol].name, symbol[indexSymbol].value);
     strcpy(symbol[indexSymbol].address, contoaddress(PC,0).buff);
-    indexSymbol++; }
+    indexSymbol++; 
+    }
     return 0;
 }
 HEX initianSymbol(HEX line){
     unsigned int pctmp;
     pctmp =  findSymbolAddr(line.dataoperand);
     if(pctmp==0){
-        insertoSymbolTable(indexSymbol++,line.dataoperand," ",PC+2,objindex+1);
+        insertoSymbolTable(indexSymbol++,line.dataoperand," ",PC+2,objindex+1,1);
     }
     printf(" status : %d",status);
     if(status==1){
@@ -545,6 +529,7 @@ LINEBLOCK linetoblock(char tx[]) {
 }
 int pseudo(LINEBLOCK LINE){
     char nulls[3];
+    HEX hexline;
     strcpy(nulls,"  ");
     nulls[2]='\0';
     if(strcmp(LINE.block1,"END")==0)
@@ -607,6 +592,7 @@ int interpret(char line[]) {
 int main(int argc, char** argv) {
     FILE *pInFile;
     SYMBOLS *symbols = symbol;
+    object *objs = objs;
     pInFile = fopen("testx.txt", "r");
     PC = 0;
     if (pInFile != NULL) {
