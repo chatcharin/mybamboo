@@ -5,11 +5,11 @@
 
 package uploadfile;
 
+import java.applet.Applet;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Vector;
 
-import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
@@ -21,17 +21,16 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-public class Main extends JFrame {
+public class Main extends Applet {
   private JTree fileTree;
-
   private FileSystemModel fileSystemModel;
-
   private JTextArea fileDetailsTextArea = new JTextArea();
-
-  public Main(String directory) {
-    super("JTree FileSystem Viewer");
+  
+    @Override
+  public void init() {
+    // super("JTree FileSystem Viewer");
     fileDetailsTextArea.setEditable(false);
-    fileSystemModel = new FileSystemModel(new File(directory));
+    fileSystemModel = new FileSystemModel(new File("/home/chatcharin"));
     fileTree = new JTree(fileSystemModel);
     fileTree.setEditable(true);
     fileTree.addTreeSelectionListener(new TreeSelectionListener() {
@@ -42,11 +41,33 @@ public class Main extends JFrame {
     });
     JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, new JScrollPane(
         fileTree), new JScrollPane(fileDetailsTextArea));
-    getContentPane().add(splitPane);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    splitPane.setSize(640,480);
+   // getContentPane().add(splitPane);
+   // setDefaultCloseOperation(EXIT_ON_CLOSE);
+    add(splitPane);
     setSize(640, 480);
     setVisible(true);
   }
+  
+//  public Main(String directory) {
+//    // super("JTree FileSystem Viewer");
+//    fileDetailsTextArea.setEditable(false);
+//    fileSystemModel = new FileSystemModel(new File(directory));
+//    fileTree = new JTree(fileSystemModel);
+//    fileTree.setEditable(true);
+//    fileTree.addTreeSelectionListener(new TreeSelectionListener() {
+//      public void valueChanged(TreeSelectionEvent event) {
+//        File file = (File) fileTree.getLastSelectedPathComponent();
+//        fileDetailsTextArea.setText(getFileDetails(file));
+//      }
+//    });
+//    JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, new JScrollPane(
+//        fileTree), new JScrollPane(fileDetailsTextArea));
+//   // getContentPane().add(splitPane);
+//   // setDefaultCloseOperation(EXIT_ON_CLOSE);
+//    setSize(640, 480);
+//    setVisible(true);
+//  }
 
   private String getFileDetails(File file) {
     if (file == null)
@@ -58,9 +79,9 @@ public class Main extends JFrame {
     return buffer.toString();
   }
 
-  public static void main(String args[]) {
-    new Main("/");
-  }
+//  public static void main(String args[]) {
+//    new Main("/");
+//  }
 }
 
 class FileSystemModel implements TreeModel {
