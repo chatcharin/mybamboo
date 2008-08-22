@@ -70,3 +70,4 @@
       </tr>
     </table>
 </td>
+<%@ include file="../template/footer.jsp"%> 

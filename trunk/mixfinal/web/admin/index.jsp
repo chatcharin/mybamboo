@@ -9,7 +9,7 @@
       <td width="620" valign="top" bgcolor="#FFFFFF">
           <table width="550" align="center">
           <tr>
-             <td valign="top" background="image/56235623.jpg">
+             <td valign="top" background="../image/56235623.jpg">
                 <span class="style47">á¹Ð¹Ó</span>
              </td>
           </tr>
@@ -35,7 +35,7 @@
               </td>
       </tr>
       <tr>
-        <td valign="top" background="image/56235623.jpg">
+        <td valign="top" background="../image/56235623.jpg">
             <span class="style39">&nbsp;News</span></td>
       </tr>
       <tr>
