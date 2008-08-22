@@ -57,9 +57,9 @@ body {
   </tr>
   <tr>
     <td><div align="center" class="style4">
-      <div align="right"><a href="pcc_index.jsp"><img src="pocket.jpg" width="40" height="40" border="0" /></a></div>
+      <div align="right"><a href="pcc"><img src="pocket.jpg" width="40" height="40" border="0" /></a></div>
     </div></td>
-    <td><div align="center" class="style3"><a href="pcc_index.jsp">Pocket PC</a></div></td>
+    <td><div align="center" class="style3"><a href="pcc">Pocket PC</a></div></td>
   </tr>
 </table>
 </body>
