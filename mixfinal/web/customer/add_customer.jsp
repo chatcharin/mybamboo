@@ -1,8 +1,21 @@
-    <td width="620" valign="top" bgcolor="#FFFFFF">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page pageEncoding="UTF-8"%>
+<%@ include file="../template/header.jsp"%>
+<table width="813" border="2" align="center" bordercolor="#993300">  
+  <tr>
+      <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
+        <%@ include file="../template/menu.jsp"%>
+      </td>   
+      <td width="620" valign="top" bgcolor="#FFFFFF">
+      <form>
         <table width="550" align="center">
       <tr>
-        <td width="201" background="56235623.jpg"><div align="center" class="style57">&#3648;&#3614;&#3636;&#3656;&#3617;&#3619;&#3634;&#3618;&#3585;&#3634;&#3619;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;</div></td>
-        <td width="337"><embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed></td>
+        <td width="201" background="56235623.jpg">
+          <div align="center" class="style57">&#3648;&#3614;&#3636;&#3656;&#3617;&#3619;&#3634;&#3618;&#3585;&#3634;&#3619;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;</div>
+          </td>
+        <td width="337">
+          <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
+          </embed></td>
       </tr>
       <tr>
         <td colspan="2"><p>&nbsp;</p></td>
@@ -55,8 +68,10 @@
       </tr>
       <tr>
         <td height="23">&nbsp;</td>
-        <td><input type="submit" name="Submit" value="  &#3610;&#3633;&#3609;&#3607;&#3638;&#3585;  " />
-            <input type="submit" name="Submit2" value="  &#3618;&#3585;&#3648;&#3621;&#3636;&#3585;  " /></td>
+        <td>
+          <input type="submit" name="Submit" value="  &#3610;&#3633;&#3609;&#3607;&#3638;&#3585;  " />
+          <input type="submit" name="Submit2" value="  &#3618;&#3585;&#3648;&#3621;&#3636;&#3585; " />
+        </td>
       </tr>
       <tr>
         <td colspan="2" class="style43"><p>&nbsp;</p>
@@ -65,5 +80,6 @@
           <p>&nbsp;</p></td>
       </tr>
     </table>
+    </form>
     </td>
-  
+<%@ include file="../template/footer.jsp"%>   
