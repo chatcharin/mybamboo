@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@page pageEncoding="UTF-8"%>
-<%@ include file="header.jsp"%>
+<%@ include file="template/header.jsp"%>
 <table width="813" border="2" align="center" bordercolor="#993300">  
   <tr>
       <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
-        <%@ include file="menu.jsp"%>
+        <%@ include file="template/menu.jsp"%>
       </td>
       <td width="620" valign="top" bgcolor="#FFFFFF">
           <table width="550" align="center">
@@ -39,8 +39,9 @@
             <span class="style39">&nbsp;News</span></td>
       </tr>
       <tr>
-        <td height="300"><IFRAME src="http://news.googeek.com/reader.php?catg=rssallnews&row=10&viewtype=1&SiteID=6" NORESIZE SCROLLING="AUTO" HSPACE="0" VSPACE="0" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" WIDTH="100%" HEIGHT="100%"></IFRAME>
-            
+        <td height="300">
+          <IFRAME src="http://news.googeek.com/reader.php?catg=rssallnews&row=10&viewtype=1&SiteID=6" NORESIZE SCROLLING="AUTO" HSPACE="0" VSPACE="0" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" WIDTH="100%" HEIGHT="100%">
+          </IFRAME> 
         </td>
       </tr>
     </table>
@@ -53,16 +54,4 @@
               &nbsp;</td>
           </tr>
       </table></td>
-  </tr>
-  <tr>
-    <td height="134" colspan="2" bgcolor="#FFFFFF">
-        <div align="center" class="style43">
-            <strong>&copy;&nbsp;à¨É®ÒÃØè§àÃ×Í§</strong><br />
-      194/1 &nbsp;ËÁÙè13 &nbsp;µÓºÅ»èÒµÒÅ ÍÓàÀÍ¢Ø¹µÒÅ ¨Ñ§ËÇÑ´àªÕÂ§ÃÒÂ 57340<br />
-      Tel 053 - 193107<br />
-      Email:jed-sada@windowslive.com</div>
-    </td>
-  </tr>
-</table>
-</body>
-</html>
+<%@ include file="template/footer.jsp"%> 
