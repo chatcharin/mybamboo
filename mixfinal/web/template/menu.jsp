@@ -42,7 +42,7 @@
         </td>
         <td>
             <span class="style43">
-                <a href="sell.jsp">ขายออก</a>
+                <a href="sale.jsp">ขายออก</a>
             </span>
         </td>
     </tr>
