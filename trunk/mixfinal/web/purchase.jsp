@@ -1,126 +1,160 @@
-    <td width="620" valign="top" bgcolor="#FFFFFF">
+<%@page pageEncoding="UTF-8"%>
+<%@ include file="template/header.jsp"%>
+<table width="813" border="2" align="center" bordercolor="#993300">  
+  <tr>
+      <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
+        <%@ include file="template/menu.jsp"%>
+      </td>
+  <td width="620" valign="top" bgcolor="#FFFFFF">
+    <form action="" >
       <table width="544" align="center">
       <tr>
-        <td colspan="2" background="56235623.jpg" class="style28"><div align="center"><span class="style39">��ǹ����Ѻ����</span></div></td>
-        <td class="style28">&nbsp;</td>
+        <td colspan="2" background="image/56235623.jpg" class="style28"><div align="center"><span class="style39">ส่วนการรับซื้อ</span></div></td>
+        <td class="style28"></td>
         <td class="style28"><span class="style55">
           <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed>
         </span></td>
       </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style1"><span class="style28"><span class="style85">User : </span></span></td>
+        <td colspan="4" valign="baseline" class="style1"><span class="style28">
+          <span class="style85">ID ลูกค้า : </span></span>
+          <input name="idcustomer" type="text" size="15" />
+        </td>
       </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style22">��������Ҫԡ</td>
+        <td colspan="4" valign="baseline" class="style22">ข้อมูลสมาชิก</td>
         </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style55"><p class="style74">
-          <label></label>
+        <td colspan="4" valign="baseline" class="style55">
+          วันที่:<p class="style74">
         </p>
-          <p class="style74">&nbsp;</p></td>
-      </tr>
-      
-      <tr>
-        <td width="122" valign="baseline" class="style22">��Դ���� : </td>
-        <td colspan="3" valign="baseline" class="style22"><label>
-          <input name="radiobutton" type="radio" value="radiobutton" />
-        </label>
-          ��.6 
-          <input name="radiobutton" type="radio" value="radiobutton" />
-          ��.15
-          <input name="radiobutton" type="radio" value="radiobutton" />
-          <label></label>
-          ���Թ �
-          <label>
-          <input name="textfield42" type="text" size="15" />
-          </label></td>
+        <p class="style74"></p></td>
       </tr>
       <tr>
-        <td valign="baseline" class="style22">��Դ����ͺ : </td>
-        <td colspan="3" valign="baseline" class="style1"><span class="style45">���˹ѡ :
-            <label>
-            <input name="radiobutton" type="radio" value="radiobutton" />
-            </label>
-            ��ҹ
-            <input name="radiobutton" type="radio" value="radiobutton" />
-            �ҧ����ͧ
-            <label>
-            <input name="radiobutton" type="radio" value="radiobutton" />
-            </label>
-            �ҧ���
-            <label>
-            <input name="radiobutton" type="radio" value="radiobutton" />
-            </label>
-            ���Թ �
-            <label></label>
-            <label>
-            <input name="textfield222" type="text" size="10" />
-            </label>
-            <label></label>
-        </span></td>
+        <td width="122" valign="baseline" class="style22">ชนิดข้าว : </td>
+        <td colspan="3" valign="baseline" class="style22">
+          <input name="radiobutton" type="radio" value="กข.6" />กข.6 
+          <input name="radiobutton" type="radio" value="กข.15" />กข.15
+          <input name="radiobutton" type="radio" value="other" /> อื่น ๆ
+          <input name="other" type="text" size="15" />
+        </td>
+     </tr>
+      <tr>
+        <td valign="baseline" class="style22">ชนิดกระสอบ : </td>
+         <td colspan="3" valign="baseline" class="style1">
+          <span class="style45">
+            <input name="radiobutton" type="radio" value="radiobutton" />ป่าน
+            <input name="radiobutton" type="radio" value="radiobutton" />ฟางเหลือง  
+            <input name="radiobutton" type="radio" value="radiobutton" />ฟางขาว  
+            <input name="radiobutton" type="radio" value="radiobutton" />อื่น ๆ 
+            <input name="other" type="text" size="10" />
+          </span>
+         </td>
       </tr>
       <tr>
-        <td valign="baseline" class="style22">�ӹǹ����ͺ : </td>
-        <td colspan="3" valign="baseline" class="style1"><span class="style63">
-          <input name="textfield3" type="text" size="5" maxlength="5" />
-        </span></td>
+        <td valign="baseline" class="style22">น้ำหนัก :</td>
+        <td colspan="3" valign="baseline" class="style1">
+          <span class="style63">
+              <input name="weight" type="text" size="5" maxlength="5" />
+          </span>
+        </td>
       </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style22">���˹ѡ : 
-          <label></label><label></label></td>
+        <td valign="baseline" class="style22">จำนวนกระสอบ : </td>
+        <td colspan="3" valign="baseline" class="style1">
+          <span class="style63">
+              <input name="unit" type="text" size="5" maxlength="5" />
+          </span>
+        </td>
       </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style57"><span class="style74">
-          <textarea name="textarea2" cols="70" rows="10"></textarea>
-        </span></td>
+        <td colspan="4" valign="baseline" class="style22">น้ำหนัก : </td>
       </tr>
       <tr>
-        <td valign="baseline" class="style1"><p align="right" class="style85">���˹ѡ���</p></td>
-        <td width="76" valign="baseline" class="style1"><p><span class="style50"><span class="style52"><span class="style23"><span class="style50"></span></span></span></span></p></td>
-        <td width="86" valign="baseline" class="style1"><p class="style48">��.</p></td>
-        <td width="240" valign="baseline" class="style49">&nbsp;</td>
+        <td colspan="4" valign="baseline" class="style57">
+           <span class="style74">
+              <textarea name="textarea2" cols="70" rows="10"></textarea>
+           </span>
+        </td>
       </tr>
       <tr>
-        <td valign="baseline" class="style1"><p align="right" class="style85">���˹ѡ�ѡ�͡</p></td>
-        <td valign="baseline" class="style1"><p><span class="style50"><span class="style52"><span class="style23"><span class="style50"></span></span></span></span></p></td>
-        <td valign="baseline" class="style1"><p class="style48">��.</p></td>
-        <td valign="baseline" class="style49">&nbsp;</td>
+        <td valign="baseline" class="style1">
+           <p align="right" class="style85">น้ำหนักรวม</p>
+        </td>
+        <td width="76" valign="baseline" class="style1">
+          <div id=""></div>
+        </td>
+        <td width="86" valign="baseline" class="style1">
+          <p class="style48">กก.</p>
+        </td>
+        <td width="240" valign="baseline" class="style49"></td>
       </tr>
       <tr>
-        <td valign="baseline" class="style1"><p align="right" class="style85">���˹ѡ�ط��</p></td>
-        <td valign="baseline" class="style1"><p><span class="style50"><span class="style52"><span class="style23"><span class="style50"></span></span></span></span></p></td>
-        <td valign="baseline" class="style1"><p class="style48">��.</p></td>
-        <td valign="baseline" class="style49">&nbsp;</td>
+        <td valign="baseline" class="style1">
+          <p align="right" class="style85">น้ำหนักหักออก</p>
+        </td>
+        <td valign="baseline" class="style1">
+          <div id=""></div>
+        </td>
+        <td valign="baseline" class="style1"><p class="style48">กก.</p></td>
+        <td valign="baseline" class="style49"></td>
       </tr>
       <tr>
-        <td valign="baseline" class="style1"><p align="right" class="style85">�Ҥ�</p></td>
-        <td valign="baseline" class="style1"><p><span class="style50"><span class="style52"><span class="style23"><span class="style50"></span></span></span></span><span class="style87">
-          <input name="textfield32" type="text" size="7" maxlength="7" />
-        </span></p></td>
-        <td valign="baseline" class="style1"><p class="style48">�ҷ/��.</p></td>
-        <td valign="baseline" class="style49">&nbsp;</td>
+        <td valign="baseline" class="style1">
+          <p align="right" class="style85">น้ำหนักสุทธิ</p>
+        </td>
+        <td valign="baseline" class="style1">
+          <div id=""></div>
+        </td>
+        <td valign="baseline" class="style1">
+          <p class="style48">กก.</p></td>
+        <td valign="baseline" class="style49"></td>
       </tr>
       <tr>
-        <td valign="baseline" class="style1"><p align="right" class="style85">������Թ������</p></td>
-        <td valign="baseline" class="style1"><p><span class="style50"><span class="style52"><span class="style23"><span class="style50"></span></span></span></span></p></td>
-        <td valign="baseline" class="style1"><p class="style48">�ҷ</p></td>
-        <td valign="baseline" class="style49">&nbsp;</td>
+        <td valign="baseline" class="style1">
+          <p align="right" class="style85">ราคา</p>
+        </td>
+        <td valign="baseline" class="style1">
+          <p>
+            <span class="style87">
+                <input name="textfield32" type="text" size="7" maxlength="7" />
+            </span>
+            </p>
+          </td>
+        <td valign="baseline" class="style1">
+          <p class="style48">บาท/กก.</p>
+        </td>
+        <td valign="baseline" class="style49"></td>
       </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style75">&nbsp;</td>
+        <td valign="baseline" class="style1">
+          <p align="right" class="style85">รวมเป็นเงินทั้งสิ้น</p>
+        </td>
+        <td valign="baseline" class="style1">
+          <div id=""></div>
+        </td>
+        <td valign="baseline" class="style1">
+          <p class="style48">บาท</p>
+        </td>
+        <td valign="baseline" class="style49"></td>
+      </tr>
+      <tr>
+        <td colspan="4" valign="baseline" class="style75"></td>
         </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style57"><span class="style49">
-          <input type="submit" name="Submit" value="      �ӹǹ      " />
-          &nbsp;
-          <input type="submit" name="Submit3" value="       �ѹ�֡      " />
-          &nbsp;
-          <input type="submit" name="Submit2" value="        ��ҧ        " />
-          &nbsp;
-          <input type="submit" name="Submit4" value="       ¡��ԡ     " />
-        </span></td>
+        <td colspan="4" valign="baseline" class="style57">
+          <span class="style49">
+             <input type="button" onclick="caculate()" name="Submit" value="      คำนวน      " />
+             <input type="submit" name="Submit3" value="       บันทึก      " />
+             <input type="button" onclick="clear()"  name="Clear"   value="        ล้าง        " />
+             <input type="submit" name="Submit4" value="       ยกเลิก     " />
+          </span>
+        </td>
         </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style57">&nbsp;</td>
+        <td colspan="4" valign="baseline" class="style57"></td>
       </tr>
-    </table></td>
+    </table>
+  </form>
+    </td>
+<%@ include file="template/footer.jsp"%> 
