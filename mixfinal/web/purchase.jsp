@@ -26,7 +26,7 @@
         </tr>
       <tr>
         <td colspan="4" valign="baseline" class="style55">
-          วันที่:<p class="style74">
+        <p class="style74">
         </p>
         <p class="style74"></p></td>
       </tr>
@@ -73,7 +73,7 @@
       <tr>
         <td colspan="4" valign="baseline" class="style57">
            <span class="style74">
-              <textarea name="textarea2" cols="70" rows="10"></textarea>
+              <textarea name="listwieght" cols="70" rows="10"></textarea>
            </span>
         </td>
       </tr>
@@ -82,7 +82,7 @@
            <p align="right" class="style85">น้ำหนักรวม</p>
         </td>
         <td width="76" valign="baseline" class="style1">
-          <div id=""></div>
+          <div id="allwieght"></div>
         </td>
         <td width="86" valign="baseline" class="style1">
           <p class="style48">กก.</p>
@@ -94,7 +94,7 @@
           <p align="right" class="style85">น้ำหนักหักออก</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id=""></div>
+          <div id="cutwieght"></div>
         </td>
         <td valign="baseline" class="style1"><p class="style48">กก.</p></td>
         <td valign="baseline" class="style49"></td>
@@ -104,7 +104,7 @@
           <p align="right" class="style85">น้ำหนักสุทธิ</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id=""></div>
+          <div id="purewieght"></div>
         </td>
         <td valign="baseline" class="style1">
           <p class="style48">กก.</p></td>
@@ -117,7 +117,7 @@
         <td valign="baseline" class="style1">
           <p>
             <span class="style87">
-                <input name="textfield32" type="text" size="7" maxlength="7" />
+                <input name="price_unit" type="text" size="7" maxlength="7" />
             </span>
             </p>
           </td>
@@ -131,7 +131,7 @@
           <p align="right" class="style85">รวมเป็นเงินทั้งสิ้น</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id=""></div>
+          <div id="allprice"></div>
         </td>
         <td valign="baseline" class="style1">
           <p class="style48">บาท</p>
@@ -144,10 +144,13 @@
       <tr>
         <td colspan="4" valign="baseline" class="style57">
           <span class="style49">
-             <input type="button" onclick="caculate()"  value="      คำนวน      " />
-             <input type="button" value="       บันทึก      " />
-             <input type="button" onclick="clean('purchase')"     value="        ล้าง        " />
-             <input type="button" onclick="clean('purchase');"   value="       ยกเลิก     " />
+             <input type="button" onclick="caculate();"              value="      คำนวน      " />
+             <input type="button" onclick="buy_onsave('purchase');" value="       บันทึก      " />
+             <input type="button" onclick="clean('purchase');"      value="        ล้าง        " />
+             <input type="button" onclick="clean('purchase');"      value="       ยกเลิก     " />
+             <div id="print" align="center" style="display:none;" >
+               <input type="button" onclick="print('purchase');" value="       print     " />
+             </div>
           </span>
         </td>
         </tr>
