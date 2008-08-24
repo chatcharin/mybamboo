@@ -6,7 +6,7 @@
         <%@ include file="template/menu.jsp"%>
       </td>
   <td width="620" valign="top" bgcolor="#FFFFFF">
-    <form action="" >
+    <form id="purchase" >
       <table width="544" align="center">
       <tr>
         <td colspan="2" background="image/56235623.jpg" class="style28"><div align="center"><span class="style39">ส่วนการรับซื้อ</span></div></td>
@@ -33,9 +33,9 @@
       <tr>
         <td width="122" valign="baseline" class="style22">ชนิดข้าว : </td>
         <td colspan="3" valign="baseline" class="style22">
-          <input name="radiobutton" type="radio" value="กข.6" />กข.6 
-          <input name="radiobutton" type="radio" value="กข.15" />กข.15
-          <input name="radiobutton" type="radio" value="other" /> อื่น ๆ
+          <input name="radiobutton" type="radio" onclick="select_type_rice(0);" value="กข.6" />กข.6
+          <input name="radiobutton" type="radio" onclick="select_type_rice(1);" value="กข.15" />กข.15
+          <input name="radiobutton" type="radio" onclick="select_type_rice(2);"  value="other" /> อื่น ๆ
           <input name="other" type="text" size="15" />
         </td>
      </tr>
@@ -43,10 +43,10 @@
         <td valign="baseline" class="style22">ชนิดกระสอบ : </td>
          <td colspan="3" valign="baseline" class="style1">
           <span class="style45">
-            <input name="radiobutton" type="radio" value="radiobutton" />ป่าน
-            <input name="radiobutton" type="radio" value="radiobutton" />ฟางเหลือง  
-            <input name="radiobutton" type="radio" value="radiobutton" />ฟางขาว  
-            <input name="radiobutton" type="radio" value="radiobutton" />อื่น ๆ 
+            <input name="radiobutton1" type="radio" onclick="select_type_pack(0)" value="radiobutton" />ป่าน
+            <input name="radiobutton1" type="radio" onclick="select_type_rice(1)" value="radiobutton" />ฟางเหลือง
+            <input name="radiobutton1" type="radio" onclick="select_type_rice(2)" value="radiobutton" />ฟางขาว
+            <input name="radiobutton1" type="radio" onclick="select_type_rice(3)" value="radiobutton" />อื่น ๆ 
             <input name="other" type="text" size="10" />
           </span>
          </td>
@@ -144,10 +144,10 @@
       <tr>
         <td colspan="4" valign="baseline" class="style57">
           <span class="style49">
-             <input type="button" onclick="caculate()" name="Submit" value="      คำนวน      " />
-             <input type="submit" name="Submit3" value="       บันทึก      " />
-             <input type="button" onclick="clear()"  name="Clear"   value="        ล้าง        " />
-             <input type="submit" name="Submit4" value="       ยกเลิก     " />
+             <input type="button" onclick="caculate()"  value="      คำนวน      " />
+             <input type="button" value="       บันทึก      " />
+             <input type="button" onclick="clean('purchase')"     value="        ล้าง        " />
+             <input type="button" onclick="clean('purchase');"   value="       ยกเลิก     " />
           </span>
         </td>
         </tr>
