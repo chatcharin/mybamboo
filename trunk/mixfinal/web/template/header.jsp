@@ -3,9 +3,9 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
    <title>เจษฎารุ่งเรือง</title>
-   <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-   <script type="text/javascript" src="../js/ricelib.js"></script>
-   <script type="text/javascript" src="../js/mm_menu.js"></script>
+   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+   <script type="text/javascript" src="js/ricelib.js"></script>
+   <script type="text/javascript" src="js/mm_menu.js"></script>
 </head>
 <body>
 <script language="JavaScript1.2">mmLoadMenus();</script>
