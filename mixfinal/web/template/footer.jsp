@@ -1,12 +1,20 @@
+<%@page pageEncoding="UTF-8"%>
 </tr>
   <tr>
-    <td height="100" colspan="2" bgcolor="#FFFFFF"><div align="center" class="style1"><span class="style3">&copy;<span class="style4">à¨É®ÒÃØè§àÃ×Í</span></span><span class="style4">§</span><br />
-      <span class="style4">194/1 &nbsp;ËÁÙè13 &nbsp;µÓºÅ»èÒµÒÅ ÍÓàÀÍ¢Ø¹µÒÅ ¨Ñ§ËÇÑ´àªÕÂ§ÃÒÂ 57340<br />
-      Tel 053 - 193107<br />
-    Email:jed-sada@windowslive.com</span></div></td>
+      <td height="100" colspan="2" bgcolor="#FFFFFF">
+         <div align="center" class="style1">
+             <span class="style3">
+                <span class="style4">Â©à¹€à¸ˆà¸©à¸Žà¸²à¸£à¸¸à¹ˆà¸‡à¹€à¸£à¸·à¸­à¸‡</span>
+             </span>
+             <span class="style4"></span><br/>
+             <span class="style4">
+                 194/1  à¸«à¸¡à¸¹à¹ˆ13  à¸•à¸³à¸šà¸¥à¸›à¹ˆà¸²à¸•à¸²à¸¥ à¸­à¸³à¹€à¸ à¸­à¸‚à¸¸à¸™à¸•à¸²à¸¥ à¸ˆà¸±à¸‡à¸«à¸§à¸±à¸”à¹€à¸Šà¸µà¸¢à¸‡à¸£à¸²à¸¢ 57340<br />
+                 Tel 053 - 193107<br />
+                 Email:jed-sada@windowslive.com
+             </span>
+         </div>
+     </td>
   </tr>
 </table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 </body>
 </html>
