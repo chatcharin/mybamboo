@@ -43,3 +43,37 @@ function caculate(){
 function clean(id){
     $(id).reset();
 }
+function test_variable(id,i){
+    var form = $(id);
+    var text = form.getInputs('text');
+    alert(text[i].value);
+}
+function buy_onsave(id){
+            var url  = 'buy/addbuy.jsp';
+            var form = $(id);
+            var type = "";
+            var text = form.getInputs('text');
+            var rform = $('caculateform');
+            var radio  = form.getInputs('radio');
+            var cacul = rform.getInputs('text');
+            var rad;
+            for(i=0;i<radio.length;i++)
+                if(radio[i].checked==true)
+                    if(i==2)
+                        type = text[1].value;
+                    else type = radio[i].value;
+                    var pars = "id="+text[1].value;
+                    pars+= "&buy="+cacul[5].value;
+                    pars+= "&type="+type;
+                    pars+= "&date="+Date.getDate().toString();
+                    pars+= "&weight="+cacul[3].value;
+                    alert(pars);
+                    var myAjax = new Ajax.Request( url, {
+                        method: 'post',
+                        parameters: pars,
+                        onLoading: showLoadbuy,
+                        onComplete:printbutton} );
+}
+function printbutton(){
+    
+}
