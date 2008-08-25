@@ -23,9 +23,9 @@ function mmLoadMenus() {
 }
 var type_rice;
 var pack_wieght;
+var wieght;
 function select_type_rice(type){
     type_rice = price[type];
-    alert(price[type]);
 }
 function select_type_pack(type){
     pack_wieght = pack[type];
@@ -49,31 +49,66 @@ function test_variable(id,i){
     alert(text[i].value);
 }
 function buy_onsave(id){
-            var url  = 'buy/addbuy.jsp';
-            var form = $(id);
-            var type = "";
-            var text = form.getInputs('text');
-            var rform = $('caculateform');
-            var radio  = form.getInputs('radio');
-            var cacul = rform.getInputs('text');
-            var rad;
-            for(i=0;i<radio.length;i++)
-                if(radio[i].checked==true)
-                    if(i==2)
-                        type = text[1].value;
-                    else type = radio[i].value;
-                    var pars = "id="+text[1].value;
-                    pars+= "&buy="+cacul[5].value;
-                    pars+= "&type="+type;
-                    pars+= "&date="+Date.getDate().toString();
-                    pars+= "&weight="+cacul[3].value;
-                    alert(pars);
-                    var myAjax = new Ajax.Request( url, {
+    var url   = 'buy/addbuy.jsp';
+    var form  = $(id);
+    var type  = "";
+    var text  = form.getInputs('text');
+    var radio = form.getInputs('radio');
+
+    // get type selection
+    for(i=0;i<radio.length;i++)
+      if(radio[i].checked==true)
+         if(i==2)
+              type = text[1].value;
+         else type = radio[i].value;
+
+    // initiant variable
+    var pars = "id="+text[0].value;
+        pars+= "&buy="+all_price;
+        pars+= "&type_rice="+type;
+        pars+= "&date="+Date.getDate().toString();
+        pars+= "&weight="+wieght;
+
+    // initaint sent data
+    var myAjax = new Ajax.Request( url, {
                         method: 'post',
                         parameters: pars,
                         onLoading: showLoadbuy,
-                        onComplete:printbutton} );
+                        onComplete:printbuy
+                    } );
 }
-function printbutton(){
+function sale_onsave(id){
+    var url   = 'sale/addsale.jsp';
+    var form  = $(id);
+    var type  = "";
+    var text  = form.getInputs('text');
+    var radio = form.getInputs('radio');
+
+    // get type selection
+    for(i=0;i<radio.length;i++)
+      if(radio[i].checked==true)
+         if(i==2)
+              type = text[1].value;
+         else type = radio[i].value;
+
+    // initiant variable
+    var pars = "id="+text[0].value;
+        pars+= "&sale="+all_price;
+        pars+= "&type_rice="+type;
+        pars+= "&date="+Date.getDate().toString();
+        pars+= "&weight="+wieght;
+
+    // initaint sent data
+    var myAjax = new Ajax.Request( url, {
+                        method: 'post',
+                        parameters: pars,
+                        onLoading: showLoadbuy,
+                        onComplete:printsale
+                    } );
+}
+function printbuy(){
+    
+}
+function printsale(){
     
 }
