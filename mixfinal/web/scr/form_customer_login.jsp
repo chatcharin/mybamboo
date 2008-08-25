@@ -2,7 +2,7 @@
 <form method="post" action="customer_login.jsp"> 
   <table width="150"  border="0" cellspacing="0"> 
     <tr> 
-      <td width="98%" bgcolor="#0000FF"><center> 
+      <td  background="image/rice.jpg" bgcolor="#C891FF"><center> 
           <font color="#FFFFF"><b>USER LOGIN </b> 
         </font>
         </center> 
