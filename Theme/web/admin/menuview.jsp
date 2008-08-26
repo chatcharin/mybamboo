@@ -33,8 +33,8 @@
                         "<td>" + rs.getString("menu_link") + "</td>\n" +
                         "<td>" + rs.getString("menu_content") + "</td>\n" +
                         "<td>" + rs.getString("menu_status") + "</td>\n");
-                out.print("<td><a href=\"editmenu.jsp?customer_id="+rs.getString("customer_id")+"\" >แก้ไข</a></td>\n");
-                out.print("<td><a href=\"deletemenu.jsp?customer_id="+rs.getString("customer_id")+"\" >ลบ</a></td>\n");
+                out.print("<td><a href=\"editmenu.jsp?menu_id="+rs.getString("menu_id")+"\" >แก้ไข</a></td>\n");
+                out.print("<td><a href=\"deletemenu.jsp?menu_id="+rs.getString("menu_id")+"\" >ลบ</a></td>\n");
              }
              out.println("</tr>");
             }
