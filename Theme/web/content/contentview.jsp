@@ -16,7 +16,7 @@
             limit="10";             
           }
          //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-          sql="select * from menu limit "+pages+","+limit;
+          sql="select * from content limit "+pages+","+limit;
           rs=stmt.executeQuery(sql);
           out.print("<table>" +
                "<tr>" +
@@ -33,15 +33,15 @@
             for(int i=0;i<30;i++){
               out.println("<tr>");
               if(rs.next()){
-                out.print("<td>" + rs.getString("menu_id") + "</td>\n" +
-                        "<td>" + rs.getString("menu_name") + "</td>\n" +
-                        "<td>" + rs.getString("menu_type") + "</td>\n" +
-                        "<td>" + rs.getString("menu_detail") + "</td>\n" +
-                        "<td>" + rs.getString("menu_link") + "</td>\n" +
-                        "<td>" + rs.getString("menu_content") + "</td>\n" +
-                        "<td>" + rs.getString("menu_status") + "</td>\n");
-                out.print("<td><a href=\"editmenu.jsp?menu_id="+rs.getString("menu_id")+"\" >แก้ไข</a></td>\n");
-                out.print("<td><a href=\"deletemenu.jsp?menu_id="+rs.getString("menu_id")+"\" >ลบ</a></td>\n");
+                out.print("<td>" + rs.getString("content_id") + "</td>\n" +
+                        "<td>" + rs.getString("content_name") + "</td>\n" +
+                        "<td>" + rs.getString("content_type") + "</td>\n" +
+                        "<td>" + rs.getString("content_detail") + "</td>\n" +
+                        "<td>" + rs.getString("content_link") + "</td>\n" +
+                        "<td>" + rs.getString("content_text") + "</td>\n" +
+                        "<td>" + rs.getString("content_status") + "</td>\n");
+                out.print("<td><a href=\"editcontent.jsp?content_id="+rs.getString("menu_id")+"\" >แก้ไข</a></td>\n");
+                out.print("<td><a href=\"deletecontent.jsp?menu_id="+rs.getString("menu_id")+"\" >ลบ</a></td>\n");
              }
              out.println("</tr>");
             }

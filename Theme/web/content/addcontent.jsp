@@ -4,6 +4,7 @@
 <%
      String content_name = request.getParameter("content_name");
      String content_type = request.getParameter("content_type");
+     String content_text = request.getParameter("content");
      String detail = request.getParameter("detail");
      String link = request.getParameter("link");
      String status = request.getParameter("status");
@@ -13,8 +14,8 @@
      String sql;
      ResultSet rs=null;
      //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-     sql ="INSERT INTO `cms`.`content` (`menu_id`, `content_name`, `content_type`, `content_detail`, `content_link`, `content`, `content_status`)" +
-          " VALUES (null,'"+menu_name+"','"+menu_type+"','"+detail+"','"+link+"',null,"+status+")";
+     sql ="INSERT INTO `cms`.`content` (`menu_id`, `content_name`, `content_type`, `content_detail`, `content_link`, `content_text`, `content_status`)" +
+          " VALUES (null,'"+content_name+"','"+content_type+"','"+detail+"','"+link+"','"+content_text+"',"+status+")";
      //out.print(sql);
      stmt.execute(sql);
      stmt.close();

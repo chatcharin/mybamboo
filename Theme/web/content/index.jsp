@@ -30,7 +30,7 @@
                 <div id="content" style="height:400px">
                     
                     Main Content Pane
-                    <%@ include file="menumanager.jsp" %>
+                    <%@ include file="contentmanager.jsp" %>
                 </div> <!-- content -->
 
             </div> <!-- main -->

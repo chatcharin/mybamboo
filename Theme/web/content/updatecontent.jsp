@@ -1,12 +1,12 @@
 <%@page pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp"%>
-<%   String menu_id = request.getParameter("menu_id");
-     String menu_name = request.getParameter("menu_name");
-     String menu_type = request.getParameter("menu_type");
+<%   String content_id = request.getParameter("content_id");
+     String content_name = request.getParameter("content_name");
+     String content_type = request.getParameter("content_type");
      String detail = request.getParameter("detail");
      String link = request.getParameter("link");
-     String menu_content = request.getParameter("menu_content");
+     String content_content = request.getParameter("content_content");
      String status = null;
             status = request.getParameter("status");
      Class.forName(driver);
@@ -17,19 +17,19 @@
        status="0";
      ResultSet rs=null;
      //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-     sql ="UPDATE  `menu` set "+
-             " `menu_name`='"+
-             menu_name+"', `menu_type`='"+
-             menu_type+"', `menu_detail`='"+
-             detail+"', `menu_link`='"+
-             link+"', `menu_content`='"+
-             menu_content+"', `menu_status`="+
+     sql ="UPDATE  `content` set "+
+             " `content_name`='"+
+             content_name+"', `content_type`='"+
+             content_type+"', `content_detail`='"+
+             detail+"', `content_link`='"+
+             link+"', `content_content`='"+
+             content_content+"', `content_status`="+
              status+" " +
-             " where menu_id ="+ menu_id;
+             " where content_id ="+ content_id;
      out.print(sql);
      stmt.execute(sql);
      stmt.close();
      con.close();
 %>
-<jsp:forward page="menuview.jsp"></jsp:forward>
+<jsp:forward page="contentview.jsp"></jsp:forward>
 <!-- ตรวจสอบ ว่า error หรือไม่  -->
