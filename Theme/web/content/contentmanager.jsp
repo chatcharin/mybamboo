@@ -11,7 +11,9 @@
       Content Type: <select name="menu_type">
                     <option value="content" >Menu for Content</option>
                     <option value="link">Menu for link</option>
-                  </select><br>
+                  </select>
+     <!-- Menu Content   Selection option        -- >
+                  <br>
      </div>
      <div align="left"> Content Detail:</div>
      <div align="right">
