@@ -2,12 +2,19 @@
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp"%>
 <%
-          String pages=request.getParameter("page");
-          String limit=request.getParameter("limit");
+          String pages=null;
+                 pages=request.getParameter("page");
+          String limit=null;
+                 limit=request.getParameter("limit");
           Class.forName(driver);
           Connection con=DriverManager.getConnection(url,user,pw);
           Statement stmt=con.createStatement();
           String sql;ResultSet rs=null;
+          if(limit==null)
+          {
+            pages="0";
+            limit="10";             
+          }
          //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
           sql="select * from menu limit "+pages+","+limit;
           rs=stmt.executeQuery(sql);
@@ -40,4 +47,5 @@
             }
           out.println("</table>");
                   //page next 1 2 3 4 ....
+
 %>

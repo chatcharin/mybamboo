@@ -10,3 +10,4 @@
       sql ="delete from menu where menu_id="+id;
       stmt.executeUpdate(sql);  
 %>
+<jsp:forward page="menuview.jsp"></jsp:forward>
