@@ -39,5 +39,8 @@
 </form>
 </div>
 <% }
-
+     stmt.execute(sql);
+     stmt.close();
+     con.close();
  %>
+ <jsp:forward page="menuview.jsp"></jsp:forward>
