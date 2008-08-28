@@ -83,7 +83,7 @@
            <p align="right" class="style85">น้ำหนักรวม</p>
         </td>
         <td width="76" valign="baseline" class="style1">
-          <div id="allwieght"></div>
+          <div id="allwieght"><input name="allwieght" disabled type="text" size="15" /></div>
         </td>
         <td width="86" valign="baseline" class="style1">
           <p class="style48">กก.</p>
@@ -95,7 +95,7 @@
           <p align="right" class="style85">น้ำหนักหักออก</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id="cutwieght"></div>
+          <div id="cutwieght"><input name="cutwieght" disabled type="text" size="15" /></div>
         </td>
         <td valign="baseline" class="style1"><p class="style48">กก.</p></td>
         <td valign="baseline" class="style49"></td>
@@ -105,7 +105,7 @@
           <p align="right" class="style85">น้ำหนักสุทธิ</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id="purewieght"></div>
+          <div id="purewieght"><input name="purewieght" disabled type="text" size="15" /></div>
         </td>
         <td valign="baseline" class="style1">
           <p class="style48">กก.</p></td>
@@ -132,7 +132,7 @@
           <p align="right" class="style85">รวมเป็นเงินทั้งสิ้น</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id="allprice"></div>
+          <div id="allprice"> <input name="allprice" disabled type="text" size="15" /></div>
         </td>
         <td valign="baseline" class="style1">
           <p class="style48">บาท</p>
@@ -145,12 +145,12 @@
       <tr>
         <td colspan="4" valign="baseline" class="style57">
           <span class="style49">
-             <input type="button" onclick="caculate();"              value="      คำนวน      " />
+             <input type="button" onclick="caculate('purchase');"              value="      คำนวน      " />
              <input type="button" onclick="buy_onsave('purchase');" value="       บันทึก      " />
              <input type="button" onclick="clean('purchase');"      value="        ล้าง        " />
              <input type="button" onclick="clean('purchase');"      value="       ยกเลิก     " />
              <div id="print" align="center" style="display:none;" >
-               <input type="button" onclick="print('purchase');" value="       print     " />
+             <input type="button" onclick="print('purchase');" value="       print     " />
              </div>
           </span>
         </td>
