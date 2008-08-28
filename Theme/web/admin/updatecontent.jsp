@@ -15,7 +15,7 @@
      String status        = null;     
             status = request.getParameter("status");
      Class.forName(driver);
-     Connection con = DriverManager.getConnection(url, user, pw);
+     Connection con = DriverManager.getConnection(url, user, pw); 
      Statement stmt = con.createStatement();
      String sql;
      if(status==null)
