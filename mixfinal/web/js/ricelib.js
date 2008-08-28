@@ -1,28 +1,29 @@
 function mmLoadMenus() {
-    if (window.mm_menu_0120150134_0) return;
-    window.mm_menu_0120150134_0 = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
-    mm_menu_0120150134_0.addMenuItem("àÃÕÂ¡´Ù","location='view costomer.jsp'");
-    mm_menu_0120150134_0.addMenuItem("à¾ÔèÁ","location='add costomer.jsp'");
-    mm_menu_0120150134_0.addMenuItem("á¡éä¢","location='edit costomer.jsp'");
-    mm_menu_0120150134_0.hideOnMouseOut=false;
-    mm_menu_0120150134_0.bgColor='#CC6600';
-    mm_menu_0120150134_0.menuBorder=1;
-    mm_menu_0120150134_0.menuLiteBgColor='#FFFFFF';
-    mm_menu_0120150134_0.menuBorderBgColor='#CC6600';
-    window.mm_menu_0121162302_0 = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
-    mm_menu_0121162302_0.addMenuItem("àÃÕÂ¡´Ù","location='view user.jsp'");
-    mm_menu_0121162302_0.addMenuItem("à¾ÔèÁ","location='AddUser.jsp'");
-    mm_menu_0121162302_0.addMenuItem("Åº","location='DelUser.jsp'");
-    mm_menu_0121162302_0.addMenuItem("á¡éä¢","location='EditUser.jsp'");
-    mm_menu_0121162302_0.hideOnMouseOut=false;
-    mm_menu_0121162302_0.bgColor='#555555';
-    mm_menu_0121162302_0.menuBorder=1;
-    mm_menu_0121162302_0.menuLiteBgColor='#FFFFFF';
-    mm_menu_0121162302_0.menuBorderBgColor='#CC6600';
-    mm_menu_0121162302_0.writeMenus();
+    if (window.menu_customer) return;
+    window.menu_customer = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
+    menu_customer.addMenuItem("àÃÕÂ¡´Ù","location='view costomer.jsp'");
+    menu_customer.addMenuItem("à¾ÔèÁ","location='add costomer.jsp'");
+    menu_customer.addMenuItem("á¡éä¢","location='edit costomer.jsp'");
+    menu_customer.hideOnMouseOut=false;
+    menu_customer.bgColor='#CC6600';
+    menu_customer.menuBorder=1;
+    menu_customer.menuLiteBgColor='#FFFFFF';
+    menu_customer.menuBorderBgColor='#CC6600';
+    window.menu_employee = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
+    menu_employee.addMenuItem("àÃÕÂ¡´Ù","location='view user.jsp'");
+    menu_employee.addMenuItem("à¾ÔèÁ","location='AddUser.jsp'");
+    menu_employee.addMenuItem("Åº","location='DelUser.jsp'");
+    menu_employee.addMenuItem("á¡éä¢","location='EditUser.jsp'");
+    menu_employee.hideOnMouseOut=false;
+    menu_employee.bgColor='#555555';
+    menu_employee.menuBorder=1;
+    menu_employee.menuLiteBgColor='#FFFFFF';
+    menu_employee.menuBorderBgColor='#CC6600';
+    menu_employee.writeMenus();
 }
 
 var type_rice;
+var unit_pack;
 var pack_wieght;
 var wieght;
 
@@ -34,15 +35,14 @@ function select_type_pack(type){
     pack_wieght = pack[type];
 }
 
-function caculate(){
-    var form = $('c');
+function caculate(id){
+    var form = $(id);
     var text = form.getInputs('text');
-    setTimeout('checkValidat()',3000);
     if(Number(text[2].value)!=0){
-        var wiegths  =  Number(text[1].value);
         text[3].value = Number(text[1].value) - Number(text[2].value);
         text[5].value = Number(text[4].value)*Number(text[3].value);
     }else {}
+    // Set Text box Disable 
 }
 
 function clean(id){
