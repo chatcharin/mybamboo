@@ -21,15 +21,19 @@ function mmLoadMenus() {
     mm_menu_0121162302_0.menuBorderBgColor='#CC6600';
     mm_menu_0121162302_0.writeMenus();
 }
+
 var type_rice;
 var pack_wieght;
 var wieght;
+
 function select_type_rice(type){
     type_rice = price[type];
 }
+
 function select_type_pack(type){
     pack_wieght = pack[type];
 }
+
 function caculate(){
     var form = $('c');
     var text = form.getInputs('text');
@@ -40,14 +44,17 @@ function caculate(){
         text[5].value = Number(text[4].value)*Number(text[3].value);
     }else {}
 }
+
 function clean(id){
     $(id).reset();
 }
+
 function test_variable(id,i){
     var form = $(id);
     var text = form.getInputs('text');
     alert(text[i].value);
 }
+
 function buy_onsave(id){
     var url   = 'buy/addbuy.jsp';
     var form  = $(id);
@@ -77,6 +84,7 @@ function buy_onsave(id){
                         onComplete:printbuy
                     } );
 }
+
 function sale_onsave(id){
     var url   = 'sale/addsale.jsp';
     var form  = $(id);
@@ -106,9 +114,11 @@ function sale_onsave(id){
                         onComplete:printsale
                     } );
 }
+
 function printbuy(){
     
 }
+
 function printsale(){
     
 }
