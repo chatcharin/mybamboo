@@ -1,5 +1,6 @@
 <%@page pageEncoding="UTF-8"%>
 <%@ include file="template/header.jsp"%>
+<!-- ให้ ใช้ text field เก็บค่า แล้ว ห้ามแก้ไข ไว้ -->
 <table width="813" border="2" align="center" bordercolor="#993300">  
   <tr>
       <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
