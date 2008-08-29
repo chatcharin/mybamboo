@@ -24,10 +24,10 @@
      //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
      sql ="INSERT INTO `cms`.`content` (`content_id`,`menu_id`, `content_title`" +
           ", `content_type`, `level`, `content_pos`,`content_intro`, `content_text`" +
-          ",`comment_id`, `status`) VALUES (null,'"+menu_id+"','"+content_title+"','"+
-           content_type+"',0,0,'"+content_intro+"','"+content_text+
-           "',"+comment_id+","+status+")";
-  //   out.print(sql);
+          ",`comment_id`, `status`,`athor`,`dateedit`) VALUES (null,'"+menu_id+"','"+content_title+"','"+
+          content_type+"',0,0,'"+content_intro+"','"+content_text+
+          "',"+comment_id+","+status+",'',Now())";
+   //  out.print(sql);
      stmt.execute(sql);
      stmt.close();
      con.close();

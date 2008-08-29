@@ -12,7 +12,7 @@
       rs=stmt.executeQuery(sql);
           out.println("<ul id=\"navigation\"> \n");
       while(rs.next()){
-         out.print("<li><a href=\"page?menu_id=" + rs.getString("menu_id") + "\">" +
+         out.print("<li><a href=\"page.jsp?menu_id=" + rs.getString("menu_id") + "\">" +
                    "<span>" + rs.getString("menu_name") + "</span></a></li>\n");
        }
       out.println("</ul> \n");

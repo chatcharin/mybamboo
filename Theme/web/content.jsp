@@ -17,9 +17,9 @@
     </span>
     <div class="content">
       <p>จากบทความ <a href="http://www.blognone.com/node/8722">ประสบการณ์ Google Summer of Code 2008</a>
-      ทำให้คนสนใจภาษา <a href="http://en.wikipedia.org/wiki/Groovy_(programming_language)">Groovy</a>
-      กันพอสมควร ทางคุณ <a href="http://www.blognone.com/user/cblue">cblue</a> เลยติดต่อคุณ Guillaume Laforge ผู้จัดการ
-      <a href="http://groovy.codehaus.org/">โครงการ Groovy</a> มาให้สัมภาษณ์กัน</p>
+         ทำให้คนสนใจภาษา <a href="http://en.wikipedia.org/wiki/Groovy_(programming_language)">Groovy</a>
+         กันพอสมควร ทางคุณ <a href="http://www.blognone.com/user/cblue">cblue</a> เลยติดต่อคุณ Guillaume Laforge ผู้จัดการ
+      <a href="http://groovy.codehaus.org/">โครงการ Groovy</a>มาให้สัมภาษณ์กัน</p>
     </div>
     <div class="nlinks">»
       <ul class="links inline">
@@ -28,4 +28,37 @@
         <li class="last node_read_more"><a class="node_read_more" title="Read the rest of this posting." href="/node/8770">Read more</a></li>
       </ul>
     </div>
+<%@ page import ="java.sql.*,java.util.*"%>
+<%@ include file="admin/config.jsp"%>
+<%
+          String pages=null;
+                 pages=request.getParameter("page");
+          String limit=null;
+                 limit=request.getParameter("limit");
+          String menu_id=null;
+                 menu_id=request.getParameter("menu_id");
+          Class.forName(driver);
+          Connection con=DriverManager.getConnection(url,user,pw);
+          Statement stmt=con.createStatement();
+          String sql;ResultSet rs=null;
+          if(limit==null)
+          {
+            pages="0";
+            limit="10";             
+          }
+         //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
+          sql="select content_id,content_title,content_intro from content where menu_id="+menu_id+" limit "+pages+","+limit;
+          rs=stmt.executeQuery(sql);
+          out.print("<div class=\"content\" > \n");
+            for(int i=0;i<30;i++){
+              if(rs.next()){
+                out.print("<div id=\"" + rs.getString("content_id") + "\"></div>\n" +
+                          "<div class=\"title\">" + rs.getString("content_title") + "</div>\n" +
+                          "<div class=\"intro\">" + rs.getString("content_intro") + "</div>\n");        
+             }
+            }
+         out.println("</div>");
+                  //page next 1 2 3 4 ....
+
+%>
   </div>
