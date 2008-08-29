@@ -1,0 +1,744 @@
+/*** Blognone 3.0 Theme ***/
+
+body {
+  height: 100%;
+  color:#666666;
+  background-color: #AAA;
+  margin: 0px;
+  padding: 0px;
+}
+
+a:link {
+  color: #26c; text-decoration: none;
+}
+a:visited {
+  color: #b41; text-decoration: none;
+}
+a:active {
+  color: #2153AA; text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/*** Page Structure ***/
+
+#page_wrapper {
+  margin-left: auto; 
+  margin-right: auto;
+  min-width:800px;
+  width:80%;
+  width:expression(document.body.clientWidth < 1100 ? "880px" : "80%" );
+  text-align: left;
+  border: 3px solid #777;
+  border-top: none;
+	border-bottom: none;
+  background-color: #F0F0F0;
+}
+
+#header_wrapper {
+  background: #094374;
+  margin:0px; 
+  padding:0px;
+}
+
+#header {
+  height: 60px;
+  padding:0px;
+  margin:0px;
+}
+
+#header h1 {
+  margin:0px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 24px;
+  color:#ffffff;
+  letter-spacing: -1px;
+}
+
+#sitename {
+  margin:5px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 24px;
+  color:#ffffff;
+  letter-spacing: -1px;
+  font-weight: normal;
+}
+
+#header h2 {
+  margin:0px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 14px;
+  color:#B1C6EB;
+  letter-spacing: 1px;
+}
+
+h2 { font-size: 18px; padding: 0px; margin: 0px;}
+
+h2 a,
+h2 a:visited {
+  color: #222;
+}
+
+#content_wrapper {
+  background: transparent url(bg_content.png) repeat-y 75% 0;
+}
+
+#content {
+  padding: 10px 20px 20px 20px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #333333;
+  width: 65%;
+  float: left;
+}
+
+#content li {
+	color: #333333;
+}
+
+#right_wrapper {
+	margin: 0px;
+}
+
+div.image-advertisement { text-align: center }
+
+#right_side {
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+margin-left: 71%;
+margin-right: 10px;
+padding-left: 5px;
+}
+
+#footer {
+	background-color: #e6f1ea;
+  margin: 0px auto;
+  width: 100%;
+  clear: both;
+  color: #333;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+	padding: 0 0 5px 0;
+	overflow: auto;
+	border-top: 1px solid #DDD;
+}
+
+#footer a:link,
+#footer a:visited {
+  color: #555; text-decoration: underline;
+	line-height: 150%;
+}
+#footer a:hover {
+  color: #111;
+}
+
+#footer .block { 	/* Green Box in Footer */
+	float: left;
+	min-width: 15%;
+	max-width: 20%;
+	margin: 0px 5px;
+	padding: 0 20px 5px 20px;
+}
+
+#footer .block h3 {
+}
+
+#footer .block li {
+	list-style: none;
+}
+#footer .block img {
+	margin: 5px;
+	vertical-align: middle;
+}
+
+div.footer_box { /* For Image Badge in Footer */
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*
+** Menu styles
+*/
+ul.menu {
+  list-style: none;
+  border: none;
+  text-align:left;
+	margin-left: 10px;
+}
+ul.menu li {
+  margin: 0 0 0 0.5em;
+}
+li.expanded {
+  list-style-type: circle;
+  list-style-image: none;
+  padding: 0.2em 0.5em 0 0;
+  margin: 0;
+  color: #759ADB;
+}
+li.collapsed {
+  list-style-type: circle;
+  list-style-image: none;
+  padding: 0.2em 0.5em 0 0;
+  margin: 0;
+  color: #759ADB;
+}
+li.leaf {
+  list-style-type: disc;
+  list-style-image: none;
+  padding: 0.2em 0.5em 0 0;
+  margin: 0;
+  color: #759ADB;
+}
+
+/*Fix for the forms droping down on submission pages.*/
+.node-form .standard {
+clear: none;
+}
+
+.node {
+  margin-bottom: 20px;
+}
+
+.node .content {
+	border-bottom: 1px dotted #CCC;
+	padding: 0 5px 5px 5px;
+}
+
+.comment {
+	margin: 10px 0px;
+	background: #F4F4F4;
+	border-bottom: 1px solid #CCC;
+}
+
+.comment > .submitted {
+	width: 100%;
+	background: #094374;
+	color: #EEE;
+	font-size: 10px;
+	padding-left: 4px;
+}
+
+.comment .submitted a {
+	font-weight: bold;
+	color: #2dc3ee;
+	font-size: 110%;
+}
+
+.comment .content {
+	padding: 3px 5px;
+	background-color: #F4F4F4;
+}
+
+.comment .nlinks {
+	background-color: #F4F4F4;
+}
+
+.new .submitted,
+.preview .comment .submitted{
+  background: #087c36;
+}
+
+.new .submitted a {
+	color: #a0e399;
+}
+
+#left_side p {
+  margin:10px;margin-top:5px;margin-bottom:5px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  color: #333333;
+}
+
+#right_side p {
+  margin:10px;margin-top:5px;margin-bottom:5px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  color: #111;
+}
+
+#left_side a {
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  color: #cc3399;
+}
+
+#right_side a {
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  color: #27d;
+}
+
+#left_side h3 {
+  margin: 5px 5px 0px 5px;
+/*  margin-top:5px; margin-bottom:10px; margin-left:5px; margin-right:5px;*/
+  padding:4px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #3c848e;
+  border-bottom:1px dotted #70cfa6;
+/*  background-color: #2153AA;*/
+}
+
+#right_side h3 {
+  margin-top:5px; margin-bottom:10px; margin-left:5px; margin-right:5px;
+  padding:4px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #333;
+
+}
+#left_side h4, #right_side h4 {
+  margin-top:0px;margin-bottom:0px;margin-left:10px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+  color: #2153AA;
+}
+
+#content .block { /* Ad Banner */
+  padding-bottom: 10px;
+}
+
+#content p {
+  margin-top:5px; margin-bottom: 7px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #111;
+}
+
+#content img {
+	margin: 3px;
+}
+
+#content .submitted img {
+	margin: 0px;
+}
+
+#content h3 {
+  margin-top:5px; margin-bottom: 6px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+
+#content h4,
+#content .node .content h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navlist
+{
+  margin-top:1px;
+  margin-bottom:0px;
+  text-align:left;
+  padding: 3px 20px;
+  margin-left: 0;
+  border-top: 0px solid #FFF;
+  font: 12px Verdana, sans-serif;
+/*  background: #083 url(images/navbar-bg.png) repeat-x bottom left;*/
+  background: #069b30;
+}
+
+.navlist li
+{
+  list-style: none;
+  margin: 0;
+  display: inline;
+}
+
+.navlist li a
+{
+  color: #FFF;
+  padding: 3px 10px;
+  margin: 0px 5px;
+  border-bottom: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navlist li a:hover { color: #FFB }
+
+.navlist li a#current
+{
+  color: #000;
+  background: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.float_left {
+  float: left;
+  margin-right: 10px;
+}
+
+.float_right {
+  float: right;
+  margin-left: 10px;
+}
+
+.featurebox_center {
+  background-color: #fffff6;
+  margin:0px;
+  padding:10px;
+  border: 1px solid #DFE8F7;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+  color: #333333;
+}
+
+.featurebox_side {
+  background-color: #fffff6;
+  margin:0px;margin-left:10px;margin-right:10px;margin-bottom:15px;
+  padding:10px;
+  border: 1px solid #DFE8F7;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+  color: #333333;
+}
+
+#left_side .block  ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+#left_side .block  ul li {
+  list-style-type: none;
+  border-bottom: 1px solid #f1faf5;
+  margin: 1px 1px 1px 5px;
+  padding: 1px 2px 1px 5px;
+}
+
+#right_side .block {
+  border-bottom: 1px solid #DDD;
+  border-top: 1px solid #EEE;
+  padding-bottom: 10px;
+}
+
+#right_side .block  ul {
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+#right_side .block  ul li {
+  margin-bottom: 5px;
+}
+
+.node .submitted,
+.taxonomy {
+  margin-left: 2px;
+  color: #BBB;
+  font-size: 10px;
+  display: inline;
+  vertical-align: middle;
+}
+
+.submitted a {
+  color: #27d;
+  margin-right: 2px;
+}
+
+/** Tabs **/
+ul.primary {
+  border-collapse: collapse;
+  padding: 0 0 0 1em;
+  white-space: nowrap;
+  list-style: none;
+  margin: 0 15px 1.0em;
+  line-height: normal;
+  width: 90%;
+}
+
+/** Poll **/
+
+.poll .bar .foreground { /* fix CSS bug */
+  clear: none;
+  float: none;
+}
+
+#right_side .poll {
+  text-align: center;
+  max-width: 70%;
+  margin: auto;
+}
+
+#right_side .poll .vote-form {
+  margin: 0 4px 0 4px;
+  padding: 0 5px;
+  text-align: center;
+  border: 1px solid #EEEEEE;
+}
+
+.block-poll .links { /* center links text in poll block */
+  text-align: center;
+	display: block;
+}
+
+#right_side .block-poll ul.links li.statistics_counter {
+	display: none;
+}
+
+.poll .title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.poll .bar,
+.poll .bar .foreground {
+  height: 4px;
+}
+
+.poll .bar,
+.poll .percent {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.poll .links .links .comment_add {
+	display: block;
+}
+
+#right_side .block-poll ul {
+	padding: 0px;
+}
+
+#right_side .block-poll .links li {
+	text-align: center;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Sticky */
+.sticky {
+  background-color: #ebf9f7;
+  padding: 4px;
+  border: 1px solid #DDDDDD;
+}
+
+.sticky .itemhead,
+.sticky .itemtext {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/** Ad Title Remover **/
+
+#content .block h3 {
+  font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	margin-top: 10px;
+}
+
+/** Comment **/
+
+.links {
+	display: inline;
+	width: 100%;
+}
+
+.comment .nlinks,
+.node .nlinks {
+  width: 100%;
+  text-align: right;
+  color: #999;
+}
+
+/** Comment picture **/
+
+.new > .picture,
+.picture {
+	float: left;
+	width: 60px;
+	display: table-cell;
+	text-align: center;
+	margin: 4px 0;
+	border-right: 1px dotted #DDD;
+}
+
+.comment > .content {
+display: block;
+margin-left: 60px;
+clear: right;
+}
+
+
+/** ADDITIONAL CLASS **/
+.clear, .clearing {
+  clear: both;
+  height: 1px;
+  font-size: 1px;
+}
+
+
+#content table {
+	width: 100%;
+}
+
+/** Forum Table **/
+#forum table {
+	font-size: small;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+td.topic {
+	max-width: 50%;
+	overflow: hidden;
+}
+
+/*** Related Story div ***/
+.inline_block {
+  border-bottom: 1px dotted #cccccc;
+  margin-top: 10px;
+}
+
+.related_date {
+  color: #999;
+  font-size: smaller;	
+}
+
+/** Fix Google Search Box **/
+
+.block table {
+	border-collapse:separate;
+}
+
+input[type="text"],
+input[type="password"] {
+	border: 1px solid #BBB;
+	padding: 1px 2px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+	border-color: #777;
+}
+
+blockquote {
+	background-color: #E0E0E0;
+	padding: 3px 7px;
+	margin: 3px 10px 3px 10px;
+	border-left: 2px solid #196394;
+}
+
+
+
+/* Block Stuff */
+
+.more-link {
+	margin-right: 10px;
+}
+
+.view-footer {
+	text-align: right;
+}
+
+/* Login Block Fix */
+
+#user-login-form .item-list ul li {
+	list-style-type: none;
+	margin: 0px;
+}
+
+/* Aggregator Block Fix */
+.icon .blog-it,
+.block-aggregator .more-link {
+	display: none;
+}
+
+/* For Top Vote Block */
+/*.view-data-node-title,*/
+.view-label-votingapi-cache-vote-percent-count-value,
+.view-data-votingapi-cache-vote-percent-count-value {
+	display: inline;
+	padding-right: 4px;
+}
+
+.statistics_counter {
+	color: #666666;
+}
+
+/** Forum Container **/
+.container {
+	background-color: #CCC;
+}
+
+/** Vote Widget **/
+
+.vote-up-down-widget-alt {
+	float: right;
+	clear: none;
+}
+
+.vote-up-down-widget-alt .vote-points {
+	background-color: transparent;
+	color: #00CC00;
+	font-size: 1.5em;
+	padding: 2px 0;
+}
+
+.vote-points-label {
+	display: none;
+}
+
+.vote-up-down-widget-alt .vote-points {
+	float: right;
+}
+.vote-up-down-widget-alt span.vote-up-act, 
+.vote-up-down-widget-alt span.vote-up-inact, 
+.vote-up-down-widget-alt span.up-inact {
+	float: left;
+	width: 22px;
+	height: 22px;
+	border: 0px;
+}
+
+.vote-up-down-widget-alt .vote-up-inact, 
+.vote-up-down-widget-alt .vote-up-inact:hover,
+.vote-up-down-widget-alt .up-inact {
+    background:transparent url(plus_act.png) no-repeat scroll center 3px;
+}
+
+.vote-up-down-widget-alt .vote-up-act {
+	background:transparent url(plus_inact.png) no-repeat scroll center 3px;
+}
+
+.vote-up-down-widget-alt .vote-up-inact:hover {
+	background-color: #DDD;
+}
+
+.extra_voting_forms div {
+	display: inline;
+}
+
+/** OpenID **/
+
+#user-login-form a.openid-link, 
+#user-login-form a.user-link {
+	text-align:center;
+}
+
+a.openid-link, 
+a.user-link {
+	background-position:25% 50%;
+}

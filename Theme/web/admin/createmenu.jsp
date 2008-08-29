@@ -1,5 +1,6 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<jsp:include page="template/header.jsp"></jsp:include>    
 <%@ include file="config.jsp" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -23,3 +24,4 @@
      </div>
 </form>
 </div>
+<jsp:include page="template/footer.jsp"></jsp:include>

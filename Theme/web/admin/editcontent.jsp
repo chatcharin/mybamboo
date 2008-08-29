@@ -1,5 +1,6 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<jsp:include page="template/header.jsp"></jsp:include>    
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp" %>
 <% 
@@ -68,3 +69,4 @@
     stmt.close();
     con.close();
  %>
+ <jsp:include page="template/footer.jsp"></jsp:include>

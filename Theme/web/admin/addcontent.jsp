@@ -32,5 +32,6 @@
      stmt.close();
      con.close();
 %>
+<jsp:forward page="index.jsp"></jsp:forward>
 <!-- jsp:forward page="contentview.jsp"><!--/jsp:forward>
 <!-- ตรวจสอบ ว่า error หรือไม่  -->

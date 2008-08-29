@@ -30,14 +30,3 @@
             <div id="main">
                 
                 <div id="content" style="height:400px">
-                    
-                    <a href="createmenu.jsp">[ Create Menu ]</a>
-                    <a href="createcontent.jsp">[ Create Content ]</a>
-                    <%@ include file="menuview.jsp" %>
-                </div> <!-- content -->
-
-            </div> <!-- main -->
-
-        </div> <!-- outerborder -->
-    </body>
-</html>

@@ -20,5 +20,5 @@
      stmt.close();
      con.close();
 %>
-<jsp:forward page="menuview.jsp"></jsp:forward>
+<jsp:forward page="menu.jsp"></jsp:forward>
 <!-- ตรวจสอบ ว่า error หรือไม่  -->

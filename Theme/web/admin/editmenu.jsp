@@ -1,6 +1,7 @@
-
-<%@ page import ="java.sql.*,java.util.*"%>
+<%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<jsp:include page="template/header.jsp"></jsp:include>   
+<%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp" %>
 <% 
       String id = request.getParameter("menu_id");
@@ -43,4 +44,4 @@
      stmt.close();
      con.close();
  %>
- <jsp:forward page="menuview.jsp"></jsp:forward>
+ <jsp:include page="template/footer.jsp"></jsp:include>
