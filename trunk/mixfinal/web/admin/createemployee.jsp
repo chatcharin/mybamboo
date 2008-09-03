@@ -2,7 +2,7 @@
 <%@page pageEncoding="UTF-8"%>
 <jsp:include page="template/header.jsp"></jsp:include>      
 <%@ page import ="java.sql.*,java.util.*"%>
-<%@ include file="config.jsp" %>
+<%@ include file="../config.jsp" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
