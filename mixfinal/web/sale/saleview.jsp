@@ -17,7 +17,7 @@
             limit="10";             
           }
          //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-          sql="select * from account where sale=null limit "+pages+","+limit;
+          sql="select * from account where buy=null limit "+pages+","+limit;
           rs=stmt.executeQuery(sql);
           out.print("<table>" +
                "<tr>" +
