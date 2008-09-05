@@ -1,5 +1,4 @@
 <%@ include file="ck_session_customer.jsp"%>
-<%@ taglib prefix="a" uri="http://jmaki/v1.0/jsp" %>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -10,7 +9,7 @@
     <table>
         <tr>
             
-            <td><label for="name">เพิ่มรายการพนักงาน </label></td>
+            <td><label for="name">เพิ่มรายการลูกค้า </label></td>
             <td></td>
         </tr>
         <tr>
