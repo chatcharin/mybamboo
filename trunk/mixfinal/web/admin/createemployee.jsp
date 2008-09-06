@@ -1,71 +1,130 @@
-<%@ include file="ck_session_customer.jsp"%>
-<%@ taglib prefix="a" uri="http://jmaki/v1.0/jsp" %>
+<!--%@ include file="ck_session_customer.jsp"% -->
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<form id="signup" name="form1" method="post" action="">
-    <table>
-        <tr>
-            
-            <td><label for="name">เพิ่มรายการพนักงาน </label></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td align="right"><label  for="date">ชื่อ: </label></td>
-            <td><input name="name" type="text" size="15" /></td>
-        </tr>
-        <tr>
-            <td align="right"><label for="date">นามสกุล : </label></td>
-            <td><input name="lastname" type="text" size="15" /></td>
-        </tr>
-        <tr>
-            <td align="right"><label for="date">อายุ : </label></td>
-            <td><input name="age" type="text" size="15" /></td>
-        </tr>
-        <tr>
-            <td align="right" ><label for="loc">เพศ: </label></td>
-            <td>
-                <a:widget name="dojo.combobox"
-   value="[
-       {label : 'ชาย', value : 'AL'},
-       {label : 'หญิง', value : 'CA'}
-    ]" />
-            </td>
-        </tr>
-        <tr>
-            <td align="right"><label for="date">เบอร์โทรศัพท์: </label></td>
-            <td><input name="tel" type="text" size="15" maxlength="5"  /></td>
-        </tr>
-        <tr>
-            <td align="right"><label for="date">หมายเลขบัตรประจำตัวประชาชน: </label></td>
-            <td><input  type="text" size="15" name="idcard" id="time"></td>
-        </tr>
-         <tr>
-            <td align="right"><label for="date">หมายเลขทะเบียนรถ: </label></td>
-            <td><input  type="text" size="15" name="car" id="time"></td>
-        </tr>
-         <tr>
-            <td align="right"><label for="date">ตำบล: </label></td>
-            <td><input  type="text" size="15" name="car" id="time"></td>
-        </tr>
-         <tr>
-            <td align="right"><label for="date">อำเภอ: </label></td>
-            <td><input  type="text" size="15" name="car" id="time"></td>
-        </tr>
-         <tr>
-            <td align="right"><label for="date">จังหวัด: </label></td>
-            <td><input  type="text" size="15" name="car" id="time"></td>
-        </tr>
+    <td width="614" valign="top" bgcolor="#FFFFFF">
+      <form action="addemployee.jsp">
+      <table width="578" height="536" border="0" align="center">
+      <tr>
+        <td height="26" background="56235623.jpg">
+          <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
+          <td>
+            <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
+            </embed>
+          </td>
+      </tr>
+      <tr>
+        <td height="26"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">ชื่อ</div>
+        </td>
+        <td>
+          <input type="text" name="name" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">นามสกุล</div>
+          </td>
+        <td>
+          <input type="text" name="lastname" />
+          </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">อายุ</div>
+          </td>
+        <td>
+          <input name="age" type="text" size="2" />
+          <span class="style45">ปี</span>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">เพศ</div>
+        </td>
+        <td>
+          <select name="sex">
+            <option selected="selected">ระบุเพศ</option>
+            <option>ชาย</option>
+            <option>หญิง</option>
+            <option>เพศที่สาม</option>
+           </select>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">ที่อยู่</div>
+        </td>
+        <td>
+          <span class="style30">
+            <textarea name="address" rows="4" cols="20">
+            </textarea>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style23">
+            <span class="style51">เบอร์โทรศัพท์</span>
+            </div>
+          </td>
+        <td>
+          <input type="text" name="tel" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">หมายเลขบัตรประจำตัวประชาชน</div>
+          </td>
+        <td>
+          <span class="style30">
+          <input name="idcard" type="text" maxlength="13" />
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td height="23"><span class="style23"></span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">ระดับการเข้าถึงข้อมูล</div>
+        </td>
+        <td><select name="access">
+            <option selected="selected">Employee</option>
+            <option>Administrator</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">Username : </div>
+        </td>
+        <td>
+          <input type="text" name="username" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">Password : </div>
+        </td>
+        <td>
+          <input type="password" name="passwd" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td height="23"></td>
+        <td><input type="submit" name="Submit" value="  ยืนยัน  " /> <input type="submit" name="Submit22" value="  ยกเลิก  " /></td>
+      </tr>
     </table>
-</form>
-<table>
-    <tr>
-        <td width="150" ></td>
-            <td colspan="2" align="center">
-                <input type="button" name="Submit2" value="  เพิ่ม   "  onclick="sentSignup('signup')"/>
-            <input type="button" name="Submit4" value="  ยกเลิก "  onclick="crean('signup')"/></td>
-        </tr>
-</table>
+    </form>
+    </td>
+  </tr>
+  

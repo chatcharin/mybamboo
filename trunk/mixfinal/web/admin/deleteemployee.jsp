@@ -2,7 +2,7 @@
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="../config.jsp"%>
 <%
-      String id = request.getParameter("content_id");
+      String id = request.getParameter("employee_id");
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, pw);
       Statement stmt = con.createStatement();
