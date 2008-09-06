@@ -1,15 +1,14 @@
 <%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
-<jsp:include page="template/header.jsp"></jsp:include>    
+<%@page pageEncoding="UTF-8"%>  
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp" %>
 <% 
-      String id = request.getParameter("content_id");
+      String id = request.getParameter("employee_id");
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, pw);
       Statement stmt = con.createStatement();
       String sql;
-      sql ="select * from content where content_id="+id;
+      sql ="select * from employee where employee_id="+id;
       ResultSet rs=null;
       rs=stmt.executeQuery(sql); 
 %>
@@ -17,56 +16,166 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <% if(rs.next()){ %>
-<div style="width:300px;">
-  <form action="updatecontent.jsp" >
-     <input size="20" type="text"  style="display:none" name="content_id" value="<% out.print(rs.getString("content_id")); %>" />
-     <div align="right">
-      Content Title: <input size="20" type="text" name="content_title" value="<% out.print(rs.getString("content_title")); %>" /><br>
-      Content Menu: <select name="menu_id">
-                    <%
-                    Class.forName(driver);
-                    Connection conm=DriverManager.getConnection(url,user,pw);
-                    Statement stmtm=con.createStatement();
-                    String sqlm;ResultSet rsm=null;
-                   //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-                    sqlm="select menu_id,menu_name from menu ;";
-                    rsm=stmtm.executeQuery(sqlm);
-                        while(rsm.next()){
-                          out.print("<option value=\"" + rsm.getString("menu_id") +
-                                     "\">" + rsm.getString("menu_name") + "</option>\n");
-                       }
-                    rsm.close();
-                    stmtm.close();
-                    conm.close();
-                      %>
-                    </select>
-     <!-- Menu Content   Selection option        -- >
-                  <br>
-     <!-- content type -->
-      <input size="20" type="text"  style="display:none" name="content_type" value="<% out.print(rs.getString("content_type")); %>" />
-     <!-- level        -->
-      <input size="20" type="text"  style="display:none" name="level" value="<% out.print(rs.getString("level")); %>" />
-     <!-- position     -->
-     <input size="20" type="text"  style="display:none" name="content_pos" value="<% out.print(rs.getString("content_pos")); %>" />
-     </div> 
-     <div align="left"> Content Intro:</div>
-     <div align="right">
-       <textarea name="content_intro" cols="23" rows="5"><% out.print(rs.getString("content_intro")); %></textarea><br>
-     </div>
-     <div align="left"> Content Text:</div>
-     <div align="right">
-        <textarea name="content_text" cols="23" rows="5"><% out.print(rs.getString("content_text")); %></textarea><br> 
-     Comment :<input type="checkbox" name="comment_id" value="<% out.print(rs.getString("comment_id")); %>" /><br>
-      Status :<input type="checkbox" name="status" value="<% out.print(rs.getString("status")); %>" /><br>
-      <input type="submit" value=" Add " />
-      <input type="reset" value="Reset"> 
-     </div>
-</form>
-</div>
+<!--%@ include file="ck_session_customer.jsp"% -->
+    <td width="614" valign="top" bgcolor="#FFFFFF">
+      <form action="updateemployee.jsp">
+      <table width="578" height="536" border="0" align="center">
+      <tr>
+        <td height="26" background="56235623.jpg">
+          <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
+          <td>
+            <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
+            </embed>
+          </td>
+      </tr>
+      <tr>
+        <td height="26">
+          <input size="20" type="text"
+          style="display:none"
+          name="employee_id"
+          value="<% out.print(rs.getString("employee_id")); %>" />
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">ชื่อ</div>
+        </td>
+        <td>
+          <input type="text" name="name"
+          value="<% out.print(rs.getString("name")); %>" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">นามสกุล</div>
+          </td>
+        <td>
+          <input type="text" name="lastname"
+          value="<% out.print(rs.getString("lastname")); %>" />
+          </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">อายุ</div>
+          </td>
+        <td>
+          <input name="age" type="text" size="2"
+          value="<% out.print(rs.getString("age")); %>"/>
+          <span class="style45">ปี</span>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">เพศ</div>
+        </td>
+        <td>
+          <select name="sex">
+           <option 
+           <% if(rs.getString("sex")=="ชาย")
+                out.print("selected=\"selected\"");
+           %>>ชาย</option>
+            <option
+             <% if(rs.getString("sex")=="หญิง")
+                out.print("selected=\"selected\"");
+           %>>หญิง</option>
+            <option
+             <% if(rs.getString("sex")=="เพศที่สาม")
+                out.print("selected=\"selected\"");
+           %>>เพศที่สาม</option>
+           </select>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">ที่อยู่</div>
+        </td>
+        <td>
+          <span class="style30">
+            <textarea name="address" rows="4" cols="20">
+             <% out.print(rs.getString("address")); %> 
+            </textarea>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style23">
+            <span class="style51">เบอร์โทรศัพท์</span>
+            </div>
+          </td>
+        <td>
+          <input type="text" name="tel"
+          value="<% out.print(rs.getString("tel")); %>" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">หมายเลขบัตรประจำตัวประชาชน</div>
+          </td>
+        <td>
+          <span class="style30">
+          <input name="idcard" type="text" maxlength="13"
+          value="<% out.print(rs.getString("idcard")); %>" />
+          </span>
+        </td>
+      </tr>
+      
+      <tr>
+        <td height="23">
+          <span class="style23"></span>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">ระดับการเข้าถึงข้อมูล</div>
+        </td>
+        <td>
+          <select name="access">
+          <option
+             <% if(rs.getString("access")=="Employee")
+                out.print("selected=\"selected\"");
+           %>>Employee</option>
+          <option
+                <% if(rs.getString("access")=="Administrator")
+                out.print("selected=\"selected\"");
+           %>>Administrator</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">Username : </div>
+        </td>
+        <td>
+          <input type="text" name="username" 
+           value="<% out.print(rs.getString("username")); %>" />
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">Password : </div>
+        </td>
+        <td>
+          <input type="password" name="passwd" 
+           value="<% out.print(rs.getString("passwd")); %>"/>
+        </td>
+      </tr>
+      <tr>
+        <td height="23"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td height="23"></td>
+        <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="submit" name="Submit22" value="  ยกเลิก  " /></td>
+      </tr>
+    </table>
+    </form>
+    </td>
+  </tr>
 <%
      }
     rs.close();
     stmt.close();
     con.close();
  %>
- <jsp:include page="template/footer.jsp"></jsp:include>
