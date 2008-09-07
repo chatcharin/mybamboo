@@ -2,7 +2,7 @@
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp"%>
 <%
-            String id = request.getParameter("id");
+            String idcustomer = request.getParameter("idcustomer");
             String buy = request.getParameter("buy");
             String type = request.getParameter("type");
             String weight = request.getParameter("weight");
@@ -20,14 +20,14 @@
             sql ="insert into store values(null,"+weight+","+type+",now());" ;
             stmt.execute(sql);
             sql ="select max(store_id) from store";
-             rs = stmt.executeQuery(sql);
-             rs.next();
-             String newid = rs.getString("max(store_id)").toString();
-             rs.close();
+            rs = stmt.executeQuery(sql);
+            rs.next();
+            String newid = rs.getString("max(store_id)").toString();
+            rs.close();
             sql ="INSERT INTO `rice`.`account` (`account_id`, `buy`, `sale`, `date`, `weight`, `customer_id`, `employee_id`, `store_id`)" +
-                    " VALUES (null,"+buy+",0.0,now(),"+weight+","+id+","+session.getAttribute("employee_id")+","+newid+")";
+                    " VALUES (null,"+buy+",0.0,now(),"+weight+","+idcustomer+","+session.getAttribute("employee_id")+","+newid+")";
             stmt.execute(sql);
             stmt.close();
             con.close();
 %>
-<jsp:forward page="index.jsp"></jsp:forward>
+<jsp:forward page="purchaseview.jsp"></jsp:forward>
