@@ -133,17 +133,17 @@
         <td>
           <select name="type">
           <option
-             <% if(rs.getString("type").equals("Employee"))
+             <% if(rs.getString("type").equals("โรงสี"))
                 out.print("selected=\"selected\"");
-           %>>Employee</option>
+           %>>โรงสี</option>
           <option
-            <% if(rs.getString("type").equals("Administrator"))
+            <% if(rs.getString("type").equals("ชาวนา"))
                 out.print("selected=\"selected\"");
-           %>>Administrator</option>
+           %>>ชาวนา</option>
            <option
-            <% if(rs.getString("type").equals("Administrator"))
+            <% if(rs.getString("type").equals("คนทั่วไป"))
                 out.print("selected=\"selected\"");
-           %>>Administrator</option>
+           %>>คนทั่วไป</option>
         </select></td>
       </tr>
       <tr>
