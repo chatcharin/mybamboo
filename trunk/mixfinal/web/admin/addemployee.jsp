@@ -18,17 +18,17 @@
       String sql;
       sql = "insert into employee values(null,'"+name+
             "','"+lastname+
+            "','"+access+
+            "','"+passwd+
+            "','"+username+
             "','"+sex+
-            "','"+age+
             "','"+address+
             "','"+tel+
+            "','"+age+
             "','"+idcard+
-            "','"+access+
-            "','"+username+
-            "','"+passwd+
             "')";
       stmt.executeUpdate(sql);
       stmt.close();
       con.close();
   %>
-  <jsp:forward page="viewemployee.jsp"></jsp:forward>
+  <jsp:forward page="employeeview.jsp"></jsp:forward>

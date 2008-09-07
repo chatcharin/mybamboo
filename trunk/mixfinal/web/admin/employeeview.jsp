@@ -26,7 +26,7 @@
          "<td>ชื่อผู้ใช้</td>" +
          "<td>รหัสผ่าน</td>" +
          "<td>เพศ</td>" +
-         "<td>สถานะ</td>" +
+        // "<td>สถานะ</td>" +
          "<td>อายุ</td>" +
          "<td>รหัสบัตรประชาชน</td>" +
          "<td>แก้ไข</td>" +
@@ -41,11 +41,11 @@
                     "<td>" + rs.getString("username") + "</td>\n" +
                     "<td>" + rs.getString("passwd") + "</td>\n" +
                     "<td>" + rs.getString("sex") + "</td>\n" +
-                    "<td>" + rs.getString("status") + "</td>\n" +
+                //    "<td>" + rs.getString("access") + "</td>\n" +
                     "<td>" + rs.getString("age") + "</td>\n" +
                     "<td>" + rs.getString("idcard") + "</td>\n");
-          out.print("<td><a href=\"editemployee.jsp?customer_id="+rs.getString("customer_id")+"\" >แก้ไข</a></td>\n");
-          out.print("<td><a href=\"deletemployee.jsp?customer_id="+rs.getString("customer_id")+"\" >ลบ</a></td>\n");
+          out.print("<td><a href=\"editemployee.jsp?employee_id="+rs.getString("employee_id")+"\" >แก้ไข</a></td>\n");
+          out.print("<td><a href=\"deletemployee.jsp?employee_id="+rs.getString("employee_id")+"\" >ลบ</a></td>\n");
        }
        out.println("</tr>");
       }
