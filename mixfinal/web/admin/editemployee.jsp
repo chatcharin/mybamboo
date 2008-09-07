@@ -12,7 +12,6 @@
       ResultSet rs=null;
       rs=stmt.executeQuery(sql); 
 %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <% if(rs.next()){ %>
@@ -72,15 +71,15 @@
         <td>
           <select name="sex">
            <option 
-           <% if(rs.getString("sex")=="ชาย")
+           <% if(rs.getString("sex").equals("ชาย"))
                 out.print("selected=\"selected\"");
            %>>ชาย</option>
             <option
-             <% if(rs.getString("sex")=="หญิง")
+             <% if(rs.getString("sex").equals("หญิง"))
                 out.print("selected=\"selected\"");
            %>>หญิง</option>
             <option
-             <% if(rs.getString("sex")=="เพศที่สาม")
+             <% if(rs.getString("sex").equals("เพศที่สาม"))
                 out.print("selected=\"selected\"");
            %>>เพศที่สาม</option>
            </select>
@@ -134,11 +133,11 @@
         <td>
           <select name="access">
           <option
-             <% if(rs.getString("access")=="Employee")
+             <% if(rs.getString("access").equals("Employee"))
                 out.print("selected=\"selected\"");
            %>>Employee</option>
           <option
-                <% if(rs.getString("access")=="Administrator")
+            <% if(rs.getString("access").equals("Administrator"))
                 out.print("selected=\"selected\"");
            %>>Administrator</option>
         </select></td>

@@ -8,31 +8,33 @@
      String passwd        = request.getParameter("passwd");
      String username      = request.getParameter("username");
      String sex           = request.getParameter("sex");
-     String status        = request.getParameter("status");
+     String access        = request.getParameter("access");
+     String address       = request.getParameter("address"); 
      String age           = request.getParameter("age");
      String idcard        = request.getParameter("idcard");
+     String tel           = request.getParameter("tel");
      Class.forName(driver);
      Connection con = DriverManager.getConnection(url, user, pw); 
      Statement stmt = con.createStatement();
      String sql;
-     if(status==null)
-       status="0";
      ResultSet rs=null;
      //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-     sql ="UPDATE  `customer` set "+
-          " `name`="+ name+
-          ", `lastname`='"+ lastname+
+     sql ="UPDATE  `employee` set "+
+          " `name`='"+ name+
+          "', `lastname`='"+ lastname+
           "', `passwd`='"+passwd+
-          "', `username`="+username+
-          ", `sex`="+sex+
-          ", `status`='"+status+
+          "', `username`='"+username+
+          "', `sex`='"+sex+
+          "', `access`='"+access+
+          "', `address`='"+address+
           "', `age`='"+age+
-          "', `idcard`="+idcard+
-          " where employee_id ="+ employee_id;
-   //  out.print(sql);
+          "', `tel`='"+tel+
+          "', `idcard`='"+idcard+ 
+          "' where employee_id ="+ employee_id;
+   //   out.print(sql);
      stmt.execute(sql);
      stmt.close();
      con.close();
 %>
-<jsp:forward page="index.jsp"></jsp:forward>
+<jsp:forward page="employeeview.jsp"></jsp:forward >
 <!-- ตรวจสอบ ว่า error หรือไม่  -->
