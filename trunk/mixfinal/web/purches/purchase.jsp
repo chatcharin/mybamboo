@@ -38,6 +38,9 @@
           <input name="radiobutton" type="radio" onclick="select_type_rice(1);" value="กข.15" />กข.15
           <input name="radiobutton" type="radio" onclick="select_type_rice(2);"  value="other" /> อื่น ๆ
           <input name="other" type="text" size="15" />
+          <input size="20" type="text"
+          style="display:none"
+          name="typeprice" />
         </td>
      </tr>
       <tr>
@@ -50,7 +53,11 @@
             <input name="radiobutton1" type="radio" onclick="select_type_rice(3)" value="radiobutton" />อื่น ๆ 
             <input name="other" type="text" size="10" />
           </span>
+          <input size="20" type="text"
+          style="display:none"
+          name="typepack" />
          </td>
+          
       </tr>
       <tr>
         <td valign="baseline" class="style22">น้ำหนัก :</td>
@@ -83,7 +90,8 @@
            <p align="right" class="style85">น้ำหนักรวม</p>
         </td>
         <td width="76" valign="baseline" class="style1">
-          <div id="allwieght"><input name="allwieght" disabled type="text" size="15" /></div>
+          <div id="allwieght">
+            <input name="allwieght" disabled type="text" size="15" /></div>
         </td>
         <td width="86" valign="baseline" class="style1">
           <p class="style48">กก.</p>
