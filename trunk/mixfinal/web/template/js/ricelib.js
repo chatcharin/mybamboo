@@ -1,25 +1,33 @@
 function mmLoadMenus() {
     if (window.menu_customer) return;
     window.menu_customer = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
-    menu_customer.addMenuItem("àÃÕÂ¡´Ù","location='view costomer.jsp'");
-    menu_customer.addMenuItem("à¾ÔèÁ","location='add costomer.jsp'");
-    menu_customer.addMenuItem("á¡éä¢","location='edit costomer.jsp'");
+    menu_customer.addMenuItem("ดูข้อมูลลูกค้า","location='customer/customerview.jsp'");
+    menu_customer.addMenuItem("เพิ่มลูกค้า","location='customer/createcustomer.jsp'");
+    menu_customer.addMenuItem("ค้นหา","location='customer/searchcustomer.jsp'");
     menu_customer.hideOnMouseOut=false;
     menu_customer.bgColor='#CC6600';
     menu_customer.menuBorder=1;
     menu_customer.menuLiteBgColor='#FFFFFF';
     menu_customer.menuBorderBgColor='#CC6600';
     window.menu_employee = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
-    menu_employee.addMenuItem("àÃÕÂ¡´Ù","location='view user.jsp'");
-    menu_employee.addMenuItem("à¾ÔèÁ","location='AddUser.jsp'");
-    menu_employee.addMenuItem("Åº","location='DelUser.jsp'");
-    menu_employee.addMenuItem("á¡éä¢","location='EditUser.jsp'");
+    menu_employee.addMenuItem("ดูข้อมูลพนักงาน","location='view user.jsp'");
+    menu_employee.addMenuItem("เพิ่มพนักงาน","location='AddUser.jsp'");
+    menu_employee.addMenuItem("ค้นหา","location='DelUser.jsp'");
     menu_employee.hideOnMouseOut=false;
     menu_employee.bgColor='#555555';
     menu_employee.menuBorder=1;
     menu_employee.menuLiteBgColor='#FFFFFF';
     menu_employee.menuBorderBgColor='#CC6600';
-    menu_employee.writeMenus();
+    window.menu_cop = new Menu("root",55,20,"Microsoft Sans Serif",14,"#CC6600","#FFFFFF","#FFFFFF","#CC6600","center","middle",3,0,0,-5,7,true,true,true,0,true,true);
+    menu_cop.addMenuItem("ดูข้อมูลโรงสี","location='view user.jsp'");
+    menu_cop.addMenuItem("เพิ่มโรงสี","location='AddUser.jsp'");
+    menu_cop.addMenuItem("ค้นหา","location='DelUser.jsp'");
+    menu_cop.hideOnMouseOut=false;
+    menu_cop.bgColor='#555555';
+    menu_cop.menuBorder=1;
+    menu_cop.menuLiteBgColor='#FFFFFF';
+    menu_cop.menuBorderBgColor='#CC6600';
+    menu_cop.writeMenus();
 }
 
 var type_rice;
