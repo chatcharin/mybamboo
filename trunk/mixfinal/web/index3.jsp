@@ -7,7 +7,13 @@
 if(pages==null){
 %>
 <jsp:include page="detail.jsp"></jsp:include>
-<%} else {%>
+<%}else if(pages.equals("purchase")) {%>
 <jsp:include page="purchase/purchase.jsp"></jsp:include>
+<%} else if(pages.equals("sale")) {%>
+<jsp:include page="sale/sale.jsp"></jsp:include>
+<%} else if(pages.equals("admin")){%>
+<jsp:include page="admin/check.jsp"></jsp:include>
+<%} else if(pages.equals("customer")) {%>
+<jsp:include page="customer/customerview.jsp"></jsp:include>
 <% } %>
 <%@ include file="template/footer.jsp"%> 
