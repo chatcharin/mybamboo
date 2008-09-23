@@ -1,9 +1,9 @@
 <!--%@ include file="ck_session_customer.jsp"% -->
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-    <td width="614" valign="top" bgcolor="#FFFFFF">
+    <td  valign="top" bgcolor="#FFFFFF">
       <form action="addcustomer.jsp">
-      <table width="578" height="536" border="0" align="center">
+      <table  height="536" border="0" >
       <tr>
         <td height="26" background="56235623.jpg">
           <div align="center" class="style66">ส่วนเพิมข้อมูลลูกค้า</div></td>
