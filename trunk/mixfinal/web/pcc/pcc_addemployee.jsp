@@ -26,7 +26,7 @@
  <table width="225" border="0" bordercolor="#CC6600" >
   <tr >
     <td  width="219">
-    <jsp:include page="../purchase/purchase.jsp" ></jsp:include>
+    <jsp:include page="../admin/createemployee.jsp" ></jsp:include>
 </table>
 </body>
 </html>
