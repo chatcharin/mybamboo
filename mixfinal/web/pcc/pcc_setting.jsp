@@ -9,7 +9,8 @@
 <body>
 <table width="225" border="0" bordercolor="#CC6600" >
   <tr>
-    <td width="219" height="64"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="225" height="60">
+    <td width="219" height="64">
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="225" height="60">
       <param name="movie" value="Movie1.swf" />
       <param name="quality" value="low" />
       <embed src="Movie1.swf" quality="low" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="225" height="60"></embed>
@@ -26,7 +27,7 @@
  <table width="225" border="0" bordercolor="#CC6600" >
   <tr >
     <td  width="219">
-    <jsp:include page="../purchase/purchase.jsp" ></jsp:include>
+    <jsp:include page="../admin/setting.jsp" ></jsp:include>
 </table>
 </body>
 </html>
