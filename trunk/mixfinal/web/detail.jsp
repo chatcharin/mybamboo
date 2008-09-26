@@ -1,10 +1,15 @@
 <%@page pageEncoding="UTF-8"%>
-<table width="813" border="2" align="center" bordercolor="#993300">  
-  <tr>
-      <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
-        <%@ include file="template/menu.jsp"%>
-      </td>
-      <td width="620" valign="top" bgcolor="#FFFFFF">
+         <div id="navcontainer">
+             <ul id="navlist">
+             <!-- CSS Tabs -->
+               <li><a href="home.html">Home</a></li>
+               <li><a href="products.html">Products</a></li>
+               <li id="active"><a id="current" href="services.html">Services</a></li>
+               <li><a href="support.html">Support</a></li>
+               <li><a href="order.html">Order</a></li>
+               <li><a href="about.html">About</a></li>
+             </ul>
+         </div>
           <table width="550" align="center">
           <tr>
              <td valign="top" background="image/56235623.jpg">
@@ -47,4 +52,4 @@
             <td><embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&Place=&DateFormat=yyyy+/+mm+/+dd+DDD&TimeFormat=hh:mm:ss+TT&"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed>
               &nbsp;</td>
           </tr>
-      </table></td>
+      </table>

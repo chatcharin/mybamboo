@@ -16,9 +16,18 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <% if(rs.next()){ %>
 <!--%@ include file="ck_session_customer.jsp"% -->
-    <td width="614" valign="top" bgcolor="#FFFFFF">
+      <div id="navcontainer">
+             <ul id="navlist">
+               <!-- CSS Tabs -->
+               <li><a href="index.jsp">หน้าแรก</a></li>
+               <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=viewcustomer">ดูข้อมูลลูกค้าทั้งหมด</a></li>
+               <li><a  href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
+               <li><a  href="index.jsp?pages=createcustomer">แก้ไขข้อมูล</a></li>
+             </ul>
+       </div>
       <form action="updatecustomer.jsp">
-      <table width="578" height="536" border="0" align="center">
+      <table  height="536" border="0" align="center">
       <tr>
         <td height="26" background="56235623.jpg">
           <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
@@ -174,8 +183,6 @@
       </tr>
     </table>
     </form>
-    </td>
-  </tr>
 <%
      }
     rs.close();

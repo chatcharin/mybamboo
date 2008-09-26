@@ -3,6 +3,12 @@
 <%  String  pages=null;
             pages= request.getParameter("pages"); %>
 <%@ include file="template/header.jsp"%>
+<table width="813" border="2" align="center" bordercolor="#993300">  
+  <tr>
+      <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
+        <%@ include file="template/menu.jsp"%>
+      </td>
+      <td width="620" valign="top" bgcolor="#FFFFFF">
 <%
 if(pages==null){
 %>
@@ -34,4 +40,5 @@ if(pages==null){
 <jsp:include page="customer/editcustomer.jsp"></jsp:include>
 <!-- End Customer View          -->
 <% } %>
+</td>
 <%@ include file="template/footer.jsp"%> 
