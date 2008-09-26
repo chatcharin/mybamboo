@@ -28,7 +28,7 @@
         </td>
         <td width="134">
             <span class="style43">
-                <a href="index3.jsp?pages=purchase">รับซื้อ</a>
+                <a href="index.jsp?pages=purchase">รับซื้อ</a>
             </span>
         </td>
     </tr>
@@ -42,7 +42,7 @@
         </td>
         <td>
             <span class="style43">
-                <a href="index3.jsp?pages=sale">ขายออก</a>
+                <a href="index.jsp?pages=sale">ขายออก</a>
             </span>
         </td>
     </tr>
@@ -51,7 +51,7 @@
                 <div align="center"><img src="template/image/i_member.gif" alt="x" width="16" height="16" /></div>
         </div></td>
         <td height="20"><span class="style43">
-          <a href="costomer.jsp" name="link3" id="link1" onmouseover="MM_showMenu(window.menu_customer,72,17,null,'link3')">ข้อมูลลูกค้า</a>
+          <a href="index.jsp?pages=customerview" name="link3" id="link1" onmouseover="MM_showMenu(window.menu_customer,72,17,null,'link3')">ข้อมูลลูกค้า</a>
           </span>
         </td>
     </tr>
