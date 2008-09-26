@@ -8,7 +8,7 @@
       <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
         <%@ include file="template/menu.jsp"%>
       </td>
-      <td width="620" valign="top" bgcolor="#FFFFFF">
+      <td width="620" align="center" valign="top" bgcolor="#FFFFFF">
 <%
 if(pages==null){
 %>
