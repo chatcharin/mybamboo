@@ -2,6 +2,16 @@
 <%@page pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="../config.jsp"%>
+         <div id="navcontainer">
+             <ul id="navlist">
+               <!-- CSS Tabs -->
+               <li><a href="index.jsp">หน้าแรก</a></li>
+               <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=viewcustomer">ดูข้อมูลลูกค้าทั้งหมด</a></li>
+               <li><a  href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
+               <li><a  href="index.jsp?pages=createcustomer">แก้ไขข้อมูล</a></li>
+             </ul>
+         </div>
 <%
     String pages=null;
            pages=request.getParameter("page");
