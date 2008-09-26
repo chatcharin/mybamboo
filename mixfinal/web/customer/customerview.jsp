@@ -7,7 +7,7 @@
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
                <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
-               <li id="active"><a id="current" href="index.jsp?pages=viewcustomer">ดูข้อมูลลูกค้าทั้งหมด</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=customerview">ดูข้อมูลลูกค้าทั้งหมด</a></li>
                <li><a  href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
                <li><a  href="index.jsp?pages=createcustomer">แก้ไขข้อมูล</a></li>
              </ul>
@@ -27,7 +27,7 @@
       limit="10";
     }
    //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-    sql="select * from employee limit "+pages+","+limit;
+    sql="select * from customer limit "+pages+","+limit;
     rs=stmt.executeQuery(sql);
     out.print("<table>" +
          "<tr>" +
@@ -47,7 +47,7 @@
       for(int i=0;i<30;i++){
         out.println("<tr>");
         if(rs.next()){
-          out.print("<td>" + rs.getString("employee_id") + "</td>\n" +
+          out.print("<td>" + rs.getString("customer_id") + "</td>\n" +
                     "<td>" + rs.getString("name") + "</td>\n" +
                     "<td>" + rs.getString("lastname") + "</td>\n" +
                     "<td>" + rs.getString("type") + "</td>\n" +

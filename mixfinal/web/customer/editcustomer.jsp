@@ -21,7 +21,7 @@
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
                <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
-               <li id="active"><a id="current" href="index.jsp?pages=viewcustomer">ดูข้อมูลลูกค้าทั้งหมด</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=customerview">ดูข้อมูลลูกค้าทั้งหมด</a></li>
                <li><a  href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
                <li><a  href="index.jsp?pages=createcustomer">แก้ไขข้อมูล</a></li>
              </ul>
