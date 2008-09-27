@@ -12,4 +12,4 @@
       stmt.close();
       con.close();
 %>
-<jsp:forward page="index.jsp"></jsp:forward>
+<jsp:forward page="../index.jsp?pages=customerview"></jsp:forward>

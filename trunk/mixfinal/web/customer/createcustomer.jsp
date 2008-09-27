@@ -1,17 +1,17 @@
 <!--%@ include file="ck_session_customer.jsp"% -->
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-         <div id="navcontainer" align="center">
+       <div id="navcontainer" align="center">
              <ul id="navlist">
-             <!-- CSS Tabs -->
+               <!-- CSS Tabs -->
                <li id="active"><a id="current" href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
-               <li ><a href="index.jsp?pages=customerview">ดูลูกค้าทั้งหมด</a></li>
-               <li><a  href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
+               <li><a href="index.jsp?pages=customerview">ดูลูกค้าทั้งหมด</a></li>
+               <li><a href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
              </ul>
-           </div>
+       </div>
       <br>
       <form action="addcustomer.jsp">
-      <table  height="536" border="0" >
+      <table  width="100%" height="536" border="0" >
       <tr>
         <td height="26" background="56235623.jpg">
           <div align="center" class="style66">ส่วนเพิมข้อมูลลูกค้า</div></td>
@@ -93,7 +93,6 @@
           </span>
         </td>
       </tr>
-      
       <tr>
         <td height="23"><span class="style23"></span></td>
         <td></td>
