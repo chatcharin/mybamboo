@@ -1,4 +1,4 @@
-<%@ page pageEncoding="windows-874" %>
+<%@ page pageEncoding="UTF-8" %>
 <%
 if((session.getAttribute("j_username")!=null)&&(session.getAttribute("status").equals("customer"))){
 %>

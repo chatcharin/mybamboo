@@ -100,7 +100,7 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 
 #navcontainer ul li a {
         background: #fff;
-        width: 82px;
+        width: 92px;
         height: 22px;
         border-top: 1px solid #f5d7b4;
         border-left: 1px solid #f5d7b4;
@@ -112,7 +112,7 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
         text-decoration: none;
         display: block;
         text-align: center;
-        font: normal 12px/20px "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;
+        font: normal 12px/20px "Microsoft Sans Serif", "Microsoft Sans Serif", verdana, lucida, sans-serif;
 }
 
 #navcontainer ul li a:hover {
@@ -140,7 +140,7 @@ table
 }
 #gradient-style
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-family: "Microsoft Sans Serife", "Microsoft Sans Serif", Sans-Serif;
 	font-size: 12px;
 	width: 100%;
 	text-align: left;
