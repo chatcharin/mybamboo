@@ -1,12 +1,22 @@
 <!--%@ include file="ck_session_customer.jsp"% -->
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-    <td width="614" valign="top" bgcolor="#FFFFFF">
-      <form action="addemployee.jsp">
+       <div id="navcontainer" align="center">
+             <ul id="navlist">
+               <!-- CSS Tabs -->
+               <li><a href="index.jsp">หน้าแรก</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=createemployee">สร้างข้อมูลผู้ใช้</a></li>
+               <li ><a href="index.jsp?pages=employeeview">ข้อมูลผู้ใช้ทั้งหมด</a></li>
+               <li><a href="#">ข้อมูลรายบุคคล</a></li>
+               <li><a href="#">แก้ไขข้อมูล</a></li>
+             </ul>
+       </div>
+      <br>
+      <form action="index.jsp">
       <table width="578" height="536" border="0" align="center">
       <tr>
         <td height="26" background="56235623.jpg">
-          <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
+          <div align="center" class="style66">ส่วนเพิ่มข้อมูลผู้ใช้</div></td>
           <td>
             <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
             </embed>
@@ -14,7 +24,8 @@
       </tr>
       <tr>
         <td height="26"></td>
-        <td></td>
+        <td><input style="display:none" type="text" name="add" value="1" />
+        <input style="display:none" type="text" name="pages" value="employeeview" /></td>
       </tr>
       <tr>
         <td height="23">
@@ -125,6 +136,4 @@
       </tr>
     </table>
     </form>
-    </td>
-  </tr>
   

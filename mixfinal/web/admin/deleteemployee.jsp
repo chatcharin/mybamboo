@@ -1,7 +1,8 @@
 <%@page pageEncoding="UTF-8"%>
-<%@ page import ="java.sql.*,java.util.*"%>
-<%@ include file="../config.jsp"%>
 <%
+      String delete = null;
+      delete = request.getParameter("delete");
+      if(delete!=null){
       String id = request.getParameter("employee_id");
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, pw);
@@ -11,5 +12,5 @@
       stmt.executeUpdate(sql);
       stmt.close();
       con.close();
+      }
 %>
-<jsp:forward page="index.jsp"></jsp:forward>

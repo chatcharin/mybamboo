@@ -16,8 +16,18 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <% if(rs.next()){ %>
 <!--%@ include file="ck_session_customer.jsp"% -->
-    <td width="614" valign="top" bgcolor="#FFFFFF">
-      <form action="updateemployee.jsp">
+     <div id="navcontainer" align="center">
+             <ul id="navlist">
+               <!-- CSS Tabs -->
+               <li><a href="index.jsp">หน้าแรก</a></li>
+               <li ><a href="index.jsp?pages=createemployee">สร้างข้อมูลผู้ใช้</a></li>
+               <li ><a href="index.jsp?pages=employeeview">ข้อมูลผู้ใช้ทั้งหมด</a></li>
+               <li><a href="#">ข้อมูลรายบุคคล</a></li>
+               <li id="active"><a  id="current" href="#">แก้ไขข้อมูล</a></li>
+             </ul>
+       </div>
+      <br>
+      <form action="index.jsp">
       <table width="578" height="536" border="0" align="center">
       <tr>
         <td height="26" background="56235623.jpg">
@@ -33,6 +43,10 @@
           style="display:none"
           name="employee_id"
           value="<% out.print(rs.getString("employee_id")); %>" />
+           <input size="10" type="text"
+          style="display:none"
+          name="update" value="1" />
+          <input style="display:none" type="text" name="pages" value="dataemployee" />
         </td>
         <td></td>
       </tr>
@@ -166,7 +180,7 @@
       </tr>
       <tr>
         <td height="23"></td>
-        <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="submit" name="Submit22" value="  ยกเลิก  " /></td>
+        <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="button" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
     </table>
     </form>
