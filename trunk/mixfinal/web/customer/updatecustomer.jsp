@@ -1,7 +1,8 @@
 <%@page pageEncoding="UTF-8"%>
-<%@ page import ="java.sql.*,java.util.*"%>
-<%@ include file="../config.jsp"%> 
 <%
+     String update = null;
+     update = request.getParameter("update");
+     if(update!=null){
      String customer_id   = request.getParameter("customer_id");
      String name          = request.getParameter("name");
      String lastname      = request.getParameter("lastname");
@@ -35,6 +36,5 @@
      stmt.execute(sql);
      stmt.close();
      con.close();
+     }
 %>
-<jsp:forward page="customerview.jsp"></jsp:forward >
-<!-- ตรวจสอบ ว่า error หรือไม่  -->

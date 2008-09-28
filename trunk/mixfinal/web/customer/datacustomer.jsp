@@ -2,6 +2,7 @@
 <%@page pageEncoding="UTF-8"%>  
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="../config.jsp" %>
+<%@ include file="updatecustomer.jsp" %>
 <% 
       String id = request.getParameter("customer_id");
       Class.forName(driver);
@@ -21,9 +22,9 @@
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
                <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
-               <li ><a href="index.jsp?pages=customerview">ดูข้อมูลลูกค้าทั้งหมด</a></li>
-               <li id="active"><a id="current" href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
-               <li><a  href="index.jsp?pages=createcustomer">แก้ไขข้อมูล</a></li>
+               <li ><a href="index.jsp?pages=customerview">ข้อมูลลูกค้าทั้งหมด</a></li>
+               <li id="active"><a id="current" href="#">ข้อมูลรายบุคคล</a></li>
+               <li><a  href="#">แก้ไขข้อมูล</a></li>
              </ul>
        </div>
        <br>
