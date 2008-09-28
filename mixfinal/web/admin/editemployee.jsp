@@ -31,7 +31,7 @@
       <table width="578" height="536" border="0" align="center">
       <tr>
         <td height="26" background="56235623.jpg">
-          <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
+          <div align="center" class="style66">แก้ไขข้อมูลผู้ใช้</div></td>
           <td>
             <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
             </embed>
