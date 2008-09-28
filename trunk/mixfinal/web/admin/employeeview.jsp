@@ -37,10 +37,7 @@
          "<th>ชื่อ</th>" +
          "<th>นามสกุล</th>" +
          "<th>ชื่อผู้ใช้</th>" +
-         "<th>รหัสผ่าน</th>" +
-         "<th>เพศ</th>" +
-         "<th>อายุ</th>" +
-         "<th>รหัสบัตรประชาชน</th>" +
+         "<th>สถานะ</th>" +
          "<th>ดูข้อมูล</th>" +
          "<th>แก้ไข</th>" +
          "<th>ลบ</th>" +
@@ -52,14 +49,10 @@
                     "<td>" + rs.getString("name") + "</td>\n" +
                     "<td>" + rs.getString("lastname") + "</td>\n" +
                     "<td>" + rs.getString("username") + "</td>\n" +
-                    "<td>" + rs.getString("passwd") + "</td>\n" +
-                    "<td>" + rs.getString("sex") + "</td>\n" +
-                //    "<td>" + rs.getString("access") + "</td>\n" +
-                    "<td>" + rs.getString("age") + "</td>\n" +
-                    "<td>" + rs.getString("idcard") + "</td>\n");
+                    "<td>" + rs.getString("access") + "</td>\n");
           out.print("<td><a href=\"index.jsp?pages=dataemployee&employee_id="+rs.getString("employee_id")+"\" >ดูข้อมูล</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=editemployee&employee_id="+rs.getString("employee_id")+"\" >แก้ไข</a></td>\n");
-          out.print("<td><a href=\"index.jsp?pages=employeeview&employee_id="+rs.getString("employee_id")+"\" >ลบ</a></td>\n");
+          out.print("<td><a href=\"index.jsp?pages=employeeview&delete=1&employee_id="+rs.getString("employee_id")+"\" >ลบ</a></td>\n");
        }
        out.println("</tr>");
       }
@@ -69,6 +62,7 @@
 <tfoot>
     	<tr>
         	<td colspan="4" class="rounded-foot-left"><em>The above data were fictional and made up, please do not sue me</em></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td class="rounded-foot-right">&nbsp;</td>
