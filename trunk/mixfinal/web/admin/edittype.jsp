@@ -2,6 +2,16 @@
 <%@page pageEncoding="UTF-8"%>  
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="config.jsp" %>
+    <div id="navcontainer" align="center">
+             <ul id="navlist">
+               <!-- CSS Tabs -->
+               <li><a href="index.jsp">หน้าแรก</a></li>
+               <li ><a href="index.jsp?pages=createemployee">สร้างชนิดข้าว</a></li>
+               <li><a  href="index.jsp?pages=employeeview">ข้อมูลชนิดข้าว</a></li>
+               <li id="active"><a id="current" href="#">แก้ไขข้อมูล</a></li>
+             </ul>
+       </div>
+       <br>
 <% 
       String id = request.getParameter("id_rice");
       Class.forName(driver);
@@ -16,12 +26,11 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <% if(rs.next()){ %>
 <!--%@ include file="ck_session_customer.jsp"% -->
-    <td width="614" valign="top" bgcolor="#FFFFFF">
       <form action="updateprice.jsp">
-      <table width="578" height="536" border="0" align="center">
+      <table width="100%" border="0" >
       <tr>
         <td height="26" background="56235623.jpg">
-          <div align="center" class="style66">แก้ไขราคา</div></td>
+          <div align="center" class="style66">แก้ไขข้อมูล</div></td>
           <td>
             <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
             </embed>
@@ -63,16 +72,13 @@
           value="<% out.print(rs.getString("price")); %>"/>
           <span class="style45">บาท</span>
         </td>
-      </tr>
-      
+      </tr>    
       <tr>
         <td height="23"></td>
         <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="submit" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
     </table>
     </form>
-    </td>
-  </tr>
 <%
      }
     rs.close();
