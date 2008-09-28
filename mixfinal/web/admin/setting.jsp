@@ -6,8 +6,8 @@
              <ul id="navlist">
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
-               <li ><a href="index.jsp?pages=createemployee">สร้างชนิดข้าว</a></li>
-               <li id="active"><a id="current" href="index.jsp?pages=employeeview">ข้อมูลชนิดข้าว</a></li>
+               <li ><a href="index.jsp?pages=createetype">สร้างชนิดข้าว</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=setting">ข้อมูลชนิดข้าว</a></li>
                <li><a href="#">แก้ไขข้อมูล</a></li>
              </ul>
        </div>
