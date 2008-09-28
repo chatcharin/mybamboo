@@ -1,7 +1,7 @@
 <%@page pageEncoding="UTF-8"%>
 <table width="174" border="2" align="center" bordercolor="#990000">
     <tr>
-        <td colspan="2" style="background:url('../template/image/rice.jpg');" bgcolor="#C891FF">
+        <td colspan="2" background="template/image/rice.jpg" bgcolor="#C891FF">
             <div align="center" class="style54">Menu</div>
         </td>
     </tr>
@@ -51,28 +51,14 @@
                 <div align="center"><img src="template/image/i_member.gif" alt="x" width="16" height="16" /></div>
         </div></td>
         <td height="20"><span class="style43">
-          <a href="index.jsp?pages=customerview" name="link3" id="link1" onmouseover="MM_showMenu(window.menu_customer,72,17,null,'link3')">ข้อมูลลูกค้า</a>
+          <a href="index.jsp?pages=customerview" name="link3" id="link1" >ข้อมูลลูกค้า</a>
           </span>
         </td>
     </tr>
     <tr>
         <td><div align="center"><img src="template/image/faq_sm.gif" width="16" height="16" /></div></td>
-        <td><a href="User.jsp" name="link5" class="style43" id="link2" onmouseover="MM_showMenu(window.menu_employee,64,17,null,'link5')">
-          <span class="style23">ข้อมูลผู้ใช</span>é</a></td>
-    </tr>
-    <tr>
-        <td>
-          <div align="center" class="style18">
-                <div align="center">
-                   <img src="template/image/f_menu.gif" width="10" height="16" />
-                </div>
-          </div>
-        </td>
-        <td>
-          <span class="style43">
-              <a href="ricemaill.jsp" onmouseover="MM_showMenu(window.menu_cop,72,17,null,'link3')">ข้อมูลโรงสี</a>
-          </span>
-        </td>
+        <td><a href="index.jsp?pages=employeeview" name="link5" class="style43" id="link2" >
+          <span class="style23">ข้อมูลผู้ใช้</span></a></td>
     </tr>
     <tr>
         <td>
@@ -84,7 +70,7 @@
         </td>
         <td>
             <span class="style43">
-                <a href="seting.jsp">ปรับเปลี่ยนค่า</a>
+                <a href="index.jsp?pages=setting">ปรับเปลี่ยนค่า</a>
                 </span>
         </td>
     </tr>
@@ -95,7 +81,7 @@
             </div>
         </td>
         <td class="style43">
-            <a href="check.jsp">ตรวจสอบสต๊อก</a>
+            <a href="index.jsp?pages=check">ตรวจสอบสต๊อก</a>
         </td>
     </tr>
 </table>
@@ -227,7 +213,7 @@
             <div align="center">
                 <span class="style1"><img src="template/image/email52.gif" alt="x" width="150" height="42" border="0" />
                     <a href="mailto:jed-sada@windowslive.com"><br />
-                       <span class="style43">[[[ &#3605;&#3636;&#3604;&#3605;&#3656;&#3629;&#3648;&#3619;Ò ]]]</span>
+                       <span class="style43">[[[ ติดต่อเรา ]]]</span>
                     </a>
                 </span>
             </div>

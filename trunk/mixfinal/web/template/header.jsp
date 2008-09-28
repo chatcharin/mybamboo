@@ -1,7 +1,7 @@
-<%@page pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8"  %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <title>เจษฎารุ่งเรือง</title>
    <link rel="stylesheet" href="template/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
    <script type="text/javascript" src="template/js/prototype.js"></script>
