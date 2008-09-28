@@ -32,7 +32,7 @@
     sql="select * from employee limit "+pages+","+limit;
     rs=stmt.executeQuery(sql);
     out.print("<table id=\"gradient-style\" width=\"100%\">" +
-         "<tr>" +
+         "<thead><tr>" +
          "<th>รหัส</th>" +
          "<th>ชื่อ</th>" +
          "<th>นามสกุล</th>" +
