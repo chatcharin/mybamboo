@@ -21,13 +21,13 @@
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
                <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
-               <li id="active"><a id="current" href="index.jsp?pages=customerview">ดูข้อมูลลูกค้าทั้งหมด</a></li>
-               <li><a  href="index.jsp?pages=personview">ดูข้อมูลรายบุคคล</a></li>
-               <li><a  href="index.jsp?pages=createcustomer">แก้ไขข้อมูล</a></li>
+               <li ><a href="index.jsp?pages=customerview">ข้อมูลลูกค้าทั้งหมด</a></li>
+               <li ><a  href="#">ข้อมูลรายบุคคล</a></li>
+               <li id="active"><a id="current" href="#">แก้ไขข้อมูล</a></li>
              </ul>
        </div>
        <br>
-      <form action="updatecustomer.jsp">
+      <form action="index.jsp">
       <table width="100%"  height="536" border="0" >
       <tr>
         <td height="26" background="56235623.jpg">
@@ -39,10 +39,14 @@
       </tr>
       <tr>
         <td height="26">
-          <input size="20" type="text"
+          <input size="15" type="text"
           style="display:none"
           name="customer_id"
           value="<% out.print(rs.getString("customer_id")); %>" />
+          <input size="10" type="text"
+          style="display:none"
+          name="update" value="1" />
+          <input style="display:none" type="text" name="pages" value="customerview" />
         </td>
         <td></td>
       </tr>
@@ -180,7 +184,7 @@
       </tr>
       <tr>
         <td height="23"></td>
-        <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="submit" name="Submit22" value="  ยกเลิก  " /></td>
+        <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="button" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
     </table>
     </form>
