@@ -1,7 +1,8 @@
-<%@ page import ="java.sql.*,java.util.*"%>
-<%@ include file="config.jsp"%>
 <%@page pageEncoding="UTF-8"%>
 <%
+      String add = null;
+      add = request.getParameter("add");
+      if(add!=null){
       String name = request.getParameter("name");
       String lastname = request.getParameter("lastname");
       String age = request.getParameter("age");
@@ -30,5 +31,5 @@
       stmt.executeUpdate(sql);
       stmt.close();
       con.close();
+      }
   %>
-  <jsp:forward page="employeeview.jsp"></jsp:forward>
