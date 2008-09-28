@@ -11,11 +11,6 @@
                <li><a href="#">แก้ไขข้อมูล</a></li>
              </ul>
        </div>
-      <table width="100%">
-      <tr>
-        <td width="202" background="56235623.jpg"><div align="center"><span class="style66">&#3626;&#3656;&#3623;&#3609;&#3585;&#3634;&#3619;&#3649;&#3585;&#3657;&#3652;&#3586;&#3586;&#3657;&#3629;&#3617;&#3641;&#3621;&#3650;&#3611;&#3619;&#3649;&#3585;&#3619;&#3617;</span></div></td>
-        <td width="336"><embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed></td>
-      </tr>
 <%
     Class.forName(driver);
     Connection con=DriverManager.getConnection(url,user,pw);
@@ -25,13 +20,13 @@
     sql="select * from riceprice ";
     rs=stmt.executeQuery(sql);
     out.print("<table id=\"gradient-style\" width=\"100%\">" +
-         "<tr>" +
+         "<thead><tr>" +
          "<th>รหัส</th>" +
          "<th>ชื่อ</th>" +
          "<th>คำอธิบาย</th>" +
          "<th>ราคา</th>" +
          "<th>แก้ไข</th>" +
-         "</tr>");
+         "</tr></thead><tbody>");
       for(int i=0;i<30;i++){
         out.println("<tr>");
         if(rs.next()){
@@ -43,8 +38,14 @@
        }
        out.println("</tr>");
       }
-    out.println("</table>");
+    out.println("</tbody>");
             //page next 1 2 3 4 ....
 
 %>
-    </td>
+<tfoot>
+    	<tr>
+        	<td colspan="4" class="rounded-foot-left"><em>The above data were fictional and made up, please do not sue me</em></td>
+                <td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+</table>
