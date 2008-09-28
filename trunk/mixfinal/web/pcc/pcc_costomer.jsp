@@ -15,8 +15,8 @@
       <embed src="Movie1.swf" quality="low" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="225" height="60"></embed>
     </object></td>
   </tr>
-  <tr>
-    <td background="56235623.jpg">
+    <tr>
+     <td background="56235623.jpg">
       <div align="center" class="style23">
         <span class="style39">&#3626;&#3656;&#3623;&#3609;&#3591;&#3634;&#3609;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;</span>
       </div>
