@@ -32,7 +32,7 @@
       <table width="578" height="536" border="0" align="center">
       <tr>
         <td height="26" background="56235623.jpg">
-          <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
+          <div align="center" class="style66">ข้อมูลผู้ใช้</div></td>
           <td>
             <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
             </embed>
@@ -56,8 +56,7 @@
           <div align="right" class="style45">ชื่อ</div>
         </td>
         <td>
-          <input type="text" name="name"
-          value="<% out.print(rs.getString("name")); %>" />
+          <% out.print(rs.getString("name")); %>
         </td>
       </tr>
       <tr>
@@ -65,18 +64,15 @@
           <div align="right" class="style45">นามสกุล</div>
           </td>
         <td>
-          <input type="text" name="lastname"
-          value="<% out.print(rs.getString("lastname")); %>" />
-          </td>
+          <% out.print(rs.getString("lastname")); %>
+        </td>
       </tr>
       <tr>
         <td height="23">
           <div align="right" class="style45">อายุ</div>
           </td>
         <td>
-          <input name="age" type="text" size="2"
-          value="<% out.print(rs.getString("age")); %>"/>
-          <span class="style45">ปี</span>
+         <% out.print(rs.getString("age")); %>
         </td>
       </tr>
       <tr>
@@ -84,20 +80,7 @@
           <div align="right" class="style45">เพศ</div>
         </td>
         <td>
-          <select name="sex">
-           <option 
-           <% if(rs.getString("sex").equals("ชาย"))
-                out.print("selected=\"selected\"");
-           %>>ชาย</option>
-            <option
-             <% if(rs.getString("sex").equals("หญิง"))
-                out.print("selected=\"selected\"");
-           %>>หญิง</option>
-            <option
-             <% if(rs.getString("sex").equals("เพศที่สาม"))
-                out.print("selected=\"selected\"");
-           %>>เพศที่สาม</option>
-           </select>
+             <%out.print(rs.getString("sex")); %>
         </td>
       </tr>
       <tr>
@@ -105,11 +88,7 @@
           <div align="right" class="style45">ที่อยู่</div>
         </td>
         <td>
-          <span class="style30">
-            <textarea name="address" rows="4" cols="20">
              <% out.print(rs.getString("address")); %> 
-            </textarea>
-          </span>
         </td>
       </tr>
       <tr>
@@ -119,19 +98,15 @@
             </div>
           </td>
         <td>
-          <input type="text" name="tel"
-          value="<% out.print(rs.getString("tel")); %>" />
+          <% out.print(rs.getString("tel")); %>
         </td>
       </tr>
       <tr>
         <td height="23">
           <div align="right" class="style45">หมายเลขบัตรประจำตัวประชาชน</div>
-          </td>
+        </td>
         <td>
-          <span class="style30">
-          <input name="idcard" type="text" maxlength="13"
-          value="<% out.print(rs.getString("idcard")); %>" />
-          </span>
+          <% out.print(rs.getString("idcard")); %>
         </td>
       </tr>
       
@@ -142,46 +117,31 @@
         <td></td>
       </tr>
       <tr>
-        <td height="23">
+         <td height="23">
           <div align="right" class="style45">ระดับการเข้าถึงข้อมูล</div>
+         </td>
+         <td>
+            <% out.print(rs.getString("access")); %>
         </td>
-        <td>
-          <select name="access">
-          <option
-             <% if(rs.getString("access").equals("Employee"))
-                out.print("selected=\"selected\"");
-           %>>Employee</option>
-          <option
-            <% if(rs.getString("access").equals("Administrator"))
-                out.print("selected=\"selected\"");
-           %>>Administrator</option>
-        </select></td>
       </tr>
       <tr>
         <td height="23">
           <div align="right" class="style45">Username : </div>
         </td>
         <td>
-          <input type="text" name="username" 
-           value="<% out.print(rs.getString("username")); %>" />
+          <% out.print(rs.getString("username")); %>
         </td>
       </tr>
       <tr>
         <td height="23">
           <div align="right" class="style45">Password : </div>
         </td>
-        <td>
-          <input type="password" name="passwd" 
-           value="<% out.print(rs.getString("passwd")); %>"/>
+        <td><% out.print(rs.getString("passwd")); %>
         </td>
       </tr>
       <tr>
         <td height="23"></td>
         <td></td>
-      </tr>
-      <tr>
-        <td height="23"></td>
-        <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="button" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
     </table>
     </form>
