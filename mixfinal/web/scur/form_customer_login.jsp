@@ -1,11 +1,10 @@
 <%@ page pageEncoding="UTF-8" %>
     <form method="post" action="customer_login.jsp"> 
     <tr> 
-      <td  background="image/rice.jpg" bgcolor="#C891FF"><center> 
-          <font color="#FFFFF">
-            <b>USER LOGIN </b> 
-        </font>
-        </center> 
+      <td  background="template/image/rice.jpg" bgcolor="#C891FF">
+        <div align="center" class="style54">
+          user login
+        </div> 
       </td> 
     </tr> 
     <tr> 
@@ -13,7 +12,7 @@
     </tr> 
     <tr> 
       <td><div align="center"> 
-          <input name="j_username" type="text" id="j_username" size="20">
+          <input name="j_username" type="text" id="j_username" size="15">
         </div></td> 
     </tr> 
     <tr> 
@@ -21,7 +20,7 @@
     </tr> 
     <tr> 
       <td><div align="center"> 
-          <input name="j_password" type="password" id="j_password" size="20">
+          <input name="j_password" type="password" id="j_password" size="15">
         </div></td> 
     </tr> 
     <tr> 
