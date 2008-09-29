@@ -17,7 +17,7 @@ if(pages==null){
 <jsp:include page="purchase/purchase.jsp"></jsp:include>
 <%} else if(pages.equals("sale")) {%>
 <jsp:include page="sale/sale.jsp"></jsp:include>
-<%} else if(pages.equals("admin")){%>
+<%} else if(pages.equals("check")){%>
 <jsp:include page="admin/check.jsp"></jsp:include>
 <!-- Admin page connection                   -->
 <%} else if(pages.equals("addemployee")){%>
@@ -30,6 +30,10 @@ if(pages==null){
 <jsp:include page="admin/edittype.jsp"></jsp:include>
 <%} else if(pages.equals("employeeview")){%>
 <jsp:include page="admin/employeeview.jsp"></jsp:include>
+<%} else if(pages.equals("editemployee")){%>
+<jsp:include page="admin/editemployee.jsp"></jsp:include>
+<%} else if(pages.equals("dataemployee")){%>
+<jsp:include page="admin/dataemployee.jsp"></jsp:include>
 <!-- End Admin   -->
 <!-- Customer Connection View    -->
 <%} else if(pages.equals("customerview")) {%>
@@ -41,6 +45,8 @@ if(pages==null){
 <%} else if(pages.equals("datacustomer")) {%>
 <jsp:include page="customer/datacustomer.jsp"></jsp:include>
 <!-- End Customer View          -->
+<%} else if(pages.equals("accountview")) {%>
+<jsp:include page="account/accountview.jsp"></jsp:include>
 <% } %>
 </td>
 <%@ include file="template/footer.jsp"%> 
