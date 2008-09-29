@@ -3,35 +3,29 @@
      String update = null;
      update = request.getParameter("update");
      if(update!=null){
+     String account_id   = request.getParameter("account_id");
+     String buy           = request.getParameter("buy");
+     String sale          = request.getParameter("sale");
+     String account_date  = request.getParameter("account_date");
+     String weight        = request.getParameter("weight");
      String customer_id   = request.getParameter("customer_id");
-     String name          = request.getParameter("name");
-     String lastname      = request.getParameter("lastname");
-     String car           = request.getParameter("car");
-     String idcar         = request.getParameter("idcar");
-     String sex           = request.getParameter("sex");
-     String type          = request.getParameter("type");
-     String address       = request.getParameter("address"); 
-     String age           = request.getParameter("age");
-     String idcard        = request.getParameter("idcard");
-     String tel           = request.getParameter("tel");
+     String employee_id   = request.getParameter("employee_id");
+     String store_id      = request.getParameter("store_id"); 
      Class.forName(driver);
      Connection con = DriverManager.getConnection(url, user, pw); 
      Statement stmt = con.createStatement();
      String sql;
      ResultSet rs=null;
      //ตรวจสอบ username และ password ว่ามีอยู่จริงหรือไม่
-     sql ="UPDATE  `customer` set "+
-          " `name`='"+ name+
-          "', `lastname`='"+ lastname+
-          "', `sex`='"+sex+
-          "', `age`='"+age+
-          "', `address`='"+address+
-          "', `type`='"+type+
-          "', `car`='"+car+
-          "', `idcar`='"+idcar+
-          "', `tel`='"+tel+
-          "', `idcard`='"+idcard+ 
-          "' where customer_id ="+ customer_id;
+     sql ="UPDATE  `account` set "+
+          " `buy`="+ buy+
+          ", `sale`="+ sale+
+          ", `account_date`='"+account_date+
+          "', `weight`="+weight+
+          ", `customer_id`="+customer_id+
+          ", `employee_id`="+employee_id+
+          ", `store_id`="+store_id+
+          " where customer_id ="+ account_id;
    //   out.print(sql);
      stmt.execute(sql);
      stmt.close();
