@@ -7,7 +7,7 @@
              <ul id="navlist">
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
-               <li id="active"><a id="current" href="index.jsp?pages=customerview">บัญชีซื้อขายทั้งหมด</a></li>
+               <li id="active"><a id="current" href="index.jsp?pages=accountview">บัญชีซื้อขายทั้งหมด</a></li>
                <li><a href="#">รายละเอียดบัญชี</a></li>
                <li><a  href="#">แก้ไขข้อมูล</a></li>
              </ul>
@@ -61,7 +61,7 @@
           out.print("<td><a href=\"index.jsp?pages=datacustomer&customer_id="+rs.getString("customer_id")+"\" >"+rs.getString("customer_id")+"</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=dataemployee&employee_id="+rs.getString("employee_id")+"\" >"+rs.getString("employee_id")+"</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=datastore&store_id="+rs.getString("store_id")+"\" >"+rs.getString("store_id")+"</a></td>\n");
-          out.print("<td><a href=\"index.jsp?pages=dataacount&account_id="+rs.getString("account_id")+"\" >ดูข้อมูล</a></td>\n");
+          out.print("<td><a href=\"index.jsp?pages=dataaccount&account_id="+rs.getString("account_id")+"\" >ดูข้อมูล</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=editaccount&account_id="+rs.getString("account_id")+"\" >แก้ไข</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=accountview&delete=1&account_id="+rs.getString("account_id")+"\" >ลบ</a></td>\n");
         }
