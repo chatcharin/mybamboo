@@ -2,14 +2,13 @@
 <%@page pageEncoding="UTF-8"%>  
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="../config.jsp" %>
-<%@ include file="updatecustomer.jsp" %>
 <% 
-      String id = request.getParameter("customer_id");
+      String id = request.getParameter("account_id");
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, pw);
       Statement stmt = con.createStatement();
       String sql;
-      sql ="select * from customer where customer_id="+id;
+      sql ="select * from account where account_id="+id;
       ResultSet rs=null;
       rs=stmt.executeQuery(sql); 
 %>
@@ -21,17 +20,17 @@
              <ul id="navlist">
                <!-- CSS Tabs -->
                <li><a href="index.jsp">หน้าแรก</a></li>
-               <li><a href="index.jsp?pages=createcustomer">สร้างข้อมูลลูกค้า</a></li>
-               <li ><a href="index.jsp?pages=customerview">ข้อมูลลูกค้าทั้งหมด</a></li>
-               <li id="active"><a id="current" href="#">ข้อมูลรายบุคคล</a></li>
-               <li><a  href="#">แก้ไขข้อมูล</a></li>
+               <li><a href="index.jsp?pages=accountview">บัญชีซื้อขายทั้งหมด</a></li>
+               <li id="active"><a id="current" href="#">รายละเอียดบัญชี</a></li>
+               <li><a href="#">แก้ไขข้อมูล</a></li>
              </ul>
        </div>
-       <br>
-      <table width="100%"  height="536" border="0" >
+       <br>  
+      <table width="100%" border="0" >
+      <form action="index.jsp">
       <tr>
         <td height="26" background="56235623.jpg">
-          <div align="center" class="style66">ข้อมูลผู้ใช้</div></td>
+          <div align="center" class="style66">แก้ไขบัญชี</div></td>
           <td>
             <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash">
             </embed>
@@ -39,113 +38,84 @@
       </tr>
       <tr>
         <td height="26">
-          <input size="20" type="text"
+          <input size="15" type="text"
           style="display:none"
-          name="customer_id"
-          value="<% out.print(rs.getString("customer_id")); %>" />
+          name="account_id"
+          value="<% out.print(rs.getString("account_id")); %>" />
+          <input size="10" type="text"
+          style="display:none"
+          name="update" value="1" />
+          <input style="display:none" type="text" name="pages" value="accountview" />
         </td>
         <td></td>
       </tr>
       <tr>
         <td height="23">
-          <div align="right" class="style45">ชื่อ</div>
+          <div align="right" class="style45">ซื้อ</div>
         </td>
         <td>
-              <% out.print(rs.getString("name")); %>
+         <% out.print(rs.getDouble("buy")); %>
         </td>
       </tr>
       <tr>
         <td height="23">
-          <div align="right" class="style45">นามสกุล</div>
+          <div align="right" class="style45">ขาย</div>
           </td>
         <td>
-        <% out.print(rs.getString("lastname")); %>
-         </td>
-      </tr>
-      <tr>
-        <td height="23">
-          <div align="right" class="style45">อายุ</div>
+           <% out.print(rs.getDouble("sale")); %>
           </td>
-        <td>
-          <% out.print(rs.getString("age")); %>
-          <span class="style45">ปี</span>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">วันที่</div>
+          </td>
+        <td><% 
+          try{
+          out.print(rs.getDate("account_date")); 
+          }catch(Exception e){
+          out.print("0000-00-00"); 
+          }%>
         </td>
       </tr>
       <tr>
         <td height="23">
-          <div align="right" class="style45">เพศ</div>
+          <div align="right" class="style45">น้ำหนัก</div>
         </td>
         <td>
-             <%  out.print(rs.getString("sex"));%>
-        </td>
-      </tr>
-      <tr>
-        <td height="23">
-          <div align="right" class="style45">ที่อยู่</div>
-        </td>
-        <td>
-          <span class="style30">
-             <% out.print(rs.getString("address")); %> 
-          </span>
+         <% out.print(rs.getDouble("weight")); %>
         </td>
       </tr>
       <tr>
         <td height="23">
           <div align="right" class="style23">
-            <span class="style51">เบอร์โทรศัพท์</span>
+            <span class="style51">รหัสลูกค้า</span>
+            </div>
+        </td>
+        <td>
+          <% out.print(rs.getInt("customer_id")); %>
+        </td>
+      </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style23">
+            <span class="style51">รหัสพนักงาน</span>
             </div>
           </td>
         <td>
-          <% out.print(rs.getString("tel")); %>
+          <% out.print(rs.getString("employee_id")); %>
         </td>
       </tr>
       <tr>
         <td height="23">
-          <div align="right" class="style45">หมายเลขบัตรประจำตัวประชาชน</div>
+          <div align="right" class="style45">รหัสคลังสินค้า</div>
           </td>
         <td>
           <span class="style30">
-          <% out.print(rs.getString("idcard")); %>"
+          <% out.print(rs.getString("store_id")); %>
           </span>
         </td>
       </tr>
-      
-      <tr>
-        <td height="23">
-          <span class="style23"></span>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td height="23">
-          <div align="right" class="style45">ชนิดลูกค้า</div>
-        </td>
-        <td>
-            <% 
-                out.print(rs.getString("type"));
-           %>
-        </td>
-      </tr>
-      <tr>
-        <td height="23">
-          <div align="right" class="style45">รถ</div>
-        </td>
-        <td>
-          <% out.print(rs.getString("car")); %>
-        </td>
-      </tr>
-      <tr>
-        <td height="23">
-          <div align="right" class="style45">idcar</div>
-        </td>
-        <td>
-         <% out.print(rs.getString("idcar")); %>           
-        </td>
-      </tr>
-      <tr>
-        <td height="23"></td>
-        <td></td>
-      </tr>
+      </form>
     </table>
 <%
      }
