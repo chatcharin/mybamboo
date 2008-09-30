@@ -61,6 +61,11 @@
           <span class="style23">ข้อมูลผู้ใช้</span></a></td>
     </tr>
     <tr>
+        <td><div align="center"><img src="template/image/f_menu.gif" width="16" height="16" /></div></td>
+        <td><a href="index.jsp?pages=accountview" name="link5" class="style43" id="link2" >
+          <span class="style23">ข้อมูลบัญชี</span></a></td>
+    </tr>
+    <tr>
         <td>
             <div align="center" class="style18">
                 <div align="center">

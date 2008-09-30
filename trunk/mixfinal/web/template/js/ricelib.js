@@ -34,6 +34,7 @@ var type_rice;
 var unit_pack;
 var pack_wieght;
 var wieght;
+var defaults=3;
 
 function select_type_rice(type){
     type_rice = price[type];
@@ -54,6 +55,7 @@ function caculate(id){
 }
 
 function clean(id){
+    index_value=0;
     $(id).reset();
 }
 
@@ -92,7 +94,21 @@ function buy_onsave(id){
                         onComplete:printbuy
                     } );
 }
+  function addkey(e){
+     if(e.keyCode==32)
+       addValue('purchase');
+ }
 
+var index_value = new Number();
+function addValue(id){
+    var form  = $(id);
+    var text  = form.getInputs('text');
+    var addtext  = form.getInputs('text');
+    index_value ++;
+    addtext[index_value+defaults+20].value = Number(text[defaults].value);
+    text[defaults].value= '';
+    text[defaults-1].value=index_value;
+}
 function sale_onsave(id){
     var url   = 'sale/addsale.jsp';
     var form  = $(id);
