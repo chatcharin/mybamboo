@@ -12,8 +12,8 @@
              </ul>
        </div>
       <br>
-      <form action="index.jsp" >
       <table  width="100%" height="536" border="0" >
+      <form action="index.jsp" >
       <tr>
         <td height="26" background="56235623.jpg">
           <div align="center" class="style66">ส่วนเพิมข้อมูลลูกค้า</div></td>
@@ -134,5 +134,6 @@
         <td height="23"></td>
         <td><input type="submit" name="Submit" value="  ยืนยัน  " /> <input type="submit" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
-    </table>
-    </form>
+      </form>
+    </table>   
+ 
