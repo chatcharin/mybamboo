@@ -5,7 +5,6 @@
    <title>เจษฎารุ่งเรือง</title>
    <link rel="stylesheet" href="template/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8" />
    <script type="text/javascript" src="template/js/prototype.js"></script>
-   <script src="template/type.jsp" type="text/javascript"></script>
    <script type="text/javascript" src="template/js/mm_menu.js"></script>
    <script type="text/javascript" src="template/js/ricelib.js"></script>
 </head>
