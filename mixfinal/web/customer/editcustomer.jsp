@@ -27,8 +27,9 @@
              </ul>
        </div>
        <br>
-      <form action="index.jsp">
+      
       <table width="100%"  height="536" border="0" >
+      <form action="index.jsp">
       <tr>
         <td height="26" background="56235623.jpg">
           <div align="center" class="style66">ส่วนเพิมข้อมูลผู้ใช้</div></td>
@@ -186,8 +187,8 @@
         <td height="23"></td>
         <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="button" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
+      </form>
     </table>
-    </form>
 <%
      }
     rs.close();

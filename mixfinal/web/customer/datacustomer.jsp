@@ -28,7 +28,6 @@
              </ul>
        </div>
        <br>
-      <form action="updatecustomer.jsp">
       <table width="100%"  height="536" border="0" >
       <tr>
         <td height="26" background="56235623.jpg">
@@ -148,7 +147,6 @@
         <td></td>
       </tr>
     </table>
-    </form>
 <%
      }
     rs.close();
