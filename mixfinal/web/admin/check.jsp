@@ -17,6 +17,40 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib uri='/WEB-INF/cewolf.tld' prefix='cewolf' %>
  <%
+
+   
+   class DatasetMonth implements DatasetProducer{
+    int[] PURCHASE_ORDER= new int[12];
+
+    public DatasetMonth(int[] data){
+        for(int i=0;i<12;i++) {
+            PURCHASE_ORDER[i]=data[i];
+        }
+    }
+    public Object produceDataset(Map params) {
+      final String[] categories = {"มกราคม", "กุมภาพันธ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
+      final String[] seriesNames = {"มกราคม", "กุมภาพันธ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
+      final Integer[][] startValues = new Integer[seriesNames.length][categories.length];
+      final Integer[][] endValues = new Integer[seriesNames.length][categories.length];
+
+      for (int series = 0; series < seriesNames.length; series++) {
+        for (int i = 0; i < categories.length; i++) {
+          startValues[i][i] = 0;
+          endValues[i][i] = PURCHASE_ORDER[i];
+        }
+      }
+      DefaultIntervalCategoryDataset ds =
+        new DefaultIntervalCategoryDataset(seriesNames, categories, startValues, endValues);
+      return ds;
+    }
+    public String getProducerId() {
+      return "CategoryDataProducer";
+    }
+    public boolean hasExpired(Map params, Date since) {
+      return false;
+    }
+  }
+
     DatasetProducer categoryData = new DatasetProducer() {
     public Object produceDataset(Map params) {
       final String[] categories = { "apples", "pies", "bananas", "oranges" };
