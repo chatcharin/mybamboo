@@ -34,7 +34,7 @@ var type_rice;
 var unit_pack;
 var pack_wieght;
 var wieght;
-var defaults=3;
+var defaults=2;
 
 function select_type_rice(type){
     type_rice = price[type];
