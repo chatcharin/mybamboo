@@ -45,13 +45,18 @@ function select_type_pack(type){
 }
 
 function caculate(id){
-    var form = $(id);
-    var text = form.getInputs('text');
-    if(Number(text[2].value)!=0){
-        text[3].value = Number(text[1].value) - Number(text[2].value);
-        text[5].value = Number(text[4].value)*Number(text[3].value);
-    }else {}
-    // Set Text box Disable 
+    var form  = $(id);
+    var text  = form.getInputs('text');
+    var weigthpack = text[defaults-2].value;
+    var length = text[defaults-1].value;
+    var allweigth= new Number();
+    for(i=1;i<(length+1);i++)
+        allweigth += Number(text[i+defaults+20].value);
+    alert(allweigth);
+    text[201+defaults+20].value = allweigth;
+    text[202+defaults+20].value = (Number(weigthpack)*Number(length));
+    text[203+defaults+20].value = allweigth-(Number(weigthpack)*Number(length));
+    text[205+defaults+20].value = Number(text[204+defaults+20].value) * Number(text[203+defaults+20].value);
 }
 
 function clean(id){
