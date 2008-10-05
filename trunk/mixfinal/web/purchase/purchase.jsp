@@ -1,10 +1,12 @@
 <%@page pageEncoding="UTF-8"%>
+<%@ page import ="java.sql.*,java.util.*"%>
+<%@ include file="../config.jsp" %>
 <!-- ให้ ใช้ text field เก็บค่า แล้ว ห้ามแก้ไข ไว้ -->
-     <form id="purchase" action="index.jsp" accept-charset="xx" >
+     <form id="purchasedata" action="index.jsp"  >
       <table width="100%"> 
       <tr>
         <td colspan="2" background="image/56235623.jpg" class="style28"><div align="center"><span class="style39">ส่วนการรับซื้อ</span></div></td>
-        <td class="style28"></td>
+        <td class="style28"><input style="display:none" type="text" name="pages" value="purchase" /></td>
         <td class="style28"><span class="style55">
           <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed>
         </span></td>
@@ -12,12 +14,49 @@
       <tr>
         <td colspan="4" valign="baseline" class="style1">
           <span class="style22">รหัสลูกค้า : </span>
-          <input name="idcustomer" type="text" size="15" />
+          <input name="customer_id" type="text" size="15" />
+          <input value="ดูข้อมูล" type="submit" size="15" />
         </td>
       </tr>
       <tr>
         <td colspan="4" valign="baseline" class="style22">ข้อมูลสมาชิก</td>
-        </tr>
+      </tr>
+      </table>
+    </form>
+      <%
+      String id=null; 
+      id = request.getParameter("customer_id");
+      if(id!=null){
+      Class.forName(driver);
+      Connection con = DriverManager.getConnection(url, user, pw);
+      Statement stmt = con.createStatement();
+      String sql;
+      sql ="select * from customer where customer_id="+id;
+      ResultSet rs=null;
+      rs=stmt.executeQuery(sql); 
+      if(rs.next()){ 
+        //out.print(rs.getString("customer_id")); 
+        out.print("<table width=\"100%\" ><tr><td></td><td>ชื่อ</td><td>"
+                   +rs.getString("name")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>นามสกุล</td><td >"
+                   +rs.getString("lastname")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>หมายเลขบัตรประจำตัวประชาชน</td><td>"
+                   +rs.getString("idcard")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>ชนิดลูกค้า</td><td >"
+                   +rs.getString("type")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>รถ</td><td>"
+                   +rs.getString("car")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>ทะเบียนรถ</td><td>"
+                   +rs.getString("idcar")+
+                   "</td></tr><td></td></table>");
+      %>
+     <form id="purchase" action="index.jsp"  >
+      <table width="100%"> 
       <tr>
         <td colspan="4" valign="baseline" class="style55">
         <p class="style74">
@@ -53,7 +92,7 @@
       <tr>
         <td  valign="baseline" class="style22">น้ำหนัก : </td>
         <td colspan="3" valign="baseline" class="style1">
-              <input type="text" size="5" onkeydown="addkey(event);" />
+              <input type="text" size="5" onkeydown="addkey(event,'purchase');" />
               <input type="button" value="add" onclick="addValue('purchase');" />
         </td>
       </tr>
@@ -77,247 +116,247 @@
             <tr>
             <td>
           <table>
-         <input disabled type="text" size="2" value="1" />
-         <input disabled type="text" size="2" value="2" />
-         <input disabled type="text" size="2" value="3" />
-         <input disabled type="text" size="2" value="4" />
-         <input disabled type="text" size="2" value="5" />
-         <input disabled type="text" size="2" value="6" />
-         <input disabled type="text" size="2" value="7" />
-         <input disabled type="text" size="2" value="8" />
-         <input disabled type="text" size="2" value="9" />
-         <input disabled type="text" size="2" value="10" />
-         <input disabled type="text" size="2" value="11" />
-         <input disabled type="text" size="2" value="12" />
-         <input disabled type="text" size="2" value="13" />
-         <input disabled type="text" size="2" value="14" />
-         <input disabled type="text" size="2" value="15" />
-         <input disabled type="text" size="2" value="16" />
-         <input disabled type="text" size="2" value="17" />
-         <input disabled type="text" size="2" value="18" />
-         <input disabled type="text" size="2" value="19" />
-         <input disabled type="text" size="2" value="20" />
+         <input disabled type="text" size="1" value="1" />
+         <input disabled type="text" size="1" value="2" />
+         <input disabled type="text" size="1" value="3" />
+         <input disabled type="text" size="1" value="4" />
+         <input disabled type="text" size="1" value="5" />
+         <input disabled type="text" size="1" value="6" />
+         <input disabled type="text" size="1" value="7" />
+         <input disabled type="text" size="1" value="8" />
+         <input disabled type="text" size="1" value="9" />
+         <input disabled type="text" size="1" value="10" />
+         <input disabled type="text" size="1" value="11" />
+         <input disabled type="text" size="1" value="12" />
+         <input disabled type="text" size="1" value="13" />
+         <input disabled type="text" size="1" value="14" />
+         <input disabled type="text" size="1" value="15" />
+         <input disabled type="text" size="1" value="16" />
+         <input disabled type="text" size="1" value="17" />
+         <input disabled type="text" size="1" value="18" />
+         <input disabled type="text" size="1" value="19" />
+         <input disabled type="text" size="1" value="20" />
          </table>
           </td>
             <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <td>
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
-          <input type="text" size="4" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
           </td>
           <tr>
         </table>
@@ -406,3 +445,10 @@
       </tr>
     </table>
     </form>
+    <%
+     }
+    rs.close();
+    stmt.close();
+    con.close();
+    }
+ %>
