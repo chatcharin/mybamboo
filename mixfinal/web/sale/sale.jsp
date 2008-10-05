@@ -1,23 +1,62 @@
 <%@page pageEncoding="UTF-8"%>
+<%@ page import ="java.sql.*,java.util.*"%>
+<%@ include file="../config.jsp" %>
 <!-- ให้ ใช้ text field เก็บค่า แล้ว ห้ามแก้ไข ไว้ -->
- <form id="purchase" action="index.jsp">
-      <table width="100%">
+     <form id="saledata" action="index.jsp"  >
+      <table width="100%"> 
       <tr>
         <td colspan="2" background="image/56235623.jpg" class="style28"><div align="center"><span class="style39">ส่วนการรับซื้อ</span></div></td>
-        <td class="style28"></td>
+        <td class="style28"><input style="display:none" type="text" name="pages" value="sale" /></td>
         <td class="style28"><span class="style55">
           <embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&amp;Place=&amp;DateFormat=yyyy+/+mm+/+dd+DDD&amp;TimeFormat=hh:mm:ss+TT&amp;"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed>
         </span></td>
       </tr>
       <tr>
         <td colspan="4" valign="baseline" class="style1">
-          <span class="style22">รหัส ลูกค้า : </span>
-          <input name="idcustomer" type="text" size="15" />
+          <span class="style22">รหัสลูกค้า : </span>
+          <input name="customer_id" type="text" size="15" />
+          <input value="ดูข้อมูล" type="submit" size="15" />
         </td>
       </tr>
       <tr>
         <td colspan="4" valign="baseline" class="style22">ข้อมูลสมาชิก</td>
-        </tr>
+      </tr>
+      </table>
+    </form>
+      <%
+      String id=null; 
+      id = request.getParameter("customer_id");
+      if(id!=null){
+      Class.forName(driver);
+      Connection con = DriverManager.getConnection(url, user, pw);
+      Statement stmt = con.createStatement();
+      String sql;
+      sql ="select * from customer where customer_id="+id;
+      ResultSet rs=null;
+      rs=stmt.executeQuery(sql); 
+      if(rs.next()){ 
+        //out.print(rs.getString("customer_id")); 
+        out.print("<table width=\"100%\" ><tr><td></td><td>ชื่อ</td><td>"
+                   +rs.getString("name")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>นามสกุล</td><td >"
+                   +rs.getString("lastname")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>หมายเลขบัตรประจำตัวประชาชน</td><td>"
+                   +rs.getString("idcard")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>ชนิดลูกค้า</td><td >"
+                   +rs.getString("type")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>รถ</td><td>"
+                   +rs.getString("car")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>ทะเบียนรถ</td><td>"
+                   +rs.getString("idcar")+
+                   "</td></tr><td></td></table>");
+      %>
+     <form id="sale" action="index.jsp"  >
+      <table width="100%"> 
       <tr>
         <td colspan="4" valign="baseline" class="style55">
         <p class="style74">
@@ -26,31 +65,13 @@
       </tr>
       <tr>
         <td width="122" valign="baseline" class="style22">ชนิดข้าว : </td>
-        <td colspan="3" valign="baseline" class="style22">
-          <input name="radiobutton" type="radio" onclick="select_type_rice(0);" value="กข.6" />กข.6
-          <input name="radiobutton" type="radio" onclick="select_type_rice(1);" value="กข.15" />กข.15
-          <input name="radiobutton" type="radio" onclick="select_type_rice(2);"  value="other" /> อื่น ๆ
-          <input name="other" type="text" size="15" />
-          <input size="20" type="text"
-          style="display:none"
-          name="typeprice" />
+        <td colspan="3" valign="baseline" class="style1">
         </td>
      </tr>
       <tr>
         <td valign="baseline" class="style22">ชนิดกระสอบ : </td>
          <td colspan="3" valign="baseline" class="style1">
-          <span class="style45">
-            <input name="radiobutton1" type="radio" onclick="select_type_pack(0)" value="radiobutton" />ป่าน
-            <input name="radiobutton1" type="radio" onclick="select_type_rice(1)" value="radiobutton" />ฟางเหลือง
-            <input name="radiobutton1" type="radio" onclick="select_type_rice(2)" value="radiobutton" />ฟางขาว
-            <input name="radiobutton1" type="radio" onclick="select_type_rice(3)" value="radiobutton" />อื่น ๆ 
-            <input name="other" type="text" size="10" />
-          </span>
-          <input size="20" type="text"
-          style="display:none"
-          name="typepack" />
          </td>
-          
       </tr>
       <tr>
         <td valign="baseline" class="style22">น้ำหนัก :</td>
@@ -69,13 +90,276 @@
         </td>
       </tr>
       <tr>
-        <td colspan="4" valign="baseline" class="style22">น้ำหนัก : </td>
+        <td  valign="baseline" class="style22">น้ำหนัก : </td>
+        <td colspan="3" valign="baseline" class="style1">
+              <input type="text" size="5" onkeydown="addkey(event,'sale');" />
+              <input type="button" value="add" onclick="addValue('sale');" />
+        </td>
       </tr>
       <tr>
         <td colspan="4" valign="baseline" class="style57">
-           <span class="style74">
-              <textarea name="listwieght" cols="70" rows="10"></textarea>
-           </span>
+          <table id="gradient-sale" border="0" width="400">
+            <tr>
+              <tr>
+              <th></th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>E</th>
+              <th>F</th>
+              <th>G</th>
+              <th>H</th>
+              <th>I</th>
+              <th>J</th>
+            </tr>
+            <tr>
+            <td>
+          <table>
+         <input disabled type="text" size="1" value="1" />
+         <input disabled type="text" size="1" value="2" />
+         <input disabled type="text" size="1" value="3" />
+         <input disabled type="text" size="1" value="4" />
+         <input disabled type="text" size="1" value="5" />
+         <input disabled type="text" size="1" value="6" />
+         <input disabled type="text" size="1" value="7" />
+         <input disabled type="text" size="1" value="8" />
+         <input disabled type="text" size="1" value="9" />
+         <input disabled type="text" size="1" value="10" />
+         <input disabled type="text" size="1" value="11" />
+         <input disabled type="text" size="1" value="12" />
+         <input disabled type="text" size="1" value="13" />
+         <input disabled type="text" size="1" value="14" />
+         <input disabled type="text" size="1" value="15" />
+         <input disabled type="text" size="1" value="16" />
+         <input disabled type="text" size="1" value="17" />
+         <input disabled type="text" size="1" value="18" />
+         <input disabled type="text" size="1" value="19" />
+         <input disabled type="text" size="1" value="20" />
+         </table>
+          </td>
+            <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <td>
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          <input type="text" size="3" />
+          </td>
+          <tr>
+        </table>
         </td>
       </tr>
       <tr>
@@ -146,12 +430,12 @@
       <tr>
         <td colspan="4" valign="baseline" class="style57">
           <span class="style49">
-             <input type="button" onclick="caculate('purchase');"              value="      คำนวน      " />
+             <input type="button" onclick="caculate('sale');"              value="      คำนวน      " />
              <input type="submit"  value="       บันทึก      " />
-             <input type="button" onclick="clean('purchase');"      value="        ล้าง        " />
-             <input type="button" onclick="clean('purchase');"      value="       ยกเลิก     " />
+             <input type="button" onclick="clean('sale');"      value="        ล้าง        " />
+             <input type="button" onclick="clean('sale');"      value="       ยกเลิก     " />
              <div id="print" align="center" style="display:none;" >
-             <input type="button" onclick="print('purchase');" value="       print     " />
+             <input type="button" onclick="print('sale');" value="       print     " />
              </div>
           </span>
         </td>
@@ -160,4 +444,11 @@
         <td colspan="4" valign="baseline" class="style57"></td>
       </tr>
     </table>
-  </form>
+    </form>
+    <%
+     }
+    rs.close();
+    stmt.close();
+    con.close();
+    }
+ %>
