@@ -47,6 +47,10 @@ if(pages==null){
 <!-- End Customer View          -->
 <%} else if(pages.equals("accountview")) {%>
 <jsp:include page="account/accountview.jsp"></jsp:include>
+<%} else if(pages.equals("editaccount")) {%>
+<jsp:include page="account/editaccount.jsp"></jsp:include>
+<%} else if(pages.equals("dataaccount")) {%>
+<jsp:include page="account/dataaccount.jsp"></jsp:include>
 <% } %>
 </td>
 <%@ include file="template/footer.jsp"%> 
