@@ -1,16 +1,9 @@
 <%@page pageEncoding="UTF-8"%>
-         <div id="navcontainer">
-             <ul id="navlist">
-             <!-- CSS Tabs -->
-               <li><a href="home.html">Home</a></li>
-               <li><a href="products.html">Products</a></li>
-               <li id="active"><a id="current" href="services.html">Services</a></li>
-               <li><a href="support.html">Support</a></li>
-               <li><a href="order.html">Order</a></li>
-               <li><a href="about.html">About</a></li>
-             </ul>
-         </div>
-          <table width="550" align="center">
+          <table width="100%" align="center">
+           <tr>
+            <td><embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&Place=&DateFormat=yyyy+/+mm+/+dd+DDD&TimeFormat=hh:mm:ss+TT&"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed>
+              &nbsp;</td>
+          </tr>
           <tr>
              <td valign="top" background="image/56235623.jpg">
                 <span class="style47">แนะนำ</span>
@@ -44,12 +37,3 @@
         </td>
       </tr>
     </table>
-        <table width="550" align="center">
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td><embed src="http://www.clocklink.com/clocks/5003-green.swf?TimeZone=ICT&Place=&DateFormat=yyyy+/+mm+/+dd+DDD&TimeFormat=hh:mm:ss+TT&"  width="240" height="20" align="right" wmode="transparent" type="application/x-shockwave-flash"> </embed>
-              &nbsp;</td>
-          </tr>
-      </table>
