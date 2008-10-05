@@ -99,9 +99,9 @@ function buy_onsave(id){
                         onComplete:printbuy
                     } );
 }
-  function addkey(e){
+  function addkey(e,id){
      if(e.keyCode==32)
-       addValue('purchase');
+       addValue(id);
  }
 
 var index_value = new Number();
