@@ -134,6 +134,12 @@ public class Even extends Applet {
         return "Backspace";
       }
     }
+
+
+
+
+
+    
     // Handle the remaining possibilities.
     if (c == '\177')
       return "Delete";
