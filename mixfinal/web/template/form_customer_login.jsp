@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-    <form method="post" action="customer_login.jsp"> 
+    <form  method="post" action="index.jsp"> 
     <tr> 
       <td  background="template/image/rice.jpg" bgcolor="#C891FF">
         <div align="center" class="style54">

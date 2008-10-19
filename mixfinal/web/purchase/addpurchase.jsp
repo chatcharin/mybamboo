@@ -1,8 +1,7 @@
 <%@page pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*,java.util.*"%>
-<%@ include file="config.jsp"%>
 <%
-    String idcustomer = request.getParameter("idcustomer");
+    String idcustomer = request.getParameter("customer_id");
     String buy        = request.getParameter("allprice");
     String type       = request.getParameter("typeprice");
     String weight     = request.getParameter("allwieght");
@@ -40,4 +39,3 @@
     stmt.close();
     con.close();
 %>
-<jsp:forward page="purchaseview.jsp"></jsp:forward>

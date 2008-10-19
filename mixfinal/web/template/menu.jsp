@@ -1,4 +1,6 @@
 <%@page pageEncoding="UTF-8"%>
+<%@ include file="customer_login.jsp" %>
+
 <table width="174" border="2" align="center" bordercolor="#990000">
     <tr>
         <td colspan="2" background="template/image/rice.jpg" bgcolor="#C891FF">

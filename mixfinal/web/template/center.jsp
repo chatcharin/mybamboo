@@ -1,16 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@page  pageEncoding="UTF-8"%>
-<%  String  pages=null;
-            pages= request.getParameter("pages"); %>
-<%@ include file="template/header.jsp"%>
-<table width="813" border="2" align="center" bordercolor="#993300">  
-  <tr>
-      <td width="174" height="636" valign="top" bgcolor="#FFFFFF">
-        <%@ include file="template/menu.jsp"%>
-      </td>
-      <td width="620" valign="top" align="left" bgcolor="#FFFFFF">
+<%@ page pageEncoding="UTF-8" %>
 <%
-
+String  pages=null;
+            pages= request.getParameter("pages");
 if(pages==null){
 %>
 <jsp:include page="detail.jsp"></jsp:include>
@@ -48,10 +39,12 @@ if(pages==null){
 <!-- End Customer View          -->
 <%} else if(pages.equals("accountview")) {%>
 <jsp:include page="account/accountview.jsp"></jsp:include>
+<%} else if(pages.equals("accountview")) {%>
+<jsp:include page="account/accountview.jsp"></jsp:include>
 <%} else if(pages.equals("editaccount")) {%>
 <jsp:include page="account/editaccount.jsp"></jsp:include>
 <%} else if(pages.equals("dataaccount")) {%>
 <jsp:include page="account/dataaccount.jsp"></jsp:include>
+<%} else if(pages!=null) {%>
+<jsp:include page="detail.jsp"></jsp:include>
 <% } %>
-      </td>
-<%@ include file="template/footer.jsp"%> 
