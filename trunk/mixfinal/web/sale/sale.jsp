@@ -55,22 +55,37 @@
                    +rs.getString("idcar")+
                    "</td></tr><td></td></table>");
       %>
-     <form id="sale" action="index.jsp"  >
+     <form id="sale" name="sale" action="index.jsp"  >
       <table width="100%"> 
       <tr>
         <td colspan="4" valign="baseline" class="style55">
         <p class="style74">
         </p>
+        <input size="15" type="text"
+          style="display:none"
+          name="customer_id"
+          value="<% out.print(rs.getString("customer_id")); %>" />
         <p class="style74"></p></td>
       </tr>
       <tr>
         <td width="122" valign="baseline" class="style22">ชนิดข้าว : </td>
         <td colspan="3" valign="baseline" class="style1">
+          <select name="type" onchange="getselecttype(document.sale.type,'sale')">
+              <option value="12.5">กข.6</option>
+              <option value="11">กข.15</option>
+              <option value="10.5">อื่น ๆ</option>
+          </select>
         </td>
      </tr>
       <tr>
         <td valign="baseline" class="style22">ชนิดกระสอบ : </td>
          <td colspan="3" valign="baseline" class="style1">
+          <select name="typepack" onchange="getselectpack(document.sale.typepack,'sale')" >
+              <option value="0.7">ป่าน</option>
+              <option value="0.5">ฟางเหลือง</option>
+              <option value="0.5">ฟางขาว</option>
+              <option value="1"> อื่นๆ</option>
+          </select>
          </td>
       </tr>
       <tr>

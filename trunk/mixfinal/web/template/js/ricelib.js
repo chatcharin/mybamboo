@@ -34,7 +34,7 @@ var type_rice;
 var unit_pack;
 var pack_wieght;
 var wieght;
-var defaults=2;
+var defaults=4;
 
 function select_type_rice(type){
     type_rice = price[type];
@@ -57,6 +57,8 @@ function caculate(id){
     text[202+defaults+20].value = (Number(weigthpack)*Number(length));
     text[203+defaults+20].value = allweigth-(Number(weigthpack)*Number(length));
     text[205+defaults+20].value = Number(text[204+defaults+20].value) * Number(text[203+defaults+20].value);
+    $('cancel').style.display = "none";
+    $('print').style.display = "block"; 
 }
 
 function clean(id){
@@ -114,6 +116,20 @@ function addValue(id){
     text[defaults].value= '';
     text[defaults-1].value=index_value;
 }
+function getselectpack(ob,id){
+    var form  = $(id);
+    var text  = form.getInputs('text');
+    for (var i = 0; i < ob.options.length; i++)
+        if (ob.options[i].selected)
+           text[defaults-2].value=ob.options[i].value;
+}
+function getselecttype(ob,id){
+    var form  = $(id);
+    var text  = form.getInputs('text');
+    for (var i = 0; i < ob.options.length; i++)
+        if (ob.options[i].selected)
+           text[204+defaults+20].value=ob.options[i].value;
+}
 function sale_onsave(id){
     var url   = 'sale/addsale.jsp';
     var form  = $(id);
@@ -143,11 +159,29 @@ function sale_onsave(id){
                         onComplete:printsale
                     } );
 }
+function logouts(){
+      var url   = 'template/logout.jsp';
+      var pars;
+      var myAjax = new Ajax.Request( url, {
+                        method: 'post',
+                        parameters: pars,
+                        onLoading: loadlogout,
+                        onComplete:submitlogout
+                    } );
+}
+function loadlogout(){
 
-function printbuy(){
-    
+}
+function submitlogout(){
+     document.logout.submit();
+}
+function printPurchase(){
+ MM_openBrWindow('purchase/print.jsp','ใบเสร็จรับเงิน','scrollbars=yes,resizable=yes,width=490,height=410');
 }
 
 function printsale(){
     
 }
+ function MM_openBrWindow(theURL,winName,features) { //v2.0
+      window.open(theURL,winName,features);
+ }

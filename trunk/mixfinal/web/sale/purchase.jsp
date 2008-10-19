@@ -149,8 +149,8 @@
              <input type="button" onclick="buy_onsave('purchase');" value="       บันทึก      " />
              <input type="button" onclick="clean('purchase');"      value="        ล้าง        " />
              <input type="button" onclick="clean('purchase');"      value="       ยกเลิก     " />
-             <div id="print" align="center" style="display:none;" >
-             <input type="button" onclick="print('purchase');" value="       print     " />
+             <div id="print" align="center" >
+             <input type="button" onclick="printPurchase();" value="       print     " />
              </div>
           </span>
         </td>
