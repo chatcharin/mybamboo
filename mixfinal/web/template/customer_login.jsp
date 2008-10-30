@@ -22,6 +22,7 @@ session.setAttribute("status","customer");
 session.setAttribute("j_username",j_username);
 session.setAttribute("j_fname",rs.getString("name"));
 session.setAttribute("j_lname",rs.getString("lastname"));
+session.setAttribute("employee_id",rs.getString("employee_id"));
 //session.setAttribute("j_email",rs.getString("email"));
 //session.setAttribute("cus_id",rs.getString("cus_id"));
 }else{
