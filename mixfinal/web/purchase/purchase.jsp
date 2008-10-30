@@ -510,10 +510,21 @@
       <table>
       <tr >
         <td width="60" colspan="4"></td>
-        <td><input type="button" onclick="caculate('purchase');"              value="      คำนวน      " /></td>
-        <td><input type="submit"  value="       บันทึก      " /></td>
-        <td><input id="print" style="display:none;" type="button" onclick="printPurchase();" value="     พิมพ์ใบเสร็จ     " />
-        <input id="cancel" type="button" onclick="clean('purchase');"      value="       ยกเลิก     " />
+        <td><input type   ="button"
+                   onclick="caculate('purchase');"
+                   value  ="      คำนวน      " /></td>
+        <td><input type   ="button"
+                   onclick="purchase_onsave('purchase');"
+                   value  ="       บันทึก      " /></td>
+        <td><input id="print"
+                   style="display:none;"
+                   type="button"
+                   onclick="printPurchase();"
+                   value="     พิมพ์ใบเสร็จ     " />
+            <input id="cancel"
+                   type="button"
+                   onclick="clean('purchase');"
+                   value="       ยกเลิก     " />
         </td>
         </tr>
     </table>
