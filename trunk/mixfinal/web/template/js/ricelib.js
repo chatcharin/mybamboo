@@ -55,8 +55,10 @@ function caculate(id){
     alert(allweigth);
     text[201+defaults+20].value = allweigth;
     text[202+defaults+20].value = (Number(weigthpack)*Number(length));
-    text[203+defaults+20].value = allweigth-(Number(weigthpack)*Number(length));
-    text[205+defaults+20].value = Number(text[204+defaults+20].value) * Number(text[203+defaults+20].value);
+    wieght                      = allweigth-(Number(weigthpack)*Number(length));
+    text[203+defaults+20].value = wieght;
+    all_price                   = Number(text[204+defaults+20].value) * Number(text[203+defaults+20].value);
+    text[205+defaults+20].value = all_price;
     $('cancel').style.display = "none";
     $('print').style.display = "block"; 
 }
@@ -72,25 +74,15 @@ function test_variable(id,i){
     alert(text[i].value);
 }
 
-function buy_onsave(id){
-    var url   = 'buy/addbuy.jsp';
+function purchase_onsave(id){
+    var url   = 'purchase/addpurchase.jsp';
     var form  = $(id);
-    var type  = "";
     var text  = form.getInputs('text');
-    var radio = form.getInputs('radio');
-
-    // get type selection
-    for(i=0;i<radio.length;i++)
-      if(radio[i].checked==true)
-         if(i==2)
-              type = text[1].value;
-         else type = radio[i].value;
 
     // initiant variable
     var pars = "id="+text[0].value;
         pars+= "&buy="+all_price;
-        pars+= "&type_rice="+type;
-        pars+= "&date="+Date.getDate().toString();
+        pars+= "&type_rice="+ type_rice;
         pars+= "&weight="+wieght;
 
     // initaint sent data
