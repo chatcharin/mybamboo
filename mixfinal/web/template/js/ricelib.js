@@ -35,6 +35,7 @@ var unit_pack;
 var pack_wieght;
 var wieght;
 var defaults=4;
+var all_price;
 
 function select_type_rice(type){
     type_rice = price[type];
@@ -59,8 +60,6 @@ function caculate(id){
     text[203+defaults+20].value = wieght;
     all_price                   = Number(text[204+defaults+20].value) * Number(text[203+defaults+20].value);
     text[205+defaults+20].value = all_price;
-    $('cancel').style.display = "none";
-    $('print').style.display = "block"; 
 }
 
 function clean(id){
@@ -81,7 +80,7 @@ function purchase_onsave(id){
 
     // initiant variable
     var pars = "id="+text[0].value;
-        pars+= "&buy="+all_price;
+        pars+= "&allprice="+all_price;
         pars+= "&type_rice="+ type_rice;
         pars+= "&weight="+wieght;
 
@@ -89,8 +88,8 @@ function purchase_onsave(id){
     var myAjax = new Ajax.Request( url, {
                         method: 'post',
                         parameters: pars,
-                        onLoading: showLoadbuy,
-                        onComplete:printbuy
+                        onLoading: loadlogout,
+                        onComplete:print
                     } );
 }
   function addkey(e,id){
@@ -119,8 +118,10 @@ function getselecttype(ob,id){
     var form  = $(id);
     var text  = form.getInputs('text');
     for (var i = 0; i < ob.options.length; i++)
-        if (ob.options[i].selected)
-           text[204+defaults+20].value=ob.options[i].value;
+        if (ob.options[i].selected){
+           type_rice = ob.options[i].value;
+           text[204+defaults+20].value=type_rice;
+        }
 }
 function sale_onsave(id){
     var url   = 'sale/addsale.jsp';
@@ -147,8 +148,8 @@ function sale_onsave(id){
     var myAjax = new Ajax.Request( url, {
                         method: 'post',
                         parameters: pars,
-                        onLoading: showLoadbuy,
-                        onComplete:printsale
+                        onLoading: loadlogout,
+                        onComplete:print
                     } );
 }
 function logouts(){
@@ -171,8 +172,9 @@ function printPurchase(){
  MM_openBrWindow('purchase/print.jsp','ใบเสร็จรับเงิน','scrollbars=yes,resizable=yes,width=490,height=410');
 }
 
-function printsale(){
-    
+function print(){
+    $('cancel').style.display   = "none";
+    $('print').style.display    = "block"; 
 }
  function MM_openBrWindow(theURL,winName,features) { //v2.0
       window.open(theURL,winName,features);
