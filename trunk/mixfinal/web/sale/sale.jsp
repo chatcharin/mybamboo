@@ -514,7 +514,7 @@
                    onclick="caculate('sale');"
                    value  ="      คำนวน      " /></td>
         <td><input type   ="button"
-                   onclick="sale_onsave('purchase');"
+                   onclick="sale_onsave('sale');"
                    value  ="       บันทึก      " /></td>
         <td><input id="print"
                    style="display:none;"
@@ -523,7 +523,7 @@
                    value="     พิมพ์ใบเสร็จ     " />
             <input id="cancel"
                    type="button"
-                   onclick="clean('purchase');"
+                   onclick="clean('sale');"
                    value="       ยกเลิก     " />
         </td>
         </tr>
