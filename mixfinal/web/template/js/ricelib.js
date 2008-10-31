@@ -92,7 +92,7 @@ function purchase_onsave(id){
                         onComplete:print
                     } );
 }
-  function addkey(e,id){
+function addkey(e,id){
      if(e.keyCode==32)
        addValue(id);
  }
@@ -125,23 +125,13 @@ function getselecttype(ob,id){
 }
 function sale_onsave(id){
     var url   = 'sale/addsale.jsp';
-    var form  = $(id);
-    var type  = "";
+     var form  = $(id);
     var text  = form.getInputs('text');
-    var radio = form.getInputs('radio');
-
-    // get type selection
-    for(i=0;i<radio.length;i++)
-      if(radio[i].checked==true)
-         if(i==2)
-              type = text[1].value;
-         else type = radio[i].value;
 
     // initiant variable
     var pars = "id="+text[0].value;
-        pars+= "&sale="+all_price;
-        pars+= "&type_rice="+type;
-        pars+= "&date="+Date.getDate().toString();
+        pars+= "&allprice="+all_price;
+        pars+= "&type_rice="+ type_rice;
         pars+= "&weight="+wieght;
 
     // initaint sent data
@@ -176,6 +166,6 @@ function print(){
     $('cancel').style.display   = "none";
     $('print').style.display    = "block"; 
 }
- function MM_openBrWindow(theURL,winName,features) { //v2.0
+function MM_openBrWindow(theURL,winName,features) { //v2.0
       window.open(theURL,winName,features);
  }
