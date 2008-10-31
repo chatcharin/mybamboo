@@ -24,15 +24,24 @@
       </table>
     </form>
       <%
-      String id=null; 
-      id = request.getParameter("customer_id");
-      if(id!=null){
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, pw);
       Statement stmt = con.createStatement();
       String sql;
-      sql ="select * from customer where customer_id="+id;
       ResultSet rs=null;
+      ResultSet rs2=null;
+      String id=null; 
+      String idcustomer = request.getParameter("customer_id");
+      String buy        = request.getParameter("allprice");
+      String type       = request.getParameter("typeprice");
+      String weight     = request.getParameter("allwieght");
+      Vector errors     = new Vector();
+      id = request.getParameter("customer_id");
+      String allprice =null;
+      allprice = request.getParameter("allprice");
+      if(id!=null&&allprice!=null)
+      {
+      sql ="select * from customer where customer_id="+id;
       rs=stmt.executeQuery(sql); 
       if(rs.next()){ 
         //out.print(rs.getString("customer_id")); 
@@ -54,6 +63,52 @@
         out.print("<tr><td></td><td>ทะเบียนรถ</td><td>"
                    +rs.getString("idcar")+
                    "</td></tr><td></td></table>");
+
+        }
+    sql ="insert into store values(null,"+
+            weight+","
+            +type+
+            ",now());" ;
+    stmt.execute(sql);
+    sql ="select max(store_id) from store";
+    rs = stmt.executeQuery(sql);
+    rs.next();
+    String newid = rs.getString("max(store_id)").toString();
+    rs.close();
+    sql ="INSERT INTO `rice`.`account`"+
+            " (`account_id`, `buy`, `sale`,"+
+            " `date`, `weight`, `customer_id`,"+
+            " `employee_id`, `store_id`)" +
+            " VALUES (null,"+buy+
+            ",0.0,now(),"+weight+
+            ","+idcustomer+
+            ","+session.getAttribute("employee_id")+
+            ","+newid+")";
+      }else if(id!=null){
+      sql ="select * from customer where customer_id="+id;
+      rs=stmt.executeQuery(sql); 
+      if(rs.next()){ 
+        //out.print(rs.getString("customer_id")); 
+        out.print("<table width=\"100%\" ><tr><td></td><td>ชื่อ</td><td>"
+                   +rs.getString("name")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>นามสกุล</td><td >"
+                   +rs.getString("lastname")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>หมายเลขบัตรประจำตัวประชาชน</td><td>"
+                   +rs.getString("idcard")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>ชนิดลูกค้า</td><td >"
+                   +rs.getString("type")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>รถ</td><td>"
+                   +rs.getString("car")+
+                   "</td><td></td></tr>");
+        out.print("<tr><td></td><td>ทะเบียนรถ</td><td>"
+                   +rs.getString("idcar")+
+                   "</td></tr><td></td></table>");
+   //  sql="select * from riceprice ";
+  //   rs2=stmt.executeQuery(sql);
       %>
      <form id="sale" name="sale" action="index.jsp"  >
       <table width="100%"> 
@@ -61,32 +116,41 @@
         <td colspan="4" valign="baseline" class="style55">
         <p class="style74">
         </p>
+        <p class="style74"></p>
         <input size="15" type="text"
           style="display:none"
           name="customer_id"
           value="<% out.print(rs.getString("customer_id")); %>" />
-        <p class="style74"></p></td>
+        <input size="15" type="text"
+          style="display:none"
+          name="pages"
+          value="sale" />
+        </td>
       </tr>
       <tr>
         <td width="122" valign="baseline" class="style22">ชนิดข้าว : </td>
         <td colspan="3" valign="baseline" class="style1">
           <select name="type" onchange="getselecttype(document.sale.type,'sale')">
-              <option value="12.5">กข.6</option>
-              <option value="11">กข.15</option>
-              <option value="10.5">อื่น ๆ</option>
+            <% }
+              sql="select * from riceprice ";
+              rs2=stmt.executeQuery(sql);
+            while(rs2.next()){
+              out.println("<option value=\""+rs2.getDouble("price")+"\">"+rs2.getString("nametype")+"</option>");
+            }
+            %>
           </select>
         </td>
      </tr>
       <tr>
         <td valign="baseline" class="style22">ชนิดกระสอบ : </td>
          <td colspan="3" valign="baseline" class="style1">
-          <select name="typepack" onchange="getselectpack(document.sale.typepack,'sale')" >
+        <select name="typepack" onchange="getselectpack(document.sale.typepack,'sale')" >
+
               <option value="0.7">ป่าน</option>
               <option value="0.5">ฟางเหลือง</option>
               <option value="0.5">ฟางขาว</option>
               <option value="1"> อื่นๆ</option>
           </select>
-         </td>
       </tr>
       <tr>
         <td valign="baseline" class="style22">น้ำหนัก :</td>
@@ -107,8 +171,8 @@
       <tr>
         <td  valign="baseline" class="style22">น้ำหนัก : </td>
         <td colspan="3" valign="baseline" class="style1">
-              <input type="text" size="5" onkeydown="addkey(event,'sale');" />
-              <input type="button" value="add" onclick="addValue('sale');" />
+              <input type="text" size="5" onkeydown="addkey(event,'purchase');" />
+              <input type="button" value="add" onclick="addValue('purchase');" />
         </td>
       </tr>
       <tr>
@@ -442,26 +506,30 @@
       <tr>
         <td colspan="4" valign="baseline" class="style75"></td>
         </tr>
-      <tr>
-        <td colspan="4" valign="baseline" class="style57">
-          <span class="style49">
-             <input type="button" onclick="caculate('sale');"              value="      คำนวน      " />
-             <input type="submit"  value="       บันทึก      " />
-             <input type="button" onclick="clean('sale');"      value="        ล้าง        " />
-             <input type="button" onclick="clean('sale');"      value="       ยกเลิก     " />
-             <div id="print" align="center" style="display:none;" >
-             <input type="button" onclick="print('sale');" value="       print     " />
-             </div>
-          </span>
+      </table>
+      <table>
+      <tr >
+        <td width="60" colspan="4"></td>
+        <td><input type   ="button"
+                   onclick="caculate('sale');"
+                   value  ="      คำนวน      " /></td>
+        <td><input type   ="button"
+                   onclick="sale_onsave('purchase');"
+                   value  ="       บันทึก      " /></td>
+        <td><input id="print"
+                   style="display:none;"
+                   type="button"
+                   onclick="printSale();"
+                   value="     พิมพ์ใบเสร็จ     " />
+            <input id="cancel"
+                   type="button"
+                   onclick="clean('purchase');"
+                   value="       ยกเลิก     " />
         </td>
         </tr>
-      <tr>
-        <td colspan="4" valign="baseline" class="style57"></td>
-      </tr>
     </table>
     </form>
     <%
-     }
     rs.close();
     stmt.close();
     con.close();
