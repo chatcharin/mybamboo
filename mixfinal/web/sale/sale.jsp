@@ -496,7 +496,9 @@
           <p align="right" class="style85">รวมเป็นเงินทั้งสิ้น</p>
         </td>
         <td valign="baseline" class="style1">
-          <div id="allprice"> <input name="allprice" disabled type="text" size="15" /></div>
+          <div id="allprice">
+            <input name="allprice" disabled type="text" size="15" />
+          </div>
         </td>
         <td valign="baseline" class="style1">
           <p class="style48">บาท</p>
