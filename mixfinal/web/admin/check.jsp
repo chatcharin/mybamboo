@@ -1,3 +1,4 @@
+<%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page import="de.laures.cewolf.*"%>
 <%@page import="de.laures.cewolf.tooltips.*"%>
@@ -11,15 +12,22 @@
 <%@page import="org.jfree.data.general.*"%>
 <%@page import="org.jfree.data.xy.*"%>
 <%@page import="java.awt.*" %>
-<%@ page import="de.laures.cewolf.taglib.CewolfChartFactory" %>
-<%@ page import="org.jfree.chart.event.ChartProgressListener" %>
-<%@ page import="org.jfree.chart.event.ChartProgressEvent" %> 
+<%@page import="de.laures.cewolf.taglib.CewolfChartFactory" %>
+<%@page import="org.jfree.chart.event.ChartProgressListener" %>
+<%@page import="org.jfree.chart.event.ChartProgressEvent" %> 
 <%@page pageEncoding="UTF-8"%>
 <%@taglib uri='/WEB-INF/cewolf.tld' prefix='cewolf' %>
+<%@ include file="config.jsp" %>
  <%
-
+      Class.forName(driver);
+      Connection con = DriverManager.getConnection(url, user, pw);
+      Statement stmt = con.createStatement();
+      String sql;
+      sql ="select * from employee where employee_id=";
+      ResultSet rs=null;
+      rs=stmt.executeQuery(sql); 
    
-   class DatasetMonth implements DatasetProducer{
+   class DatasetMonth implements DatasetProducer{  
     int[] PURCHASE_ORDER= new int[12];
 
     public DatasetMonth(int[] data){
@@ -176,8 +184,8 @@
           </cewolf:chart>
            <cewolf:img chartid="verticalBar3D"
            renderer="/cewolf"
-           width="600"
-           height="300"/>
+           width   ="600"
+           height  ="300"/>
          </td>
       </tr>
       <tr>
