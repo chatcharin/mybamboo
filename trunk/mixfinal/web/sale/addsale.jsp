@@ -1,9 +1,9 @@
 <%@page pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*,java.util.*"%>
-<%@ include file="config.jsp" %>
+<%@ include file="../config.jsp" %>
 <%
     String idcustomer = request.getParameter("id");
-    String sale        = request.getParameter("allprice");
+    String sale       = request.getParameter("allprice");
     String type       = request.getParameter("type_rice");
     String weight     = request.getParameter("wieght");
     Vector errors     = new Vector();
@@ -23,7 +23,7 @@
             ",date(now()));" ;
     stmt.execute(sql);
     sql ="select max(store_id) from store";
-    rs = stmt.executeQuery(sql);
+    rs  = stmt.executeQuery(sql);
     rs.next();
     String newid = rs.getString("max(store_id)").toString();
     rs.close();
