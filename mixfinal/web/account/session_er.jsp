@@ -1,3 +1,7 @@
+package credit_1;
+
+package account_1;
+
 <%@page pageEncoding="UTF-8"%>
 <form action="index.jsp" method="post">
   <table width="40%" border="1" align="center" cellspacing="0" bordercolor="black" >
