@@ -127,6 +127,17 @@
         </td>
       </tr>
       <tr>
+        <td height="23">
+          <div align="right" class="style45">รหัสคลังสินค้า</div>
+          </td>
+        <td>
+          <span class="style30">
+          <input name="credit_id" type="text" maxlength="13"
+          value="<% out.print(rs.getString("credit_id")); %>" />
+          </span>
+        </td>
+      </tr>
+      <tr>
         <td height="23"></td>
         <td><input type="submit" name="Submit" value="  แก้ไข  " /> <input type="button" name="Submit22" value="  ยกเลิก  " /></td>
       </tr>
