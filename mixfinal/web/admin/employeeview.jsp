@@ -4,6 +4,9 @@
 <%@ include file="../config.jsp"%>
 <%@ include file="deleteemployee.jsp" %>
 <%@ include file="addemployee.jsp" %>
+<%@ include file="../ck_session_customer.jsp" %>
+<!-- ให้ ใช้ text field เก็บค่า แล้ว ห้ามแก้ไข ไว้ -->
+<% if(state){ %>
      <div id="navcontainer" align="center">
              <ul id="navlist">
                <!-- CSS Tabs -->
@@ -69,3 +72,4 @@
         </tr>
     </tfoot>
 </table>
+<% } %>

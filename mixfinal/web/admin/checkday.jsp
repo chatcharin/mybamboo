@@ -1,3 +1,5 @@
+package admin;
+
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.Date"%>
@@ -20,57 +22,34 @@
 <%@taglib uri='/WEB-INF/cewolf.tld' prefix='cewolf' %>
 <%@ include file="config.jsp" %>
 <%
-      //รับข้อมูล ช่วงเวลา เข้า มาเพื่อ กำหนด ระยะ เวลา ของรายงาน
-      /* start  yyy,mmm,ddd
-      *  end    yyy,mmm,ddd
-      *  SQL    selection data  date time
-      *  Date , Mount , Year
-      * select date(account_date),sum(buy)
-      * from account
-      * where date(account_date)>=start && date(account_date)<= end
-      * group by date(account_date)
-      */
-      String start = request.getParameter("start");
-      String end   = request.getParameter("end");
+     //รับข้อมูล ช่วงเวลา เข้า มาเพื่อ กำหนด ระยะ เวลา ของรายงาน
+     /* start yyy,mmm,ddd
+      * end   yyy,mmm,ddd
+      * SQL selection data
+      */ 
       Class.forName(driver);
       Connection con = DriverManager.getConnection(url, user, pw);
       Statement stmt = con.createStatement();
       String sql;
-      /* Get Count Row in Result  */
-       ResultSet r = stmt.executeQuery("SELECT COUNT(*) AS rowcount " +
-                                       "FROM account " +
-                                       "where date(account_date)>=" +start+
-                                       "&& date(account_date)<= "+end);
-       r.next();
-       int count = r.getInt("rowcount") ;
-       r.close() ; 
-       sql ="select * from employee where employee_id=1001";
-       ResultSet rs=null;
-       rs=stmt.executeQuery(sql);
-
-  
-   //  add value to DataSet  in Loop  while  get Data frome result
+      sql ="select * from employee where employee_id=1001";
+      ResultSet rs=null;
+      rs=stmt.executeQuery(sql); 
+   
    class DatasetMonth implements DatasetProducer{
-       String[] categories ;
-       String[] seriesNames ;
-       Integer[][] startValues = new Integer[seriesNames.length][categories.length];
-       Integer[][] endValues = new Integer[seriesNames.length][categories.length];
-    int[] PURCHASE_ORDER;
-    /* insert Value to DataSet */
-    public DatasetMonth(int count){
-         PURCHASE_ORDER = new int[count];
-         categories = new String[count];
-         seriesNames = new String[count];
+
+    int[] PURCHASE_ORDER= new int[12];
+
+    public DatasetMonth(int[] data){
+        for(int i=0;i<12;i++) {
+            PURCHASE_ORDER[i]=data[i];
+        }
     }
-    public void setData(String name,int data,int i){
-                PURCHASE_ORDER[i]=data;
-                categories[i]  =name;
-                seriesNames[i] =name;
-    }
-    /* insert name of value */
     public Object produceDataset(Map params) {
-       Integer[][] startValues = new Integer[seriesNames.length][categories.length];
-       Integer[][] endValues = new Integer[seriesNames.length][categories.length];
+      final String[] categories = {"มกราคม", "กุมภาพันธ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
+      final String[] seriesNames = {"มกราคม", "กุมภาพันธ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
+      final Integer[][] startValues = new Integer[seriesNames.length][categories.length];
+      final Integer[][] endValues = new Integer[seriesNames.length][categories.length];
+
       for (int series = 0; series < seriesNames.length; series++) {
         for (int i = 0; i < categories.length; i++) {
           startValues[i][i] = 0;
@@ -89,13 +68,6 @@
     }
   }
 
-   // Insert to Dataset
-   DatasetMonth data = new DatasetMonth(count);
-   int i = 0;
-    while(rs.next()){
-       data.setData(rs.getString("date"),Integer.parseInt(rs.getString("values")),i);
-       i++;
-   }
     DatasetProducer categoryData = new DatasetProducer() {
     public Object produceDataset(Map params) {
       final String[] categories = { "apples", "pies", "bananas", "oranges" };
@@ -120,7 +92,7 @@
       return false;
     }
   };
-  pageContext.setAttribute("categoryData", data);
+  pageContext.setAttribute("categoryData", categoryData);
      
  %>
     <table width="100%">
@@ -142,16 +114,8 @@
       <tr>
         <td colspan="2" valign="baseline" class="style43">
           <div align="center">
-            <strong>ช่วงเวลา</strong>
+            <strong>ข้อมูลของวันนี้</strong>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" valign="baseline" class="style43">
-            <div align="center">
-                เริ่มต้น:<input type="text" name="start" value="" />
-                สิ้นสุด:<input type="text"  name="end" value="" />
-            </div>
         </td>
       </tr>
       <tr>
@@ -240,7 +204,7 @@
           </div>
          </td>
       </tr>
-       <tr>
+              <tr>
         <td>
           <cewolf:chart id="verticalBar3D"
           title="รายงานการขายออก"
