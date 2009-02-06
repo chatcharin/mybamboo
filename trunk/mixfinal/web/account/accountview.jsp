@@ -3,6 +3,9 @@
 <%@ page import ="java.sql.*,java.util.*"%>
 <%@ include file="../config.jsp"%>
 <%@ include file="deleteaccount.jsp" %>
+<%@ include file="../ck_session_customer.jsp" %>
+<!-- ให้ ใช้ text field เก็บค่า แล้ว ห้ามแก้ไข ไว้ -->
+<% if(state){ %>
          <div id="navcontainer">
              <ul id="navlist">
                <!-- CSS Tabs -->
@@ -40,6 +43,7 @@
               "<th scope=\"col\" >รหัสลูกค้า</th>" +
               "<th scope=\"col\" >รหัสพนักงาน</th>" +
               "<th scope=\"col\" >รหัสคลังสินค้า</th>" +
+              "<th scope=\"col\" >รหัสบัญชีหนี้สิน</th>" +
               "<th scope=\"col\" >ดูข้อมูล</th>" +
               "<th scope=\"col\" >แก้ไข</th>" +
               "<th scope=\"col\" >ลบ</th>" +
@@ -61,6 +65,7 @@
           out.print("<td><a href=\"index.jsp?pages=datacustomer&customer_id="+rs.getString("customer_id")+"\" >"+rs.getString("customer_id")+"</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=dataemployee&employee_id="+rs.getString("employee_id")+"\" >"+rs.getString("employee_id")+"</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=datastore&store_id="+rs.getString("store_id")+"\" >"+rs.getString("store_id")+"</a></td>\n");
+          out.print("<td><a href=\"index.jsp?pages=credit&credit_id="+rs.getString("credit_id")+"\" >"+rs.getString("credit_id")+"</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=dataaccount&account_id="+rs.getString("account_id")+"\" >ดูข้อมูล</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=editaccount&account_id="+rs.getString("account_id")+"\" >แก้ไข</a></td>\n");
           out.print("<td><a href=\"index.jsp?pages=accountview&delete=1&account_id="+rs.getString("account_id")+"\" >ลบ</a></td>\n");
@@ -83,3 +88,4 @@
         </tr>
     </tfoot>
 </table>
+<% } %>

@@ -115,6 +115,16 @@
           </span>
         </td>
       </tr>
+      <tr>
+        <td height="23">
+          <div align="right" class="style45">รหัสบัญชีหนี้สิน</div>
+          </td>
+        <td>
+          <span class="style30">
+          <% out.print(rs.getString("credit_id")); %>
+          </span>
+        </td>
+      </tr>
       </form>
     </table>
 <%

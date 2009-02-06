@@ -10,7 +10,8 @@
      String weight        = request.getParameter("weight");
      String customer_id   = request.getParameter("customer_id");
      String employee_id   = request.getParameter("employee_id");
-     String store_id      = request.getParameter("store_id"); 
+     String store_id      = request.getParameter("store_id");
+     String credit_id     = request.getParameter("credit_id");
      Class.forName(driver);
      Connection con = DriverManager.getConnection(url, user, pw); 
      Statement stmt = con.createStatement();
@@ -25,6 +26,7 @@
           ", `customer_id`="+customer_id+
           ", `employee_id`="+employee_id+
           ", `store_id`="+store_id+
+          ", `credit_id`="+credit_id+
           " where customer_id ="+ account_id;
    //   out.print(sql);
      stmt.execute(sql);
