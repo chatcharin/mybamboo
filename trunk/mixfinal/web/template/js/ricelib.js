@@ -36,6 +36,7 @@ var pack_wieght;
 var wieght;
 var defaults=4;
 var all_price;
+var credit;
 
 function select_type_rice(type){
     type_rice = price[type];
@@ -44,7 +45,20 @@ function select_type_rice(type){
 function select_type_pack(type){
     pack_wieght = pack[type];
 }
-
+function myround(str){
+    var roundnumber = new Array();
+    for(i=0;i<str.length;i++){
+        if(str.charAt(i)=='.'){
+            roundnumber[i]= str.charAt(i);
+            roundnumber[i+1]= str.charAt(i+1);
+            roundnumber[i+2]= str.charAt(i+2);
+            return roundnumber.join('');
+        }
+        roundnumber[i] = str.charAt(i);
+    }
+     return roundnumber.join('');
+}
+ var nnumber = new Array();
 function caculate(id){
     var form  = $(id);
     var text  = form.getInputs('text');
@@ -55,11 +69,15 @@ function caculate(id){
         allweigth += Number(text[i+defaults+20].value);
     alert(allweigth);
     text[201+defaults+20].value = allweigth;
-    text[202+defaults+20].value = (Number(weigthpack)*Number(length));
+   // nnumber                 = String.split((Number(weigthpack)*Number(length)).toString(),'.');
+    text[202+defaults+20].value = myround((Number(weigthpack)*Number(length)).toString());
     wieght                      = allweigth-(Number(weigthpack)*Number(length));
     text[203+defaults+20].value = wieght;
     all_price                   = Number(text[204+defaults+20].value) * Number(text[203+defaults+20].value);
     text[205+defaults+20].value = all_price;
+    credit                      = text[206+defaults+20].value;
+    text[207+defaults+20].value = all_price - text[206+defaults+20].value;
+    all_price                   = all_price - text[206+defaults+20].value;
 }
 
 function clean(id){
@@ -83,6 +101,7 @@ function purchase_onsave(id){
         pars+= "&allprice="+all_price;
         pars+= "&type_rice="+ type_rice;
         pars+= "&weight="+wieght;
+        pars+= "&credit_value="+ credit;
 
     // initaint sent data
     var myAjax = new Ajax.Request( url, {
@@ -137,6 +156,7 @@ function sale_onsave(id){
         pars+= "&allprice="+all_price;
         pars+= "&type_rice="+ type_rice;
         pars+= "&weight="+wieght;
+        pars+= "&credit_value="+ credit;
 
     // initaint sent data
     var myAjax = new Ajax.Request( url, {
