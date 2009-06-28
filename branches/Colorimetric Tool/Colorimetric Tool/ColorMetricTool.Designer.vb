@@ -82,7 +82,7 @@ Partial Class ColorMetricTool
         'RLabel
         '
         RLabel.AutoSize = True
-        RLabel.Location = New System.Drawing.Point(658, 69)
+        RLabel.Location = New System.Drawing.Point(658, 61)
         RLabel.Name = "RLabel"
         RLabel.Size = New System.Drawing.Size(13, 13)
         RLabel.TabIndex = 20
@@ -91,7 +91,7 @@ Partial Class ColorMetricTool
         'GLabel
         '
         GLabel.AutoSize = True
-        GLabel.Location = New System.Drawing.Point(655, 95)
+        GLabel.Location = New System.Drawing.Point(655, 87)
         GLabel.Name = "GLabel"
         GLabel.Size = New System.Drawing.Size(16, 13)
         GLabel.TabIndex = 21
@@ -100,7 +100,7 @@ Partial Class ColorMetricTool
         'BLabel
         '
         BLabel.AutoSize = True
-        BLabel.Location = New System.Drawing.Point(655, 121)
+        BLabel.Location = New System.Drawing.Point(655, 113)
         BLabel.Name = "BLabel"
         BLabel.Size = New System.Drawing.Size(16, 13)
         BLabel.TabIndex = 22
@@ -109,7 +109,7 @@ Partial Class ColorMetricTool
         'IdLabel
         '
         IdLabel.AutoSize = True
-        IdLabel.Location = New System.Drawing.Point(653, 42)
+        IdLabel.Location = New System.Drawing.Point(653, 36)
         IdLabel.Name = "IdLabel"
         IdLabel.Size = New System.Drawing.Size(18, 13)
         IdLabel.TabIndex = 23
@@ -118,7 +118,7 @@ Partial Class ColorMetricTool
         'DataLabel
         '
         DataLabel.AutoSize = True
-        DataLabel.Location = New System.Drawing.Point(640, 147)
+        DataLabel.Location = New System.Drawing.Point(640, 142)
         DataLabel.Name = "DataLabel"
         DataLabel.Size = New System.Drawing.Size(31, 13)
         DataLabel.TabIndex = 24
@@ -129,7 +129,7 @@ Partial Class ColorMetricTool
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ViewToolStripMenuItem, Me.WindowToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(805, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(792, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -301,16 +301,17 @@ Partial Class ColorMetricTool
         '
         'selectView
         '
+        Me.selectView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.selectView.Location = New System.Drawing.Point(13, 338)
         Me.selectView.Name = "selectView"
-        Me.selectView.Size = New System.Drawing.Size(90, 122)
+        Me.selectView.Size = New System.Drawing.Size(90, 151)
         Me.selectView.TabIndex = 8
         Me.selectView.TabStop = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(640, 175)
+        Me.Label5.Location = New System.Drawing.Point(640, 165)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(50, 13)
         Me.Label5.TabIndex = 13
@@ -318,10 +319,10 @@ Partial Class ColorMetricTool
         '
         'description
         '
-        Me.description.Location = New System.Drawing.Point(641, 193)
+        Me.description.Location = New System.Drawing.Point(643, 186)
         Me.description.Multiline = True
         Me.description.Name = "description"
-        Me.description.Size = New System.Drawing.Size(147, 245)
+        Me.description.Size = New System.Drawing.Size(134, 245)
         Me.description.TabIndex = 14
         '
         'Database
@@ -346,7 +347,7 @@ Partial Class ColorMetricTool
         'RTextBox
         '
         Me.RTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "r", True))
-        Me.RTextBox.Location = New System.Drawing.Point(677, 66)
+        Me.RTextBox.Location = New System.Drawing.Point(677, 58)
         Me.RTextBox.Name = "RTextBox"
         Me.RTextBox.Size = New System.Drawing.Size(100, 20)
         Me.RTextBox.TabIndex = 21
@@ -354,7 +355,7 @@ Partial Class ColorMetricTool
         'GTextBox
         '
         Me.GTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "g", True))
-        Me.GTextBox.Location = New System.Drawing.Point(677, 92)
+        Me.GTextBox.Location = New System.Drawing.Point(677, 84)
         Me.GTextBox.Name = "GTextBox"
         Me.GTextBox.Size = New System.Drawing.Size(100, 20)
         Me.GTextBox.TabIndex = 22
@@ -362,7 +363,7 @@ Partial Class ColorMetricTool
         'BTextBox
         '
         Me.BTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "b", True))
-        Me.BTextBox.Location = New System.Drawing.Point(677, 118)
+        Me.BTextBox.Location = New System.Drawing.Point(677, 110)
         Me.BTextBox.Name = "BTextBox"
         Me.BTextBox.Size = New System.Drawing.Size(100, 20)
         Me.BTextBox.TabIndex = 23
@@ -373,16 +374,16 @@ Partial Class ColorMetricTool
         Me.IdComboBox.DataSource = Me.BindingSource1
         Me.IdComboBox.DisplayMember = "description"
         Me.IdComboBox.FormattingEnabled = True
-        Me.IdComboBox.Location = New System.Drawing.Point(677, 39)
+        Me.IdComboBox.Location = New System.Drawing.Point(677, 31)
         Me.IdComboBox.Name = "IdComboBox"
-        Me.IdComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.IdComboBox.Size = New System.Drawing.Size(100, 21)
         Me.IdComboBox.TabIndex = 24
         Me.IdComboBox.ValueMember = "id"
         '
         'DataTextBox
         '
         Me.DataTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "data", True))
-        Me.DataTextBox.Location = New System.Drawing.Point(677, 144)
+        Me.DataTextBox.Location = New System.Drawing.Point(677, 139)
         Me.DataTextBox.Name = "DataTextBox"
         Me.DataTextBox.Size = New System.Drawing.Size(100, 20)
         Me.DataTextBox.TabIndex = 25
@@ -390,7 +391,7 @@ Partial Class ColorMetricTool
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(658, 447)
+        Me.Label1.Location = New System.Drawing.Point(640, 434)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 26
@@ -399,7 +400,7 @@ Partial Class ColorMetricTool
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(658, 460)
+        Me.Label2.Location = New System.Drawing.Point(640, 447)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 26
@@ -408,7 +409,7 @@ Partial Class ColorMetricTool
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(658, 476)
+        Me.Label3.Location = New System.Drawing.Point(640, 463)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 26
@@ -417,7 +418,7 @@ Partial Class ColorMetricTool
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(658, 489)
+        Me.Label4.Location = New System.Drawing.Point(640, 476)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 13)
         Me.Label4.TabIndex = 26
@@ -427,7 +428,7 @@ Partial Class ColorMetricTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(805, 533)
+        Me.ClientSize = New System.Drawing.Size(792, 499)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
