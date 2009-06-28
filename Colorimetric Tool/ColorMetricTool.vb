@@ -10,7 +10,9 @@
     Dim cropH As Int32
     Dim cropW As Int32
     Dim bmps As Bitmap
-    Dim status As Int32
+    Dim status As Boolean = False
+
+
 
     Private Sub OpenImageToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenImageToolStripMenuItem.Click
         Dim fname As String
@@ -35,11 +37,13 @@
 
     Private Sub viewImage_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles viewImage.MouseDown
         Try
-            cropX = e.X
-            cropY = e.Y
-            cropPen = Pens.Green
-            cropPen.DashStyle = Drawing2D.DashStyle.Dot
-            status = 100
+            If status Then
+                cropX = e.X
+                cropY = e.Y
+                cropPen = Pens.Green
+                cropPen.DashStyle = Drawing2D.DashStyle.Dot
+                status = 100
+            End If
         Catch ex As Exception
 
         End Try
@@ -71,13 +75,10 @@
    
     Private Sub viewImage_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles viewImage.MouseMove
         Try
-            If Not status = 0 Then
-                cropW = e.X - cropX
-                cropH = e.Y - cropY
-                viewImage.Image = bmps
-                viewImage.CreateGraphics.DrawRectangle(cropPen, cropX, cropY, cropW, cropH)
-                status = 100
-            End If
+            cropW = e.X - cropX
+            cropH = e.Y - cropY
+            '  viewImage.Image = bmps
+            'viewImage.CreateGraphics.DrawRectangle(cropPen, cropX, cropY, cropW, cropH)
         Catch ex As Exception
 
         End Try
@@ -85,7 +86,14 @@
     End Sub
 
     Private Sub viewImage_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles viewImage.MouseUp
-        status = 0
-        viewImage.CreateGraphics.DrawRectangle(cropPen, cropX, cropY, cropW, cropH)
+        If status Then
+            status = 0
+            viewImage.CreateGraphics.DrawRectangle(cropPen, cropX, cropY, cropW, cropH)
+        End If
+    End Sub
+
+    Private Sub selectArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles selectArea.Click
+        viewImage.Image = bmps
+        status = True
     End Sub
 End Class
