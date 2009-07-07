@@ -47,7 +47,6 @@ Partial Class ColorMetricTool
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New Colorimetric_Tool.DataSet1
-        Me.viewImage = New System.Windows.Forms.PictureBox
         Me.selectImage = New System.Windows.Forms.Button
         Me.selectArea = New System.Windows.Forms.Button
         Me.zoomIn = New System.Windows.Forms.Button
@@ -67,6 +66,8 @@ Partial Class ColorMetricTool
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
+        Me.PanelX = New System.Windows.Forms.Panel
+        Me.viewImage = New System.Windows.Forms.PictureBox
         RLabel = New System.Windows.Forms.Label
         GLabel = New System.Windows.Forms.Label
         BLabel = New System.Windows.Forms.Label
@@ -75,8 +76,9 @@ Partial Class ColorMetricTool
         Me.MenuStrip1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.viewImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.selectView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelX.SuspendLayout()
+        CType(Me.viewImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RLabel
@@ -129,7 +131,7 @@ Partial Class ColorMetricTool
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ViewToolStripMenuItem, Me.WindowToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(792, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(791, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -251,17 +253,6 @@ Partial Class ColorMetricTool
         '
         Me.DataSet1.DataSetName = "DataSet1"
         Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'viewImage
-        '
-        Me.viewImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.viewImage.Location = New System.Drawing.Point(109, 31)
-        Me.viewImage.MaximumSize = New System.Drawing.Size(508, 458)
-        Me.viewImage.Name = "viewImage"
-        Me.viewImage.Size = New System.Drawing.Size(508, 458)
-        Me.viewImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.viewImage.TabIndex = 1
-        Me.viewImage.TabStop = False
         '
         'selectImage
         '
@@ -424,11 +415,32 @@ Partial Class ColorMetricTool
         Me.Label4.TabIndex = 26
         Me.Label4.Text = "Label1"
         '
+        'PanelX
+        '
+        Me.PanelX.AutoScroll = True
+        Me.PanelX.AutoScrollMinSize = New System.Drawing.Size(1024, 800)
+        Me.PanelX.AutoSize = True
+        Me.PanelX.Controls.Add(Me.viewImage)
+        Me.PanelX.Location = New System.Drawing.Point(109, 27)
+        Me.PanelX.Name = "PanelX"
+        Me.PanelX.Size = New System.Drawing.Size(525, 462)
+        Me.PanelX.TabIndex = 27
+        '
+        'viewImage
+        '
+        Me.viewImage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.viewImage.Location = New System.Drawing.Point(0, 0)
+        Me.viewImage.Name = "viewImage"
+        Me.viewImage.Size = New System.Drawing.Size(1024, 800)
+        Me.viewImage.TabIndex = 0
+        Me.viewImage.TabStop = False
+        '
         'ColorMetricTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(792, 499)
+        Me.ClientSize = New System.Drawing.Size(791, 524)
+        Me.Controls.Add(Me.PanelX)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -449,7 +461,6 @@ Partial Class ColorMetricTool
         Me.Controls.Add(Me.selectView)
         Me.Controls.Add(Me.zoomOut)
         Me.Controls.Add(Me.zoomIn)
-        Me.Controls.Add(Me.viewImage)
         Me.Controls.Add(Me.selectArea)
         Me.Controls.Add(Me.selectImage)
         Me.Controls.Add(Me.scanImage)
@@ -464,8 +475,9 @@ Partial Class ColorMetricTool
         Me.MenuStrip1.PerformLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.viewImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.selectView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelX.ResumeLayout(False)
+        CType(Me.viewImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -493,7 +505,6 @@ Partial Class ColorMetricTool
     Friend WithEvents ImetricBindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents ImetricBindingSource2 As System.Windows.Forms.BindingSource
     Friend WithEvents ColorimetricDataSetBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents viewImage As System.Windows.Forms.PictureBox
     Friend WithEvents selectImage As System.Windows.Forms.Button
     Friend WithEvents selectArea As System.Windows.Forms.Button
     Friend WithEvents zoomIn As System.Windows.Forms.Button
@@ -515,5 +526,7 @@ Partial Class ColorMetricTool
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents PanelX As System.Windows.Forms.Panel
+    Friend WithEvents viewImage As System.Windows.Forms.PictureBox
 
 End Class
