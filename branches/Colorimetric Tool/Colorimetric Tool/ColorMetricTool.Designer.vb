@@ -68,6 +68,8 @@ Partial Class ColorMetricTool
         Me.Label4 = New System.Windows.Forms.Label
         Me.PanelX = New System.Windows.Forms.Panel
         Me.viewImage = New System.Windows.Forms.PictureBox
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar
+        Me.Panel1 = New System.Windows.Forms.Panel
         RLabel = New System.Windows.Forms.Label
         GLabel = New System.Windows.Forms.Label
         BLabel = New System.Windows.Forms.Label
@@ -79,6 +81,8 @@ Partial Class ColorMetricTool
         CType(Me.selectView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelX.SuspendLayout()
         CType(Me.viewImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'RLabel
@@ -292,10 +296,10 @@ Partial Class ColorMetricTool
         '
         'selectView
         '
-        Me.selectView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.selectView.Location = New System.Drawing.Point(13, 338)
+        Me.selectView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.selectView.Location = New System.Drawing.Point(0, 0)
         Me.selectView.Name = "selectView"
-        Me.selectView.Size = New System.Drawing.Size(90, 151)
+        Me.selectView.Size = New System.Drawing.Size(800, 600)
         Me.selectView.TabIndex = 8
         Me.selectView.TabStop = False
         '
@@ -423,7 +427,7 @@ Partial Class ColorMetricTool
         Me.PanelX.Controls.Add(Me.viewImage)
         Me.PanelX.Location = New System.Drawing.Point(109, 27)
         Me.PanelX.Name = "PanelX"
-        Me.PanelX.Size = New System.Drawing.Size(525, 462)
+        Me.PanelX.Size = New System.Drawing.Size(525, 497)
         Me.PanelX.TabIndex = 27
         '
         'viewImage
@@ -435,11 +439,33 @@ Partial Class ColorMetricTool
         Me.viewImage.TabIndex = 0
         Me.viewImage.TabStop = False
         '
+        'TrackBar1
+        '
+        Me.TrackBar1.Location = New System.Drawing.Point(0, 495)
+        Me.TrackBar1.Maximum = 100
+        Me.TrackBar1.Name = "TrackBar1"
+        Me.TrackBar1.Size = New System.Drawing.Size(634, 45)
+        Me.TrackBar1.TabIndex = 28
+        Me.TrackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft
+        '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.AutoScrollMinSize = New System.Drawing.Size(800, 600)
+        Me.Panel1.AutoSize = True
+        Me.Panel1.Controls.Add(Me.selectView)
+        Me.Panel1.Location = New System.Drawing.Point(13, 339)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(90, 150)
+        Me.Panel1.TabIndex = 29
+        '
         'ColorMetricTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(791, 524)
+        Me.ClientSize = New System.Drawing.Size(791, 533)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.TrackBar1)
         Me.Controls.Add(Me.PanelX)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -458,7 +484,6 @@ Partial Class ColorMetricTool
         Me.Controls.Add(Me.Database)
         Me.Controls.Add(Me.description)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.selectView)
         Me.Controls.Add(Me.zoomOut)
         Me.Controls.Add(Me.zoomIn)
         Me.Controls.Add(Me.selectArea)
@@ -478,6 +503,8 @@ Partial Class ColorMetricTool
         CType(Me.selectView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelX.ResumeLayout(False)
         CType(Me.viewImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -528,5 +555,7 @@ Partial Class ColorMetricTool
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents PanelX As System.Windows.Forms.Panel
     Friend WithEvents viewImage As System.Windows.Forms.PictureBox
+    Friend WithEvents TrackBar1 As System.Windows.Forms.TrackBar
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 
 End Class

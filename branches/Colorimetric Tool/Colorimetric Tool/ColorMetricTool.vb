@@ -11,7 +11,8 @@ Public Class ColorMetricTool
     Dim status As Boolean = False
     Dim cropBitmap As Bitmap
     Dim tmp As Bitmap
-
+    Private imgHeight As Single
+    Private imgWidth As Single
     'the position and size to crop the image file
     Dim cropX As Integer
     Dim cropY As Integer
@@ -126,6 +127,8 @@ Public Class ColorMetricTool
             'just drawing on it. Because if you draw the image through the Graphic class, then
             'you will lose the image whenever the application minimized or got covered up since
             'the image is not persisted on the control.
+            imgHeight = cropBitmap.Height
+            imgWidth = cropBitmap.Width
             selectView.Image = cropBitmap
 
         Catch exc As Exception
@@ -214,5 +217,9 @@ Public Class ColorMetricTool
             MessageBox.Show(exc.Message, " Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         End Try
+    End Sub
+
+    Private Sub zoomIn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles zoomIn.Click
+        selectView.SizeMode = PictureBoxSizeMode.Zoom
     End Sub
 End Class
